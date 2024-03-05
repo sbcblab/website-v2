@@ -5,7 +5,11 @@ import adapter from '@sveltejs/adapter-vercel';
 const config = {
 	preprocess: vitePreprocess(),
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+		alias: {
+			$src: './src',
+			$components: './src/components'
+		}
 	}
 };
 
