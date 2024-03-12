@@ -1,5 +1,14 @@
 <script>
 	import '$src/app.css';
+	import Header from '$src/components/header/header.svelte';
+	import '@fontsource-variable/open-sans';
 </script>
 
-<slot />
+<svelte:head>
+	<title>SBCB Lab</title>
+</svelte:head>
+
+<div class="flex h-fit min-h-screen min-w-fit flex-col">
+	<Header />
+	<slot />
+</div>

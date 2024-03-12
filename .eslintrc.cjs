@@ -9,6 +9,7 @@ module.exports = {
 	],
 	parser: '@typescript-eslint/parser',
 	plugins: ['@typescript-eslint'],
+	ignorePatterns: ['*.cjs'],
 	parserOptions: {
 		sourceType: 'module',
 		ecmaVersion: 2020,
