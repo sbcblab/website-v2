@@ -11,8 +11,8 @@
 		--card-foreground: var(--foreground);
 		--popover: var(--background);
 		--popover-foreground: var(--foreground);
-		--primary: linear-gradient(to right, var(--primary-green) 0%, var(--primary-blue) 100%);
 		--primary-solid: 172 90% 40%;
+		--primary-link: 172 100% 34%;
 		--primary-green: 160 90% 39%;
 		--primary-blue: 184 90% 41%;
 		--primary-foreground: var(--background);
@@ -32,19 +32,89 @@
 }
 
 @layer base {
+	:root {
+		@apply font-body;
+	}
+
 	* {
 		@apply border-border;
 	}
+
 	body {
 		@apply bg-background text-foreground;
 		@apply selection:bg-primary-solid selection:text-primary-foreground;
 	}
 }
 
-:root {
-	font-family: 'Open Sans Variable', sans-serif;
+/* markdown styling */
+
+h1,
+h2,
+h3,
+h4 {
+	@apply font-display;
 }
+
+h1 {
+	@apply decoration-primary mb-10 mt-20 text-center text-3xl font-medium;
+}
+
+h1:first-child {
+	@apply mt-0;
+}
+
+h2 {
+	@apply mb-4 mt-12 border-b pb-2 text-2xl font-medium;
+}
+
+h3 {
+	@apply text-lg font-medium;
+}
+
+h4 {
+	@apply mb-4 mt-8 font-medium;
+}
+
+p {
+	@apply my-6;
+}
+
+strong {
+	@apply font-semibold;
+}
+
+.markdown a {
+	@apply text-primary-link transition-opacity;
+}
+
+.markdown a:hover,
+.markdown a:focus {
+	@apply opacity-70;
+}
+
+li {
+	@apply ml-5 list-disc;
+}
+
+li::marker {
+	@apply text-primary-solid;
+}
+
+img {
+	@apply my-4 inline-block h-[revert-layer] max-w-none rounded-md;
+}
+
+/* gradient handling */
 
 .bg-primary {
 	@apply bg-gradient-to-r from-primary-green to-primary-blue;
+}
+
+.decoration-primary {
+	@apply relative mb-8 pb-4 no-underline;
+}
+
+.decoration-primary::after {
+	@apply bg-gradient-to-r from-primary-green to-primary-blue;
+	@apply absolute bottom-0 left-1/2 -z-10 h-1.5 w-10 -translate-x-1/2 rounded-full content-[''];
 }

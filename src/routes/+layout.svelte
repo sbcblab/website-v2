@@ -2,6 +2,15 @@
 	import '$src/app.css';
 	import Header from '$src/components/header/header.svelte';
 	import '@fontsource-variable/open-sans';
+	import '@fontsource/poppins/100.css';
+	import '@fontsource/poppins/200.css';
+	import '@fontsource/poppins/300.css';
+	import '@fontsource/poppins/400.css';
+	import '@fontsource/poppins/500.css';
+	import '@fontsource/poppins/600.css';
+	import '@fontsource/poppins/700.css';
+	import '@fontsource/poppins/800.css';
+	import '@fontsource/poppins/900.css';
 </script>
 
 <svelte:head>
@@ -10,5 +19,7 @@
 
 <div class="flex h-fit min-h-screen min-w-fit flex-col">
 	<Header />
-	<slot />
+	<main class="container pb-16 pt-8">
+		<slot />
+	</main>
 </div>

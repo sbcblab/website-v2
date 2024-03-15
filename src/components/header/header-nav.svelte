@@ -1,19 +1,36 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import * as DropdownMenu from '$components/ui/dropdown-menu/index.js';
-	import navData from '$lib/data/nav.json';
 	import { cn } from '$lib/utils';
 	import MynauiChevronDown from '~icons/mynaui/chevron-down';
 
-	let pages: Array<any> = [];
 	let path: string | null = null;
 
-	$: pages = navData.pages;
 	$: path = $page.url.pathname;
+
+	const pages = [
+		{ label: 'Home', href: '/' },
+		{
+			label: 'Research',
+			href: '/research',
+			subpages: [
+				{ label: 'Tools', href: '/research#tools' },
+				{ label: 'Datasets', href: '/research#datasets' },
+				{ label: 'Publications', href: '/research#publications' },
+				{ label: 'Laboratory Facilities', href: '/research#facilities' }
+			]
+		},
+		{ label: 'Projects', href: '/projects' },
+		{ label: 'Members', href: '/team' },
+		{ label: 'Contact', href: '/contact' }
+	];
 </script>
 
 <nav
-	class={cn($$props.class, 'flex items-center gap-11 font-medium leading-none text-foreground-dim')}
+	class={cn(
+		$$props.class,
+		'flex items-center gap-11 font-display leading-none text-foreground-dim'
+	)}
 >
 	{#each pages as page}
 		{#if !page?.subpages}
@@ -32,7 +49,7 @@
 					<a
 						href={page.href}
 						class={cn(
-							'flex items-center gap-1 transition-all hover:text-foreground',
+							'flex items-center gap-1 transition-all hover:text-foreground focus:text-foreground active:text-foreground',
 							path === page.href && 'text-foreground'
 						)}
 					>
@@ -42,22 +59,7 @@
 				</DropdownMenu.Trigger>
 				<DropdownMenu.Content>
 					{#each page.subpages as subpage}
-						{#if subpage?.subpages}
-							<DropdownMenu.Sub>
-								<DropdownMenu.SubTrigger>{subpage.label}</DropdownMenu.SubTrigger>
-								<DropdownMenu.SubContent>
-									{#each subpage.subpages as subsubpage}
-										<DropdownMenu.Item
-											href={subsubpage.href}
-											target={subsubpage.href.includes('http') ? '_blank' : '_self'}
-											>{subsubpage.label}</DropdownMenu.Item
-										>
-									{/each}
-								</DropdownMenu.SubContent>
-							</DropdownMenu.Sub>
-						{:else}
-							<DropdownMenu.Item href={subpage.href}>{subpage.label}</DropdownMenu.Item>
-						{/if}
+						<DropdownMenu.Item href={subpage.href}>{subpage.label}</DropdownMenu.Item>
 					{/each}
 				</DropdownMenu.Content>
 			</DropdownMenu.Root>

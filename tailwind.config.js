@@ -6,11 +6,15 @@ const config = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	safelist: ['dark'],
 	theme: {
+		fontFamily: {
+			display: ["'Poppins'", 'sans-serif'],
+			body: ["'Open Sans Variable'", 'sans-serif']
+		},
 		container: {
 			center: true,
 			padding: '2rem',
 			screens: {
-				'2xl': '1000px'
+				'2xl': '960px'
 			}
 		},
 		extend: {
@@ -27,10 +31,10 @@ const config = {
 					dim: 'hsl(var(--foreground-dim) / <alpha-value>)'
 				},
 				primary: {
-					DEFAULT: 'var(--primary) / <alpha-value>)',
 					solid: 'hsl(var(--primary-solid) / <alpha-value>)',
 					green: 'hsl(var(--primary-green) / <alpha-value>)',
 					blue: 'hsl(var(--primary-blue) / <alpha-value>)',
+					link: 'hsl(var(--primary-link) / <alpha-value>)',
 					foreground: 'hsl(var(--primary-foreground) / <alpha-value>)'
 				},
 				secondary: {
