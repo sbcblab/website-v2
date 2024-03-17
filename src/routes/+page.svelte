@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Markdown from '$components/markdown.svelte';
+	import Button from '$components/ui/button/button.svelte';
 
 	export let data;
 
@@ -7,6 +8,13 @@
 </script>
 
 <div class="space-y-16">
+	<div class="align-center mb-24 mt-12 flex flex-col justify-center gap-8 text-center">
+		<h1>Bioinformatics and Data Science in Biotechnology</h1>
+		<a href="/contact" class="mx-auto">
+			<Button size="lg">CONTACT US</Button>
+		</a>
+	</div>
+
 	<!-- Introduction -->
 	<section id={sections.intro.slug}>
 		<Markdown content={sections.intro.body} />

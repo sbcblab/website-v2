@@ -7,11 +7,11 @@ const config = {
 	safelist: ['dark'],
 	theme: {
 		fontFamily: {
-			sans: [...fontFamily.sans],
-			serif: [...fontFamily.serif],
-			mono: [...fontFamily.mono],
-			display: ["'Poppins'", 'sans-serif'],
-			body: ["'Poppins'", 'sans-serif']
+			sans: fontFamily.sans,
+			serif: fontFamily.serif,
+			mono: fontFamily.mono,
+			display: ["'Poppins'", ...fontFamily.sans],
+			body: ["'Poppins'", ...fontFamily.sans]
 		},
 		container: {
 			center: true,
