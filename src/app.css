@@ -5,10 +5,10 @@
 @layer base {
 	:root {
 		--background: 0 0% 100%;
-		--foreground: 0 0% 30%;
+		--foreground: 0 0% 13%;
 		--foreground-dim: 0 0% 60%;
-		--card: var(--background);
-		--card-foreground: var(--foreground);
+		--card: var(--foreground);
+		--card-foreground: var(--background);
 		--popover: var(--background);
 		--popover-foreground: var(--foreground);
 		--primary-solid: 172 90% 40%;
@@ -46,65 +46,86 @@
 	}
 }
 
-/* markdown styling */
-
-h1,
-h2,
-h3,
-h4 {
-	@apply font-display;
-}
+/* Base Styles */
 
 h1 {
-	@apply decoration-primary mb-10 mt-20 text-center text-3xl font-medium;
-}
-
-h1:first-child {
-	@apply mt-0;
+	@apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl;
 }
 
 h2 {
-	@apply mb-4 mt-12 border-b pb-2 text-2xl font-medium;
+	@apply scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0;
 }
 
 h3 {
-	@apply text-lg font-medium;
+	@apply scroll-m-20 text-2xl font-semibold tracking-tight;
 }
 
 h4 {
-	@apply mb-4 mt-8 font-medium;
+	@apply scroll-m-20 text-xl font-semibold tracking-tight;
 }
 
 p {
-	@apply my-6;
+	@apply leading-7 [&:not(:first-child)]:mt-6 [&:not(:last-child)]:mb-6;
+}
+
+blockquote {
+	@apply mt-6 border-l-2 pl-6 italic;
+}
+
+code {
+	@apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
+}
+
+table {
+	@apply w-full;
+}
+
+tr {
+	@apply m-0 border-t p-0 even:bg-muted;
+}
+
+th {
+	@apply border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right;
+}
+
+ul {
+	@apply my-6 ml-6 list-disc [&>li]:mt-2;
+}
+
+small {
+	@apply text-sm font-medium leading-none;
 }
 
 strong {
 	@apply font-semibold;
 }
 
-.markdown a {
+section a {
 	@apply text-primary-link transition-opacity;
 }
 
-.markdown a:hover,
-.markdown a:focus {
+section a:hover,
+section a:focus {
 	@apply opacity-70;
 }
 
-li {
-	@apply ml-5 list-disc;
-}
-
-li::marker {
-	@apply text-primary-solid;
-}
-
 img {
-	@apply my-4 inline-block h-[revert-layer] max-w-none rounded-md;
+	@apply inline-block h-[revert-layer];
 }
 
-/* gradient handling */
+.lead {
+	@apply text-xl text-muted-foreground;
+}
+
+.large {
+	@apply text-lg font-semibold;
+}
+
+.muted {
+	@apply text-sm text-muted-foreground;
+}
+
+/* Gradient Handling */
 
 .bg-primary {
 	@apply bg-gradient-to-r from-primary-green to-primary-blue;

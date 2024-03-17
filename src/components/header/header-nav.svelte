@@ -26,12 +26,7 @@
 	];
 </script>
 
-<nav
-	class={cn(
-		$$props.class,
-		'flex items-center gap-11 font-display leading-none text-foreground-dim'
-	)}
->
+<nav class={cn($$props.class, 'flex items-center gap-11 leading-none text-foreground-dim')}>
 	{#each pages as page}
 		{#if !page?.subpages}
 			<a

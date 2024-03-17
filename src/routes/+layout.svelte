@@ -1,7 +1,7 @@
 <script>
 	import '$src/app.css';
 	import Header from '$src/components/header/header.svelte';
-	import '@fontsource-variable/open-sans';
+
 	import '@fontsource/poppins/100.css';
 	import '@fontsource/poppins/200.css';
 	import '@fontsource/poppins/300.css';
