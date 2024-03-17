@@ -60,3 +60,8 @@ export function toCamelCase(str: string): string {
 		return group1.toUpperCase();
 	});
 }
+
+export function formatHsl(hsl: string): string {
+	const [h, s, l] = hsl.split(' ');
+	return `hsl(${h}, ${s}, ${l})`;
+}
