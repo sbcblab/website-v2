@@ -36,9 +36,15 @@
 					<img src={item.imageUrl} alt={item.title} class="aspect-[5/4]" />
 					<strong>{item.title}</strong>
 					<span>{item.description}</span>
-					<a href={item.url} class="mt-auto pt-3 font-medium">Read more</a>
+					<a href={item.url} class="mt-auto w-fit pt-3 font-medium">Read more</a>
 				</div>
 			{/each}
 		</div>
+	</section>
+
+	<!-- International Cooperation -->
+	<section id={sections.internationalCooperation.slug}>
+		<h2>{sections.internationalCooperation.title}</h2>
+		<Markdown content={sections.internationalCooperation.body} />
 	</section>
 </div>

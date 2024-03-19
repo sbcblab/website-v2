@@ -101,7 +101,7 @@ strong {
 }
 
 section a {
-	@apply text-primary-link transition-opacity;
+	@apply text-primary-link transition-opacity duration-150;
 }
 
 section a:hover,
@@ -138,4 +138,14 @@ img {
 .decoration-primary::after {
 	@apply bg-gradient-to-r from-primary-green to-primary-blue;
 	@apply absolute bottom-0 left-1/2 -z-10 h-1.5 w-10 -translate-x-1/2 rounded-full content-[''];
+}
+
+/* Sections */
+
+.international-cooperation-flags {
+	@apply flex items-center justify-center gap-8;
+}
+
+.international-cooperation-flags > * {
+	@apply border;
 }
