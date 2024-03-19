@@ -43,6 +43,20 @@ interface Dataset {
 	url: string;
 }
 
+export interface Socials {
+	twitter: string;
+	instagram: string;
+	github: string;
+	linkedin: string;
+}
+
+export interface Contact {
+	email: string;
+	phone: string;
+	location: string;
+	address: string;
+}
+
 async function fetchData(endpoint: string) {
 	return await fetch(`${env.STRAPI_URL}/api/${endpoint}`, {
 		headers: {
@@ -92,4 +106,26 @@ export async function getDatasets(): Promise<Dataset[]> {
 			url: tool.attributes.url
 		};
 	});
+}
+
+export async function getSocials(): Promise<Socials> {
+	const data = await fetchData('social');
+
+	return {
+		twitter: data.attributes.twitter,
+		instagram: data.attributes.instagram,
+		github: data.attributes.github,
+		linkedin: data.attributes.linkedin
+	};
+}
+
+export async function getContact(): Promise<Contact> {
+	const data = await fetchData('contact');
+
+	return {
+		email: data.attributes.email,
+		phone: data.attributes.phone,
+		location: data.attributes.location,
+		address: data.attributes.address
+	};
 }

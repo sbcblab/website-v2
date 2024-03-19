@@ -1,7 +1,7 @@
 <script>
 	import '$src/app.css';
-	import Header from '$src/components/header/header.svelte';
-
+	import Footer from '$src/components/footer.svelte';
+	import { Header } from '$src/components/header';
 	import '@fontsource/poppins/100.css';
 	import '@fontsource/poppins/200.css';
 	import '@fontsource/poppins/300.css';
@@ -11,6 +11,10 @@
 	import '@fontsource/poppins/700.css';
 	import '@fontsource/poppins/800.css';
 	import '@fontsource/poppins/900.css';
+
+	export let data;
+
+	const { socials, contact } = data;
 </script>
 
 <svelte:head>
@@ -22,4 +26,5 @@
 	<main class="container pb-20 pt-8">
 		<slot />
 	</main>
+	<Footer {socials} {contact} />
 </div>
