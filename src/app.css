@@ -53,7 +53,7 @@ h1 {
 }
 
 h2 {
-	@apply scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0;
+	@apply scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight [&:not(:last-child)]:mb-6;
 }
 
 h3 {
@@ -142,10 +142,10 @@ img {
 
 /* Sections */
 
-.international-cooperation-flags {
+.image-row {
 	@apply flex items-center justify-center gap-8;
 }
 
-.international-cooperation-flags > * {
+.with-borders > * {
 	@apply border;
 }

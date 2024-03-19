@@ -19,7 +19,7 @@
 
 <div class="flex h-fit min-h-screen min-w-fit flex-col">
 	<Header />
-	<main class="container pb-16 pt-8">
+	<main class="container pb-20 pt-8">
 		<slot />
 	</main>
 </div>

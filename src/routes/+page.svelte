@@ -47,4 +47,10 @@
 		<h2>{sections.internationalCooperation.title}</h2>
 		<Markdown content={sections.internationalCooperation.body} />
 	</section>
+
+	<!-- Parterships -->
+	<section id={sections.partnerships.slug}>
+		<h2>{sections.partnerships.title}</h2>
+		<Markdown content={sections.partnerships.body} />
+	</section>
 </div>
