@@ -1,7 +1,4 @@
 <script>
-	import '$src/app.css';
-	import Footer from '$src/components/footer.svelte';
-	import { Header } from '$src/components/header';
 	import '@fontsource/poppins/100.css';
 	import '@fontsource/poppins/200.css';
 	import '@fontsource/poppins/300.css';
@@ -11,6 +8,10 @@
 	import '@fontsource/poppins/700.css';
 	import '@fontsource/poppins/800.css';
 	import '@fontsource/poppins/900.css';
+
+	import '$src/app.css';
+	import Footer from '$src/components/footer.svelte';
+	import { Header } from '$src/components/header';
 
 	export let data;
 
@@ -23,7 +24,7 @@
 
 <div class="flex h-fit min-h-screen min-w-fit flex-col">
 	<Header />
-	<main class="container pb-20 pt-8">
+	<main class="relative grow pb-20">
 		<slot />
 	</main>
 	<Footer {socials} {contact} />

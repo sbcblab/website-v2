@@ -1,6 +1,5 @@
 <script lang="ts">
-	import type { Socials } from '$lib/data';
-	import type { Contact } from 'lucide-svelte';
+	import type { Socials, Contact } from '$lib/data';
 	import RiHome2Fill from '~icons/ri/home-2-fill';
 	import RiMailFill from '~icons/ri/mail-fill';
 	import RiMapPinFill from '~icons/ri/map-pin-fill';
@@ -14,7 +13,7 @@
 
 <footer class="bg-card">
 	<div class="container">
-		<div class="flex items-center justify-between py-12 text-card-foreground/70">
+		<div class="flex items-center justify-between py-10 text-card-foreground/70">
 			<div class="flex flex-col gap-2 text-sm">
 				<div class="flex items-center gap-2">
 					<RiMailFill class="h-4 w-4" />

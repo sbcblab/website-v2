@@ -1,5 +1,9 @@
-import { env } from '$env/dynamic/private';
-import { toCamelCase } from './utils';
+import { env as privateEnv } from '$env/dynamic/private';
+import { env as publicEnv } from '$env/dynamic/public';
+import qs from 'qs';
+import { processSectionBody } from './utils';
+
+type PageSlug = 'home' | 'research' | 'projects' | 'team' | 'contact';
 
 // API Response Types
 interface ToolData {
@@ -20,13 +24,19 @@ interface DatasetData {
 	};
 }
 
-// Output Types
-interface Sections {
-	[key: string]: {
-		title: string;
+interface SectionData {
+	attributes: {
+		heading: string;
 		slug: string;
-		body: string;
+		body: any[];
 	};
+}
+
+// Output Types
+export interface Section {
+	heading: string;
+	slug: string;
+	body: any[];
 }
 
 interface Tool {
@@ -57,27 +67,57 @@ export interface Contact {
 	address: string;
 }
 
-async function fetchData(endpoint: string) {
-	return await fetch(`${env.STRAPI_URL}/api/${endpoint}`, {
-		headers: {
-			Authorization: `Bearer ${env.STRAPI_API_TOKEN}`
+async function fetchData(endpoint: string, urlParamsObject?: object) {
+	const queryString = qs.stringify(urlParamsObject);
+	return await fetch(
+		`${publicEnv.PUBLIC_STRAPI_URL}/api/${endpoint}${queryString ? `?${queryString}` : ''}`,
+		{
+			headers: {
+				Authorization: `Bearer ${privateEnv.STRAPI_API_TOKEN}`
+			}
 		}
-	})
+	)
 		.then((response) => response.json())
 		.then((data) => data.data);
 }
 
-export async function getSections(): Promise<Sections> {
-	const data = await fetchData('sections');
+export async function getSections(pageSlug: PageSlug): Promise<Section[]> {
+	const urlParamsObject = {
+		filters: { slug: { $eq: pageSlug } },
+		populate: {
+			sections: {
+				populate: {
+					body: {
+						populate: {
+							image: '*',
+							tools: {
+								populate: {
+									image: '*'
+								}
+							},
+							datasets: {
+								populate: {
+									image: '*'
+								}
+							},
+							images: {
+								populate: '*'
+							}
+						}
+					}
+				}
+			}
+		}
+	};
+	const data = await fetchData('pages', urlParamsObject);
 
-	const sections: Sections = {};
-	for (const section of data) {
-		sections[toCamelCase(section.attributes.slug)] = {
-			title: section.attributes.title,
+	const sections = data[0].attributes.sections.data.map((section: SectionData) => {
+		return {
+			heading: section.attributes.heading,
 			slug: section.attributes.slug,
-			body: section.attributes.body
+			body: processSectionBody(section.attributes.body)
 		};
-	}
+	});
 
 	return sections;
 }
@@ -89,7 +129,7 @@ export async function getTools(): Promise<Tool[]> {
 		return {
 			title: tool.attributes.title,
 			description: tool.attributes.description,
-			imageUrl: env.STRAPI_URL + tool.attributes.image.data.attributes.url,
+			imageUrl: publicEnv.PUBLIC_STRAPI_URL + tool.attributes.image.data.attributes.url,
 			url: tool.attributes.url
 		};
 	});
@@ -102,7 +142,7 @@ export async function getDatasets(): Promise<Dataset[]> {
 		return {
 			title: tool.attributes.title,
 			description: tool.attributes.description,
-			imageUrl: env.STRAPI_URL + tool.attributes.image.data.attributes.url,
+			imageUrl: publicEnv.PUBLIC_STRAPI_URL + tool.attributes.image.data.attributes.url,
 			url: tool.attributes.url
 		};
 	});

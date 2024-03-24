@@ -1,10 +1,8 @@
-import { getDatasets, getSections, getTools } from '$lib/data';
+import { getSections } from '$lib/data';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async () => {
-	const sections = await getSections();
-	const tools = await getTools();
-	const datasets = await getDatasets();
+	const sections = await getSections('home');
 
-	return { sections, tools, datasets };
+	return { sections };
 };

@@ -6,19 +6,22 @@
 	import RiTwitterXFill from '~icons/ri/twitter-x-fill';
 
 	export let socials: Socials;
+
+	const linkClass = 'transition-colors duration-150 hover:text-card-foreground/70';
+	const iconClass = 'h-6 w-6';
 </script>
 
 <div class="flex gap-6">
-	<a href={socials.twitter}>
-		<RiTwitterXFill class="h-6 w-6 hover:text-card-foreground/70" />
+	<a href={socials.twitter} class={linkClass}>
+		<RiTwitterXFill class={iconClass} />
 	</a>
-	<a href={socials.instagram}>
-		<RiInstagramLine class="h-6 w-6 hover:text-card-foreground/70" />
+	<a href={socials.instagram} class={linkClass}>
+		<RiInstagramLine class={iconClass} />
 	</a>
-	<a href={socials.github}>
-		<RiGithubFill class="h-6 w-6 hover:text-card-foreground/70" />
+	<a href={socials.github} class={linkClass}>
+		<RiGithubFill class={iconClass} />
 	</a>
-	<a href={socials.linkedin}>
-		<RiLinkedinBoxFill class="h-6 w-6 hover:text-card-foreground/70" />
+	<a href={socials.linkedin} class={linkClass}>
+		<RiLinkedinBoxFill class={iconClass} />
 	</a>
 </div>
