@@ -6,7 +6,6 @@
 	import ToolsDatasets from './tools-datasets.svelte';
 
 	export let section: Section;
-	console.log(section);
 </script>
 
 <section id={section.slug} class="my-4">

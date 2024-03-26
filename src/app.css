@@ -61,7 +61,7 @@ h3 {
 }
 
 h4 {
-	@apply scroll-m-20 text-xl font-semibold tracking-tight;
+	@apply my-4 scroll-m-20 text-lg font-semibold tracking-tight;
 }
 
 p {
@@ -90,6 +90,10 @@ th {
 
 ul {
 	@apply my-6 ml-6 list-disc [&>li]:mt-2;
+}
+
+li::marker {
+	@apply text-primary-solid;
 }
 
 small {
@@ -138,14 +142,4 @@ img {
 .decoration-primary::after {
 	@apply bg-gradient-to-r from-primary-green to-primary-blue;
 	@apply absolute bottom-0 left-1/2 -z-10 h-1.5 w-10 -translate-x-1/2 rounded-full content-[''];
-}
-
-/* Sections */
-
-.image-row {
-	@apply flex items-center justify-center gap-8;
-}
-
-.with-borders > * {
-	@apply border;
 }
