@@ -61,6 +61,39 @@ export function processSectionBody(body: object[]): (object | undefined)[] {
 				})
 			};
 		}
+		if (component.__component === 'elements.publications') {
+			const publications = component.publications.data.reduce((acc: any, publication: any) => {
+				const publishDate = new Date(publication.attributes.publishDate);
+				const year = publishDate.getFullYear();
+				if (!acc[year]) {
+					acc[year] = [];
+				}
+				acc[year].push({
+					authors: publication.attributes.authors.map((author: any) => author.name),
+					title: publication.attributes.title,
+					publishDate,
+					journal: publication.attributes.journal,
+					volume: publication.attributes.volume,
+					startPage: publication.attributes.startPage,
+					endPage: publication.attributes.endPage,
+					link: publication.attributes.link
+				});
+				return acc;
+			}, {});
+
+			const years = Object.keys(publications);
+			years.sort((a, b) => parseInt(b) - parseInt(a));
+			const sortedPublications = years.map((year: any) => {
+				return {
+					year,
+					publications: publications[year]
+				};
+			});
+			return {
+				type: 'publications',
+				publications: sortedPublications
+			};
+		}
 		if (component.__component === 'elements.projects') {
 			return {
 				type: 'projects',

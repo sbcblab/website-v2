@@ -2,6 +2,7 @@
 	import type { Section } from '$lib/data';
 	import Markdown from './markdown.svelte';
 	import Projects from './projects.svelte';
+	import Publications from './publications.svelte';
 	import SectionImage from './section-image.svelte';
 	import ToolsDatasets from './tools-datasets.svelte';
 
@@ -32,6 +33,8 @@
 			</div>
 		{:else if component.type === 'tools-datasets'}
 			<ToolsDatasets {component} />
+		{:else if component.type === 'publications'}
+			<Publications {component} />
 		{:else if component.type === 'projects'}
 			<Projects {component} />
 		{/if}

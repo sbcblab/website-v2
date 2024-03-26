@@ -25,6 +25,17 @@ export interface Project {
 	imageUrl: string;
 }
 
+export interface Publication {
+	authors: string[];
+	title: string;
+	publishDate: Date;
+	journal: string;
+	volume: number;
+	startPage: number;
+	endPage: number;
+	link: string;
+}
+
 export interface Socials {
 	twitter: string;
 	instagram: string;
@@ -72,6 +83,12 @@ export async function getSections(pageSlug: PageSlug): Promise<Section[]> {
 									image: '*'
 								}
 							},
+							publications: {
+								sort: ['publishDate:desc'],
+								populate: {
+									authors: '*'
+								}
+							},
 							projects: {
 								populate: {
 									image: '*'
@@ -97,6 +114,23 @@ export async function getSections(pageSlug: PageSlug): Promise<Section[]> {
 	});
 
 	return sections;
+}
+
+export async function getPublications(): Promise<Publication[]> {
+	const data = await fetchData('publications?populate=authors');
+
+	return data.map((publication: any) => {
+		return {
+			authors: publication.attributes.authors,
+			title: publication.attributes.title,
+			publishDate: publication.attributes.publishDate,
+			journal: publication.attributes.journal,
+			volume: publication.attributes.volume,
+			startPage: publication.attributes.startPage,
+			endPage: publication.attributes.endPage,
+			link: publication.attributes.link
+		};
+	});
 }
 
 export async function getSocials(): Promise<Socials> {
