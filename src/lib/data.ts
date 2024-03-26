@@ -1,56 +1,28 @@
 import { env as privateEnv } from '$env/dynamic/private';
 import { env as publicEnv } from '$env/dynamic/public';
 import qs from 'qs';
-import { processSectionBody } from './utils';
+import { processSectionBody } from './body';
 
 type PageSlug = 'home' | 'research' | 'projects' | 'team' | 'contact';
 
-// API Response Types
-interface ToolData {
-	attributes: {
-		title: string;
-		description: string;
-		url: string;
-		image: { data: { attributes: { url: string } } };
-	};
-}
-
-interface DatasetData {
-	attributes: {
-		title: string;
-		description: string;
-		url: string;
-		image: { data: { attributes: { url: string } } };
-	};
-}
-
-interface SectionData {
-	attributes: {
-		heading: string;
-		slug: string;
-		body: any[];
-	};
-}
-
-// Output Types
 export interface Section {
 	heading: string;
 	slug: string;
 	body: any[];
 }
 
-interface Tool {
+export interface ToolDataset {
 	title: string;
+	link: string;
 	description: string;
 	imageUrl: string;
-	url: string;
 }
 
-interface Dataset {
+export interface Project {
 	title: string;
+	link: string;
 	description: string;
 	imageUrl: string;
-	url: string;
 }
 
 export interface Socials {
@@ -100,6 +72,11 @@ export async function getSections(pageSlug: PageSlug): Promise<Section[]> {
 									image: '*'
 								}
 							},
+							projects: {
+								populate: {
+									image: '*'
+								}
+							},
 							images: {
 								populate: '*'
 							}
@@ -111,7 +88,7 @@ export async function getSections(pageSlug: PageSlug): Promise<Section[]> {
 	};
 	const data = await fetchData('pages', urlParamsObject);
 
-	const sections = data[0].attributes.sections.data.map((section: SectionData) => {
+	const sections = data[0].attributes.sections.data.map((section: any) => {
 		return {
 			heading: section.attributes.heading,
 			slug: section.attributes.slug,
@@ -120,32 +97,6 @@ export async function getSections(pageSlug: PageSlug): Promise<Section[]> {
 	});
 
 	return sections;
-}
-
-export async function getTools(): Promise<Tool[]> {
-	const data = await fetchData('tools?populate=image');
-
-	return data.map((tool: ToolData) => {
-		return {
-			title: tool.attributes.title,
-			description: tool.attributes.description,
-			imageUrl: publicEnv.PUBLIC_STRAPI_URL + tool.attributes.image.data.attributes.url,
-			url: tool.attributes.url
-		};
-	});
-}
-
-export async function getDatasets(): Promise<Dataset[]> {
-	const data = await fetchData('datasets?populate=image');
-
-	return data.map((tool: DatasetData) => {
-		return {
-			title: tool.attributes.title,
-			description: tool.attributes.description,
-			imageUrl: publicEnv.PUBLIC_STRAPI_URL + tool.attributes.image.data.attributes.url,
-			url: tool.attributes.url
-		};
-	});
 }
 
 export async function getSocials(): Promise<Socials> {

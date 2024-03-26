@@ -1,17 +1,9 @@
 <script lang="ts">
+	import type { ToolDataset } from '$lib/data';
+
 	export let component: {
-		tools: {
-			imageUrl: string;
-			title: string;
-			description: string;
-			link: string;
-		}[];
-		datasets: {
-			imageUrl: string;
-			title: string;
-			description: string;
-			link: string;
-		}[];
+		tools: ToolDataset[];
+		datasets: ToolDataset[];
 	};
 
 	const { tools, datasets } = component;
