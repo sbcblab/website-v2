@@ -12,16 +12,16 @@
 </script>
 
 <div class="flex gap-6">
-	<a href={socials.twitter} class={linkClass}>
+	<a href={socials.twitter} class={linkClass} target="_blank">
 		<RiTwitterXFill class={iconClass} />
 	</a>
-	<a href={socials.instagram} class={linkClass}>
+	<a href={socials.instagram} class={linkClass} target="_blank">
 		<RiInstagramLine class={iconClass} />
 	</a>
-	<a href={socials.github} class={linkClass}>
+	<a href={socials.github} class={linkClass} target="_blank">
 		<RiGithubFill class={iconClass} />
 	</a>
-	<a href={socials.linkedin} class={linkClass}>
+	<a href={socials.linkedin} class={linkClass} target="_blank">
 		<RiLinkedinBoxFill class={iconClass} />
 	</a>
 </div>

@@ -30,6 +30,7 @@
 	{#each pages as page}
 		{#if !page?.subpages}
 			<a
+				target="_blank"
 				href={page.href}
 				class={cn(
 					'transition-all hover:text-foreground focus:text-foreground active:text-foreground',
@@ -42,6 +43,7 @@
 			<DropdownMenu.Root>
 				<DropdownMenu.Trigger>
 					<a
+						target="_blank"
 						href={page.href}
 						class={cn(
 							'flex items-center gap-1 transition-all hover:text-foreground focus:text-foreground active:text-foreground',

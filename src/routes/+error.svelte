@@ -11,6 +11,7 @@
 	<span class="text-foreground/70">Sorry, we couldn’t find the page you’re looking for.</span>
 	<a
 		href="/"
+		target="_blank"
 		class="mx-auto mt-6 flex w-fit items-center justify-center gap-1 p-2 text-sm font-semibold text-primary-solid transition-opacity duration-150 hover:opacity-70"
 	>
 		<PhArrowLeftBold class="h-4 w-4" />

@@ -11,7 +11,7 @@
 </script>
 
 {#if component?.link}
-	<a href={component.link}>
+	<a href={component.link} target="_blank">
 		<img
 			src={component.imageUrl}
 			alt={component.alt}
