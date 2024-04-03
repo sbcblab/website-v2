@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Section } from '$lib/data';
 	import Markdown from './markdown.svelte';
+	import Members from './members.svelte';
 	import Projects from './projects.svelte';
 	import Publications from './publications.svelte';
 	import SectionImage from './section-image.svelte';
@@ -13,7 +14,7 @@
 	{#if section.heading}
 		<h2>{section.heading}</h2>
 	{/if}
-	{#each section.body as component}
+	{#each section.content as component}
 		{#if component.type === 'rich-text'}
 			<Markdown content={component.content || ''} />
 		{:else if component.type === 'html'}
@@ -37,6 +38,8 @@
 			<Publications {component} />
 		{:else if component.type === 'projects'}
 			<Projects {component} />
+		{:else if component.type === 'members'}
+			<Members {component} />
 		{/if}
 	{/each}
 </section>

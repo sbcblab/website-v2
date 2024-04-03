@@ -5,9 +5,9 @@
 @layer base {
 	:root {
 		--background: 0 0% 100%;
-		--foreground: 0 0% 13%;
+		--foreground: 0 0% 30%;
 		--foreground-dim: 0 0% 60%;
-		--card: var(--foreground);
+		--card: 0 0% 13%;
 		--card-foreground: var(--background);
 		--popover: var(--background);
 		--popover-foreground: var(--foreground);
@@ -61,11 +61,11 @@ h3 {
 }
 
 h4 {
-	@apply my-4 scroll-m-20 text-lg font-semibold tracking-tight;
+	@apply my-4 scroll-m-20 text-xl font-semibold tracking-tight;
 }
 
 p {
-	@apply leading-7 [&:not(:first-child)]:mt-6 [&:not(:last-child)]:mb-6;
+	@apply text-justify text-lg leading-[1.875rem] [&:not(:first-child)]:mt-8 [&:not(:last-child)]:mb-8;
 }
 
 blockquote {

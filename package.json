@@ -40,8 +40,7 @@
 	"type": "module",
 	"dependencies": {
 		"@fontsource-variable/open-sans": "^5.0.28",
-		"@fontsource/lato": "^5.0.20",
-		"@fontsource/poppins": "^5.0.12",
+		"@fontsource/roboto": "^5.0.12",
 		"bits-ui": "^0.19.7",
 		"clsx": "^2.1.0",
 		"lucide-svelte": "^0.358.0",

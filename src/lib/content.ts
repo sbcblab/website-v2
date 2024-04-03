@@ -1,14 +1,14 @@
 import { env } from '$env/dynamic/public';
 
-export function processSectionBody(body: object[]): (object | undefined)[] {
-	return body.map((component: any) => {
-		if (component.__component === 'elements.rich-text') {
+export function processSectionContent(content: object[]): (object | undefined)[] {
+	return content.map((component: any) => {
+		if (component.__component === 'general.rich-text') {
 			return {
 				type: 'rich-text',
 				content: component.content
 			};
 		}
-		if (component.__component === 'elements.image') {
+		if (component.__component === 'general.image') {
 			return {
 				type: 'image',
 				imageUrl: env.PUBLIC_STRAPI_URL + component.image.data.attributes.url,
@@ -18,7 +18,7 @@ export function processSectionBody(body: object[]): (object | undefined)[] {
 				border: component.border
 			};
 		}
-		if (component.__component === 'elements.image-row') {
+		if (component.__component === 'general.image-row') {
 			return {
 				type: 'image-row',
 				gap: component.gap,
@@ -34,13 +34,13 @@ export function processSectionBody(body: object[]): (object | undefined)[] {
 				})
 			};
 		}
-		if (component.__component === 'elements.html') {
+		if (component.__component === 'general.html') {
 			return {
 				type: 'html',
 				content: component.content
 			};
 		}
-		if (component.__component === 'elements.tools-and-datasets') {
+		if (component.__component === 'unique.tools-and-datasets') {
 			return {
 				type: 'tools-datasets',
 				tools: component.tools.data.map((tool: any) => {
@@ -61,7 +61,7 @@ export function processSectionBody(body: object[]): (object | undefined)[] {
 				})
 			};
 		}
-		if (component.__component === 'elements.publications') {
+		if (component.__component === 'unique.publications') {
 			const publications = component.publications.data.reduce((acc: any, publication: any) => {
 				const publishDate = new Date(publication.attributes.publishDate);
 				const year = publishDate.getFullYear();
@@ -94,7 +94,7 @@ export function processSectionBody(body: object[]): (object | undefined)[] {
 				publications: sortedPublications
 			};
 		}
-		if (component.__component === 'elements.projects') {
+		if (component.__component === 'unique.projects') {
 			return {
 				type: 'projects',
 				projects: component.projects.data.map((project: any) => {
@@ -103,6 +103,24 @@ export function processSectionBody(body: object[]): (object | undefined)[] {
 						link: project.attributes.link,
 						description: project.attributes.description,
 						imageUrl: env.PUBLIC_STRAPI_URL + project.attributes.image.data.attributes.url
+					};
+				})
+			};
+		}
+		if (component.__component === 'unique.members') {
+			return {
+				type: 'members',
+				members: component.members.data.map((member: any) => {
+					return {
+						pictureUrl: env.PUBLIC_STRAPI_URL + member.attributes.picture.data.attributes.url,
+						name: member.attributes.name,
+						role: member.attributes.role,
+						areas: member.attributes.areas.data.map((area: any) => area.attributes.name),
+						googleScholar: member.attributes.googleScholar,
+						orcid: member.attributes.orcid,
+						researchGate: member.attributes.researchGate,
+						lattes: member.attributes.lattes,
+						dblp: member.attributes.dblp
 					};
 				})
 			};

@@ -1,14 +1,14 @@
 import { env as privateEnv } from '$env/dynamic/private';
 import { env as publicEnv } from '$env/dynamic/public';
 import qs from 'qs';
-import { processSectionBody } from './body';
+import { processSectionContent } from './content';
 
 type PageSlug = 'home' | 'research' | 'projects' | 'team' | 'contact';
 
 export interface Section {
 	heading: string;
 	slug: string;
-	body: any[];
+	content: any[];
 }
 
 export interface ToolDataset {
@@ -36,6 +36,18 @@ export interface Publication {
 	link: string;
 }
 
+export interface Member {
+	pictureUrl: string;
+	name: string;
+	role: string;
+	areas: string[];
+	googleScholar: string;
+	orcid: string;
+	researchGate: string;
+	lattes: string;
+	dblp: string;
+}
+
 export interface Socials {
 	twitter: string;
 	instagram: string;
@@ -51,7 +63,7 @@ export interface Contact {
 }
 
 async function fetchData(endpoint: string, urlParamsObject?: object) {
-	const queryString = qs.stringify(urlParamsObject);
+	const queryString = decodeURI(qs.stringify(urlParamsObject));
 	return await fetch(
 		`${publicEnv.PUBLIC_STRAPI_URL}/api/${endpoint}${queryString ? `?${queryString}` : ''}`,
 		{
@@ -70,7 +82,7 @@ export async function getSections(pageSlug: PageSlug): Promise<Section[]> {
 		populate: {
 			sections: {
 				populate: {
-					body: {
+					content: {
 						populate: {
 							image: '*',
 							tools: {
@@ -96,6 +108,12 @@ export async function getSections(pageSlug: PageSlug): Promise<Section[]> {
 							},
 							images: {
 								populate: '*'
+							},
+							members: {
+								populate: {
+									picture: '*',
+									areas: '*'
+								}
 							}
 						}
 					}
@@ -109,28 +127,11 @@ export async function getSections(pageSlug: PageSlug): Promise<Section[]> {
 		return {
 			heading: section.attributes.heading,
 			slug: section.attributes.slug,
-			body: processSectionBody(section.attributes.body)
+			content: processSectionContent(section.attributes.content)
 		};
 	});
 
 	return sections;
-}
-
-export async function getPublications(): Promise<Publication[]> {
-	const data = await fetchData('publications?populate=authors');
-
-	return data.map((publication: any) => {
-		return {
-			authors: publication.attributes.authors,
-			title: publication.attributes.title,
-			publishDate: publication.attributes.publishDate,
-			journal: publication.attributes.journal,
-			volume: publication.attributes.volume,
-			startPage: publication.attributes.startPage,
-			endPage: publication.attributes.endPage,
-			link: publication.attributes.link
-		};
-	});
 }
 
 export async function getSocials(): Promise<Socials> {

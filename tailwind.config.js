@@ -10,8 +10,8 @@ const config = {
 			sans: fontFamily.sans,
 			serif: fontFamily.serif,
 			mono: fontFamily.mono,
-			display: ["'Poppins'", ...fontFamily.sans],
-			body: ["'Poppins'", ...fontFamily.sans]
+			display: ["'Roboto'", ...fontFamily.sans],
+			body: ["'Roboto'", ...fontFamily.sans]
 		},
 		container: {
 			center: true,

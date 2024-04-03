@@ -1,17 +1,14 @@
 <script>
-	import '@fontsource/poppins/100.css';
-	import '@fontsource/poppins/200.css';
-	import '@fontsource/poppins/300.css';
-	import '@fontsource/poppins/400.css';
-	import '@fontsource/poppins/500.css';
-	import '@fontsource/poppins/600.css';
-	import '@fontsource/poppins/700.css';
-	import '@fontsource/poppins/800.css';
-	import '@fontsource/poppins/900.css';
-
 	import '$src/app.css';
 	import Footer from '$src/components/footer.svelte';
 	import { Header } from '$src/components/header';
+
+	import '@fontsource/roboto/latin-100.css';
+	import '@fontsource/roboto/latin-300.css';
+	import '@fontsource/roboto/latin-400.css';
+	import '@fontsource/roboto/latin-500.css';
+	import '@fontsource/roboto/latin-700.css';
+	import '@fontsource/roboto/latin-900.css';
 
 	export let data;
 
