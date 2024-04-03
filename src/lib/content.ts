@@ -166,5 +166,22 @@ export function processSectionContent(content: object[]): (object | undefined)[]
 				})
 			};
 		}
+
+		if (component.__component === 'unique.research-areas') {
+			return {
+				type: 'research-areas',
+				researchAreas: component.researchAreas.data.map((area: any) => {
+					return {
+						title: area.attributes.title,
+						fullTitle: area.attributes.fullTitle,
+						description: area.attributes.description,
+						iconUrl:
+							area.attributes.icon.data &&
+							env.PUBLIC_STRAPI_URL + area.attributes.icon.data.attributes.url,
+						keywords: area.attributes.keywords.map((keyword: any) => keyword.name)
+					};
+				})
+			};
+		}
 	});
 }

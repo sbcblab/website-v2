@@ -67,6 +67,14 @@ export interface Collaborator {
 	};
 }
 
+export interface ResearchArea {
+	title: string;
+	fullTitle: string;
+	description: string;
+	iconUrl: string;
+	keywords: string[];
+}
+
 export interface Socials {
 	twitter: string;
 	instagram: string;
@@ -144,6 +152,12 @@ export async function getSections(pageSlug: PageSlug): Promise<Section[]> {
 									country: {
 										populate: '*'
 									}
+								}
+							},
+							researchAreas: {
+								populate: {
+									keywords: '*',
+									icon: '*'
 								}
 							}
 						}

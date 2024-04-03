@@ -6,6 +6,7 @@
 	import Members from './members.svelte';
 	import Projects from './projects.svelte';
 	import Publications from './publications.svelte';
+	import ResearchAreas from './research-areas.svelte';
 	import SectionImage from './section-image.svelte';
 	import ToolsDatasets from './tools-datasets.svelte';
 
@@ -46,6 +47,8 @@
 			<Guests {component} />
 		{:else if component.type === 'collaborators'}
 			<Collaborators {component} />
+		{:else if component.type === 'research-areas'}
+			<ResearchAreas {component} />
 		{/if}
 	{/each}
 </section>

@@ -129,6 +129,13 @@ img {
 	@apply text-sm text-muted-foreground;
 }
 
+.mask {
+	mask-size: 100%;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	mask-position: center;
+}
+
 /* Gradient Handling */
 
 .bg-primary {
