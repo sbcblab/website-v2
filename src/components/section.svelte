@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Section } from '$lib/data';
+	import Guests from './guests.svelte';
 	import Markdown from './markdown.svelte';
 	import Members from './members.svelte';
 	import Projects from './projects.svelte';
@@ -40,6 +41,8 @@
 			<Projects {component} />
 		{:else if component.type === 'members'}
 			<Members {component} />
+		{:else if component.type === 'guests'}
+			<Guests {component} />
 		{/if}
 	{/each}
 </section>

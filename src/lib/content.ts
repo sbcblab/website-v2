@@ -8,6 +8,7 @@ export function processSectionContent(content: object[]): (object | undefined)[]
 				content: component.content
 			};
 		}
+
 		if (component.__component === 'general.image') {
 			return {
 				type: 'image',
@@ -18,6 +19,7 @@ export function processSectionContent(content: object[]): (object | undefined)[]
 				border: component.border
 			};
 		}
+
 		if (component.__component === 'general.image-row') {
 			return {
 				type: 'image-row',
@@ -34,12 +36,14 @@ export function processSectionContent(content: object[]): (object | undefined)[]
 				})
 			};
 		}
+
 		if (component.__component === 'general.html') {
 			return {
 				type: 'html',
 				content: component.content
 			};
 		}
+
 		if (component.__component === 'unique.tools-and-datasets') {
 			return {
 				type: 'tools-datasets',
@@ -61,6 +65,7 @@ export function processSectionContent(content: object[]): (object | undefined)[]
 				})
 			};
 		}
+
 		if (component.__component === 'unique.publications') {
 			const publications = component.publications.data.reduce((acc: any, publication: any) => {
 				const publishDate = new Date(publication.attributes.publishDate);
@@ -94,6 +99,7 @@ export function processSectionContent(content: object[]): (object | undefined)[]
 				publications: sortedPublications
 			};
 		}
+
 		if (component.__component === 'unique.projects') {
 			return {
 				type: 'projects',
@@ -107,6 +113,7 @@ export function processSectionContent(content: object[]): (object | undefined)[]
 				})
 			};
 		}
+
 		if (component.__component === 'unique.members') {
 			return {
 				type: 'members',
@@ -121,6 +128,21 @@ export function processSectionContent(content: object[]): (object | undefined)[]
 						researchGate: member.attributes.researchGate,
 						lattes: member.attributes.lattes,
 						dblp: member.attributes.dblp
+					};
+				})
+			};
+		}
+
+		if (component.__component === 'unique.guests') {
+			return {
+				type: 'guests',
+				guests: component.guests.data.map((guest: any) => {
+					return {
+						name: guest.attributes.name,
+						university: guest.attributes.university,
+						country: guest.attributes.country.data.attributes.name,
+						url: guest.attributes.url,
+						year: guest.attributes.year
 					};
 				})
 			};

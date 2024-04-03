@@ -48,6 +48,14 @@ export interface Member {
 	dblp: string;
 }
 
+export interface Guest {
+	name: string;
+	university: string;
+	country: string;
+	url: string;
+	year: number;
+}
+
 export interface Socials {
 	twitter: string;
 	instagram: string;
@@ -113,6 +121,11 @@ export async function getSections(pageSlug: PageSlug): Promise<Section[]> {
 								populate: {
 									picture: '*',
 									areas: '*'
+								}
+							},
+							guests: {
+								populate: {
+									country: '*'
 								}
 							}
 						}
