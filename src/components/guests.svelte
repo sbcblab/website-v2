@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Guest } from '$lib/data';
-	import { cn } from '$src/lib/utils';
+	import { cn } from '$lib/utils';
 	import FaCalendar from '~icons/fa/calendar';
 
 	export let component: {

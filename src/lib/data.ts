@@ -56,6 +56,17 @@ export interface Guest {
 	year: number;
 }
 
+export interface Collaborator {
+	name: string;
+	institute: string;
+	university: string;
+	url: string;
+	country: {
+		name: string;
+		flagUrl: string;
+	};
+}
+
 export interface Socials {
 	twitter: string;
 	instagram: string;
@@ -126,6 +137,13 @@ export async function getSections(pageSlug: PageSlug): Promise<Section[]> {
 							guests: {
 								populate: {
 									country: '*'
+								}
+							},
+							collaborators: {
+								populate: {
+									country: {
+										populate: '*'
+									}
 								}
 							}
 						}

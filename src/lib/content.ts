@@ -85,7 +85,6 @@ export function processSectionContent(content: object[]): (object | undefined)[]
 				});
 				return acc;
 			}, {});
-
 			const years = Object.keys(publications);
 			years.sort((a, b) => parseInt(b) - parseInt(a));
 			const sortedPublications = years.map((year: any) => {
@@ -143,6 +142,26 @@ export function processSectionContent(content: object[]): (object | undefined)[]
 						country: guest.attributes.country.data.attributes.name,
 						url: guest.attributes.url,
 						year: guest.attributes.year
+					};
+				})
+			};
+		}
+
+		if (component.__component === 'unique.collaborators') {
+			return {
+				type: 'collaborators',
+				collaborators: component.collaborators.data.map((collaborator: any) => {
+					return {
+						name: collaborator.attributes.name,
+						institute: collaborator.attributes.institute,
+						university: collaborator.attributes.university,
+						url: collaborator.attributes.url,
+						country: {
+							name: collaborator.attributes.country.data.attributes.name,
+							flagUrl:
+								env.PUBLIC_STRAPI_URL +
+								collaborator.attributes.country.data.attributes.flag.data.attributes.url
+						}
 					};
 				})
 			};
