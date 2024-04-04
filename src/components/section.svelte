@@ -1,7 +1,9 @@
 <script lang="ts">
 	import type { Section } from '$lib/data';
 	import Collaborators from './collaborators.svelte';
+	import Contact from './contact.svelte';
 	import Guests from './guests.svelte';
+	import Iframe from './iframe.svelte';
 	import Markdown from './markdown.svelte';
 	import Members from './members.svelte';
 	import Projects from './projects.svelte';
@@ -17,12 +19,9 @@
 	{#if section.heading}
 		<h2>{section.heading}</h2>
 	{/if}
+
 	{#each section.content as component}
-		{#if component.type === 'rich-text'}
-			<Markdown content={component.content || ''} />
-		{:else if component.type === 'html'}
-			{@html component.content}
-		{:else if ['image', 'image-row'].includes(component.type)}
+		{#if ['image', 'image-row'].includes(component.type)}
 			<div
 				class={`my-6 flex`}
 				style={`gap: ${component?.gap || 1}rem; justify-content: ${component?.justify || 'center'};`}
@@ -35,6 +34,12 @@
 					<SectionImage {component} />
 				{/if}
 			</div>
+		{:else if component.type === 'html'}
+			{@html component.content}
+		{:else if component.type === 'rich-text'}
+			<Markdown content={component.content || ''} />
+		{:else if component.type === 'iframe'}
+			<Iframe {component} />
 		{:else if component.type === 'tools-datasets'}
 			<ToolsDatasets {component} />
 		{:else if component.type === 'publications'}
@@ -49,6 +54,8 @@
 			<Collaborators {component} />
 		{:else if component.type === 'research-areas'}
 			<ResearchAreas {component} />
+		{:else if component.type === 'contact'}
+			<Contact {component} />
 		{/if}
 	{/each}
 </section>

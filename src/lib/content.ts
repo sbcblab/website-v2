@@ -1,16 +1,32 @@
 import { env } from '$env/dynamic/public';
+import { getContact } from './data';
 
-export function processSectionContent(content: object[]): (object | undefined)[] {
-	return content.map((component: any) => {
+export async function processSectionContent(content: any): Promise<(object | undefined)[]> {
+	const proccessedContent: (object | undefined)[] = [];
+
+	for (const component of content) {
+		let proccessedComponent: object | undefined;
+
 		if (component.__component === 'general.rich-text') {
-			return {
+			proccessedComponent = {
 				type: 'rich-text',
 				content: component.content
 			};
 		}
 
 		if (component.__component === 'general.image') {
-			return {
+			proccessedComponent = {
+				type: 'image',
+				imageUrl: env.PUBLIC_STRAPI_URL + component.image.data.attributes.url,
+				alt: component.image.data.attributes.alternativeText,
+				height: component.height,
+				link: component.link,
+				border: component.border
+			};
+		}
+
+		if (component.__component === 'general.image') {
+			proccessedComponent = {
 				type: 'image',
 				imageUrl: env.PUBLIC_STRAPI_URL + component.image.data.attributes.url,
 				alt: component.image.data.attributes.alternativeText,
@@ -21,7 +37,7 @@ export function processSectionContent(content: object[]): (object | undefined)[]
 		}
 
 		if (component.__component === 'general.image-row') {
-			return {
+			proccessedComponent = {
 				type: 'image-row',
 				gap: component.gap,
 				justify: component.justify,
@@ -38,14 +54,31 @@ export function processSectionContent(content: object[]): (object | undefined)[]
 		}
 
 		if (component.__component === 'general.html') {
-			return {
+			proccessedComponent = {
 				type: 'html',
 				content: component.content
 			};
 		}
 
+		if (component.__component === 'general.iframe') {
+			proccessedComponent = {
+				type: 'iframe',
+				iframe: {
+					title: component.title,
+					src: component.src,
+					allowfullscreen: component.allowfullscreen,
+					styles: component.styles.map((style: any) => {
+						return {
+							key: style.key,
+							value: style.value
+						};
+					})
+				}
+			};
+		}
+
 		if (component.__component === 'unique.tools-and-datasets') {
-			return {
+			proccessedComponent = {
 				type: 'tools-datasets',
 				tools: component.tools.data.map((tool: any) => {
 					return {
@@ -93,14 +126,14 @@ export function processSectionContent(content: object[]): (object | undefined)[]
 					publications: publications[year]
 				};
 			});
-			return {
+			proccessedComponent = {
 				type: 'publications',
 				publications: sortedPublications
 			};
 		}
 
 		if (component.__component === 'unique.projects') {
-			return {
+			proccessedComponent = {
 				type: 'projects',
 				projects: component.projects.data.map((project: any) => {
 					return {
@@ -114,7 +147,7 @@ export function processSectionContent(content: object[]): (object | undefined)[]
 		}
 
 		if (component.__component === 'unique.members') {
-			return {
+			proccessedComponent = {
 				type: 'members',
 				members: component.members.data.map((member: any) => {
 					return {
@@ -133,7 +166,7 @@ export function processSectionContent(content: object[]): (object | undefined)[]
 		}
 
 		if (component.__component === 'unique.guests') {
-			return {
+			proccessedComponent = {
 				type: 'guests',
 				guests: component.guests.data.map((guest: any) => {
 					return {
@@ -148,7 +181,7 @@ export function processSectionContent(content: object[]): (object | undefined)[]
 		}
 
 		if (component.__component === 'unique.collaborators') {
-			return {
+			proccessedComponent = {
 				type: 'collaborators',
 				collaborators: component.collaborators.data.map((collaborator: any) => {
 					return {
@@ -168,7 +201,7 @@ export function processSectionContent(content: object[]): (object | undefined)[]
 		}
 
 		if (component.__component === 'unique.research-areas') {
-			return {
+			proccessedComponent = {
 				type: 'research-areas',
 				researchAreas: component.researchAreas.data.map((area: any) => {
 					return {
@@ -183,5 +216,24 @@ export function processSectionContent(content: object[]): (object | undefined)[]
 				})
 			};
 		}
-	});
+
+		if (component.__component === 'unique.contact-us') {
+			const contactInfo = await getContact();
+			proccessedComponent = {
+				type: 'contact',
+				contact: {
+					subheading: component.subheading,
+					showEmail: component.showEmail,
+					showPhone: component.showPhone,
+					showLocation: component.showLocation,
+					showAddress: component.showAddress,
+					info: contactInfo
+				}
+			};
+		}
+
+		proccessedContent.push(proccessedComponent);
+	}
+
+	return proccessedContent;
 }

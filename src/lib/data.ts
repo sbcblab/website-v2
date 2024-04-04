@@ -11,6 +11,16 @@ export interface Section {
 	content: any[];
 }
 
+export interface IFrame {
+	title: string;
+	src: string;
+	allowfullscreen: boolean;
+	styles: {
+		key: string;
+		value: string;
+	}[];
+}
+
 export interface ToolDataset {
 	title: string;
 	link: string;
@@ -89,6 +99,15 @@ export interface Contact {
 	address: string;
 }
 
+export interface ContactSection {
+	subheading: string;
+	showEmail: boolean;
+	showPhone: boolean;
+	showLocation: boolean;
+	showAddress: boolean;
+	info: Contact;
+}
+
 async function fetchData(endpoint: string, urlParamsObject?: object) {
 	const queryString = decodeURI(qs.stringify(urlParamsObject));
 	return await fetch(
@@ -159,6 +178,9 @@ export async function getSections(pageSlug: PageSlug): Promise<Section[]> {
 									keywords: '*',
 									icon: '*'
 								}
+							},
+							styles: {
+								populate: '*'
 							}
 						}
 					}
@@ -168,11 +190,15 @@ export async function getSections(pageSlug: PageSlug): Promise<Section[]> {
 	};
 	const data = await fetchData('pages', urlParamsObject);
 
+	for (const section of data[0].attributes.sections.data) {
+		section.attributes.content = await processSectionContent(section.attributes.content);
+	}
+
 	const sections = data[0].attributes.sections.data.map((section: any) => {
 		return {
 			heading: section.attributes.heading,
 			slug: section.attributes.slug,
-			content: processSectionContent(section.attributes.content)
+			content: section.attributes.content
 		};
 	});
 
