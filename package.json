@@ -39,6 +39,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@fontsource-variable/inter": "^5.0.17",
 		"@fontsource-variable/open-sans": "^5.0.28",
 		"@fontsource/roboto": "^5.0.12",
 		"bits-ui": "^0.19.7",

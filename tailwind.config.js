@@ -10,14 +10,14 @@ const config = {
 			sans: fontFamily.sans,
 			serif: fontFamily.serif,
 			mono: fontFamily.mono,
-			display: ["'Roboto'", ...fontFamily.sans],
-			body: ["'Roboto'", ...fontFamily.sans]
+			display: ["'Inter Variable'", ...fontFamily.sans],
+			body: ["'Inter Variable'", ...fontFamily.sans]
 		},
 		container: {
 			center: true,
 			padding: '2rem',
 			screens: {
-				'2xl': '960px'
+				'2xl': '1200px'
 			}
 		},
 		extend: {

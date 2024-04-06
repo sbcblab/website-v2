@@ -7,7 +7,7 @@
 
 	export let socials: Socials;
 
-	const linkClass = 'transition-colors duration-150 hover:text-card-foreground/70';
+	const linkClass = 'transition-colors duration-150 hover:text-card-foreground/75';
 	const iconClass = 'h-6 w-6';
 </script>
 
