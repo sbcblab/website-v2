@@ -7,6 +7,22 @@ export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
 }
 
+export function toCamelCase(str: string): string {
+	return str.replace(/-([a-z])/g, function (match, group1) {
+		return group1.toUpperCase();
+	});
+}
+
+export function formatHsl(hsl: string): string {
+	const [h, s, l] = hsl.split(' ');
+	return `hsl(${h}, ${s}, ${l})`;
+}
+
+export function copyToClipboard(text: string | null) {
+	if (!text) return;
+	navigator.clipboard.writeText(text);
+}
+
 type FlyAndScaleParams = {
 	y?: number;
 	x?: number;
@@ -39,7 +55,7 @@ export const flyAndScale = (
 	};
 
 	return {
-		duration: params.duration ?? 200,
+		duration: params.duration ?? 150,
 		delay: 0,
 		css: (t) => {
 			const y = scaleConversion(t, [0, 1], [params.y ?? 5, 0]);
@@ -54,14 +70,3 @@ export const flyAndScale = (
 		easing: cubicOut
 	};
 };
-
-export function toCamelCase(str: string): string {
-	return str.replace(/-([a-z])/g, function (match, group1) {
-		return group1.toUpperCase();
-	});
-}
-
-export function formatHsl(hsl: string): string {
-	const [h, s, l] = hsl.split(' ');
-	return `hsl(${h}, ${s}, ${l})`;
-}

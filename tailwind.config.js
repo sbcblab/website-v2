@@ -22,7 +22,7 @@ const config = {
 		},
 		extend: {
 			transitionDuration: {
-				DEFAULT: '200ms'
+				DEFAULT: '150ms'
 			},
 			colors: {
 				border: 'hsl(var(--border) / <alpha-value>)',

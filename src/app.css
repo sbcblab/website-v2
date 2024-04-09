@@ -20,7 +20,7 @@
 		--secondary-foreground: 0 0% 9%;
 		--muted: var(--secondary);
 		--muted-foreground: 0 0% 45.1%;
-		--accent: var(--secondary);
+		--accent: var(--foreground);
 		--accent-foreground: var(--secondary-foreground);
 		--destructive: 0 72.22% 50.59%;
 		--destructive-foreground: 0 0% 98%;
@@ -105,7 +105,7 @@ strong {
 }
 
 section a {
-	@apply text-primary-link transition-opacity duration-150;
+	@apply text-primary-link transition-opacity;
 }
 
 section a:hover,

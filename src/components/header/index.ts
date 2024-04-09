@@ -1,5 +1,7 @@
+import HeaderContactMobile from './header-contact-mobile.svelte';
+import HeaderContact from './header-contact.svelte';
 import HeaderInfo from './header-info.svelte';
 import HeaderNav from './header-nav.svelte';
 import Header from './header.svelte';
 
-export { Header, HeaderInfo, HeaderNav };
+export { Header, HeaderContact, HeaderContactMobile, HeaderInfo, HeaderNav };
