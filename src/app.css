@@ -20,11 +20,11 @@
 		--secondary-foreground: 0 0% 9%;
 		--muted: var(--secondary);
 		--muted-foreground: 0 0% 45.1%;
-		--accent: 0 0% 97%;
+		--accent: 0 0% 98%;
 		--accent-foreground: var(--foreground);
 		--destructive: 0 72.22% 50.59%;
 		--destructive-foreground: 0 0% 98%;
-		--border: 0 0% 89.8%;
+		--border: 0 0% 91%;
 		--input: var(--border);
 		--ring: var(--primary);
 		--radius: 1rem;

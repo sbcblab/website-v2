@@ -3,8 +3,8 @@
 		["feat: add header info bar", true],
 		["feat: make header email and phone expandable on mobile", true],
 		["style: turn nav links into boxes", true],
-		["feat: add mobile nav menu", false],
-		["feat: add nav research dropdown menu", false]
+		["feat: add nav research dropdown menu", true],
+		["feat: add mobile nav menu", false]
 	],
 	"Footer": [["style: update footer style", false]],
 	"Home": [

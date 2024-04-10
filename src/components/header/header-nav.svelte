@@ -1,10 +1,6 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { HeaderNavDropdown, HeaderNavItem } from '$components/header';
 	import { cn } from '$lib/utils';
-
-	let path: string | null = null;
-
-	$: path = $page.url.pathname;
 
 	const pages = [
 		{ label: 'Home', href: '/' },
@@ -12,8 +8,28 @@
 			label: 'Research',
 			href: '/research',
 			subpages: [
-				{ label: 'Tools', href: '/research#tools' },
-				{ label: 'Datasets', href: '/research#datasets' },
+				{
+					label: 'Tools',
+					href: '/research#tools-datasets',
+					subpages: [
+						{ label: 'BR-EASE', href: '/brease' },
+						{ label: 'ConfID', href: '/confid' },
+						{ label: 'COVID-19', href: '/covid' },
+						{ label: 'NIAS', href: '/nias' },
+						{ label: 'GEVA', href: 'https://github.com/sbcblab/geva' },
+						{ label: 'N3O', href: 'https://github.com/sbcblab/NEAT-Microarray' },
+						{ label: 'RelAgg', href: 'https://github.com/sbcblab/RelAgg' }
+					]
+				},
+				{
+					label: 'Datasets',
+					href: '/research#tools-datasets',
+					subpages: [
+						{ label: 'Angle Probability List', href: '/apl' },
+						{ label: 'BARRA:CuRDa', href: '/barracurda' },
+						{ label: 'CuMiDa', href: '/cumida' }
+					]
+				},
 				{ label: 'Publications', href: '/research#publications' },
 				{ label: 'Laboratory Facilities', href: '/research#facilities' }
 			]
@@ -26,22 +42,10 @@
 
 <nav class={cn($$props.class)}>
 	{#each pages as page}
-		<a
-			href={page.href}
-			class={cn(
-				path === page.href
-					? 'bg-accent text-accent-foreground'
-					: 'text-foreground/50 hover:text-foreground',
-				'relative inline-flex items-center px-6 transition-colors'
-			)}
-		>
-			{page.label}
-			<div
-				class={cn(
-					!(path === page.href) && 'scale-y-0',
-					'absolute left-0 right-0 top-0 h-[0.375rem] origin-top bg-primary-solid transition-transform'
-				)}
-			/>
-		</a>
+		{#if !page.subpages}
+			<HeaderNavItem {page} />
+		{:else}
+			<HeaderNavDropdown {page} />
+		{/if}
 	{/each}
 </nav>

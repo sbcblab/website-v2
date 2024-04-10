@@ -1,5 +1,4 @@
 import { DropdownMenu as DropdownMenuPrimitive } from 'bits-ui';
-
 import CheckboxItem from './dropdown-menu-checkbox-item.svelte';
 import Content from './dropdown-menu-content.svelte';
 import Item from './dropdown-menu-item.svelte';
