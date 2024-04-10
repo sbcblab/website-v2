@@ -1,0 +1,30 @@
+{
+	"Header": [
+		["feat: add header info bar", true],
+		["feat: make header email and phone expandable on mobile", true],
+		["style: turn nav links into boxes", true],
+		["feat: add mobile nav menu", false],
+		["feat: add nav research dropdown menu", false]
+	],
+	"Footer": [["style: update footer style", false]],
+	"Home": [
+		["feat: add carousel banner", false],
+		["style: update about section style", false],
+		["style: update hiring section style", false],
+		["style: update tools-datasets section style", false],
+		["style: update international-cooperation section style", false],
+		["style: update partnerships section style", false]
+	],
+	"Research": [
+		["style: update research-areas section style", false],
+		["style: update publications section style", false],
+		["style: update facilities section style", false]
+	],
+	"Projects": [["style: update projects section style", false]],
+	"Members": [
+		["style: update members section style", false],
+		["style: update guests section style", false],
+		["style: update collaborators section style", false]
+	],
+	"Contact": [["style: update contact section style", false]]
+}
