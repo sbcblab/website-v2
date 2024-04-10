@@ -49,23 +49,23 @@
 /* Base Styles */
 
 h1 {
-	@apply scroll-m-20 text-4xl font-bold tracking-tight;
+	@apply text-6xl font-bold tracking-tight;
 }
 
 h2 {
-	@apply scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight [&:not(:last-child)]:mb-6;
+	@apply text-4xl font-light;
 }
 
 h3 {
-	@apply scroll-m-20 text-2xl font-semibold tracking-tight;
+	@apply text-4xl font-bold tracking-tight;
 }
 
 h4 {
-	@apply my-4 scroll-m-20 text-xl font-semibold tracking-tight;
+	@apply text-2xl font-bold tracking-tight;
 }
 
 p {
-	@apply text-justify text-lg leading-[1.875rem] [&:not(:first-child)]:mt-8 [&:not(:last-child)]:mb-8;
+	@apply my-8 text-justify text-lg leading-[1.875rem] text-foreground-paragraph;
 }
 
 blockquote {
@@ -97,7 +97,7 @@ li::marker {
 }
 
 small {
-	@apply text-sm font-medium leading-none;
+	@apply text-sm;
 }
 
 strong {

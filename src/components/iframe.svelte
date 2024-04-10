@@ -9,7 +9,7 @@
 </script>
 
 <iframe
-	class="mt-10 w-full"
+	class="w-full"
 	title={iframe.title}
 	src={iframe.src}
 	allowfullscreen={iframe.allowfullscreen}

@@ -6,8 +6,6 @@
 	const { sections } = data;
 </script>
 
-<div class="container space-y-16">
-	{#each sections as section}
-		<Section {section} />
-	{/each}
-</div>
+{#each sections as section}
+	<Section {section} />
+{/each}

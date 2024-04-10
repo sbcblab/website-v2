@@ -10,7 +10,7 @@
 	const { guests } = component;
 </script>
 
-<div class="mt-10 grid grid-cols-2 gap-10">
+<div class="grid grid-cols-2 gap-10">
 	{#each guests as guest}
 		<div class="flex flex-col gap-1">
 			<div class="flex items-baseline gap-1 leading-none">
@@ -27,7 +27,7 @@
 				</span>
 			</div>
 			<div class="flex">
-				<span>{guest.university} - {guest.country}</span>
+				<span class="text-foreground-paragraph">{guest.university} - {guest.country}</span>
 			</div>
 		</div>
 	{/each}

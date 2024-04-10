@@ -15,47 +15,57 @@
 	export let section: Section;
 </script>
 
-<section id={section.slug} class="my-4">
-	{#if section.heading}
-		<h2>{section.heading}</h2>
-	{/if}
-
+<section id={section.slug} class="mb-16">
 	{#each section.content as component}
-		{#if ['image', 'image-row'].includes(component.type)}
-			<div
-				class={`my-6 flex`}
-				style={`gap: ${component?.gap || 1}rem; justify-content: ${component?.justify || 'center'};`}
-			>
-				{#if component?.images}
-					{#each component.images as image}
-						<SectionImage component={image} />
-					{/each}
-				{:else}
-					<SectionImage {component} />
+		{#if component.type === 'heading'}
+			<div class="mb-12 bg-card">
+				<h2 class="container py-6 text-card-foreground">{component.text}</h2>
+			</div>
+		{:else if component.type === 'subheading'}
+			<div class="container mb-8">
+				<h3>{component.text}</h3>
+			</div>
+		{:else if component.type === 'rich-text'}
+			<div class="container">
+				<Markdown content={component.content} />
+			</div>
+		{:else}
+			<div class="container mt-12">
+				{#if ['image', 'image-row'].includes(component.type)}
+					<div
+						class="my-6 flex"
+						style={`gap: ${component?.gap || 1}rem; justify-content: ${component?.justify || 'center'};`}
+					>
+						{#if component?.images}
+							{#each component.images as image}
+								<SectionImage component={image} />
+							{/each}
+						{:else}
+							<SectionImage {component} />
+						{/if}
+					</div>
+				{:else if component.type === 'html'}
+					{@html component.content}
+				{:else if component.type === 'iframe'}
+					<Iframe {component} />
+				{:else if component.type === 'tools-datasets'}
+					<ToolsDatasets {component} />
+				{:else if component.type === 'publications'}
+					<Publications {component} />
+				{:else if component.type === 'projects'}
+					<Projects {component} />
+				{:else if component.type === 'members'}
+					<Members {component} />
+				{:else if component.type === 'guests'}
+					<Guests {component} />
+				{:else if component.type === 'collaborators'}
+					<Collaborators {component} />
+				{:else if component.type === 'research-areas'}
+					<ResearchAreas {component} />
+				{:else if component.type === 'contact'}
+					<Contact {component} />
 				{/if}
 			</div>
-		{:else if component.type === 'html'}
-			{@html component.content}
-		{:else if component.type === 'rich-text'}
-			<Markdown content={component.content || ''} />
-		{:else if component.type === 'iframe'}
-			<Iframe {component} />
-		{:else if component.type === 'tools-datasets'}
-			<ToolsDatasets {component} />
-		{:else if component.type === 'publications'}
-			<Publications {component} />
-		{:else if component.type === 'projects'}
-			<Projects {component} />
-		{:else if component.type === 'members'}
-			<Members {component} />
-		{:else if component.type === 'guests'}
-			<Guests {component} />
-		{:else if component.type === 'collaborators'}
-			<Collaborators {component} />
-		{:else if component.type === 'research-areas'}
-			<ResearchAreas {component} />
-		{:else if component.type === 'contact'}
-			<Contact {component} />
 		{/if}
 	{/each}
 </section>

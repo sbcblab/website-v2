@@ -5,10 +5,10 @@
 	import checklist from './checklist.json';
 </script>
 
-<div class="container my-4">
+<div class="container my-4 space-y-4">
 	{#each Object.entries(checklist) as [title, tasks]}
-		<h2>{title}</h2>
-		<div class="mb-6">
+		<h4>{title}</h4>
+		<div>
 			{#each tasks as task}
 				{@const completed = task[1]}
 				<div class={cn(completed && 'bg-primary-solid/20', 'flex items-center gap-4 p-4')}>

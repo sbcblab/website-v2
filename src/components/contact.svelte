@@ -13,8 +13,8 @@
 </script>
 
 <div class="flex flex-col gap-12">
-	<div class="flex flex-col gap-6">
-		<span class="text-lg">{contact.subheading}</span>
+	<div class="flex flex-col gap-8">
+		<span class="text-2xl font-medium">{contact.subheading}</span>
 		<div class="flex flex-col gap-2 text-sm">
 			{#if contact.showEmail}
 				<div class="flex items-center gap-2">

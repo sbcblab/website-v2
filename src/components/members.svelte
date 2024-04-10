@@ -14,7 +14,7 @@
 	const { members } = component;
 </script>
 
-<div class="mt-16 grid grid-cols-4 gap-10 gap-y-16">
+<div class="grid grid-cols-4 gap-10 gap-y-16">
 	{#each members as member}
 		<div class="flex flex-col gap-4 text-sm">
 			<img
@@ -26,8 +26,8 @@
 				<span class="text-[1.1875rem]">{member.name}</span>
 				<span class="font-medium text-primary-solid">{member.role}</span>
 			</div>
-			<span class="font-medium text-foreground/80">{member.areas.join(', ')}</span>
-			<div class="mt-auto flex text-[2rem] [&>a]:text-foreground/80">
+			<span class="font-medium text-foreground-paragraph">{member.areas.join(', ')}</span>
+			<div class="mt-auto flex text-[2rem] [&>a]:text-foreground-paragraph">
 				<a
 					href={member.googleScholar}
 					target="_blank"

@@ -9,7 +9,7 @@
 	const { collaborators } = component;
 </script>
 
-<div class="mt-10 grid grid-cols-2 gap-10">
+<div class="grid grid-cols-2 gap-10">
 	{#each collaborators as collaborator}
 		<div class="flex items-center gap-3">
 			<img class="w-12" src={collaborator.country.flagUrl} alt={collaborator.country.name} />
@@ -21,7 +21,7 @@
 				>
 					{collaborator.name}
 				</a>
-				<span class="text-sm leading-none">
+				<span class="text-sm leading-none text-foreground-paragraph">
 					{[collaborator.institute, collaborator.university, collaborator.country.name]
 						.filter((x) => !!x)
 						.join('/')}

@@ -16,7 +16,7 @@
 
 <div class="flex h-fit min-h-screen min-w-fit flex-col">
 	<Header {socials} {contact} />
-	<main class="relative grow pb-20">
+	<main class="relative grow pb-8">
 		<slot />
 	</main>
 	<Footer {socials} {contact} />
