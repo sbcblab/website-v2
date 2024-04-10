@@ -9,8 +9,10 @@
 
 <header>
 	<HeaderInfo {contact} {socials} />
-	<div class="container flex min-w-fit items-center justify-between gap-24 py-8">
-		<Logo class="h-24 shrink-0" />
-		<HeaderNav />
+	<div class="container flex h-[8.5rem] justify-between gap-16">
+		<a href="/" class="py-6">
+			<Logo class="h-full" />
+		</a>
+		<HeaderNav class="hidden md:flex" />
 	</div>
 </header>

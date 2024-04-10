@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import * as DropdownMenu from '$components/ui/dropdown-menu/index.js';
 	import { cn } from '$lib/utils';
-	import MynauiChevronDown from '~icons/mynaui/chevron-down';
 
 	let path: string | null = null;
 
@@ -26,38 +24,24 @@
 	];
 </script>
 
-<nav class={cn($$props.class, 'flex items-center gap-11 leading-none text-foreground-dim')}>
+<nav class={cn($$props.class)}>
 	{#each pages as page}
-		{#if !page?.subpages}
-			<a
-				href={page.href}
+		<a
+			href={page.href}
+			class={cn(
+				path === page.href
+					? 'bg-accent text-accent-foreground'
+					: 'text-foreground/50 hover:text-foreground',
+				'relative inline-flex items-center px-6 transition-colors'
+			)}
+		>
+			{page.label}
+			<div
 				class={cn(
-					'transition-all hover:text-foreground focus:text-foreground active:text-foreground',
-					path === page.href && 'text-foreground'
+					!(path === page.href) && 'scale-y-0',
+					'absolute left-0 right-0 top-0 h-[0.375rem] origin-top bg-primary-solid transition-transform'
 				)}
-			>
-				{page.label}
-			</a>
-		{:else}
-			<DropdownMenu.Root>
-				<DropdownMenu.Trigger>
-					<a
-						href={page.href}
-						class={cn(
-							'flex items-center gap-1 transition-all hover:text-foreground focus:text-foreground active:text-foreground',
-							path === page.href && 'text-foreground'
-						)}
-					>
-						{page.label}
-						<MynauiChevronDown class="h-4 w-4" />
-					</a>
-				</DropdownMenu.Trigger>
-				<DropdownMenu.Content>
-					{#each page.subpages as subpage}
-						<DropdownMenu.Item href={subpage.href}>{subpage.label}</DropdownMenu.Item>
-					{/each}
-				</DropdownMenu.Content>
-			</DropdownMenu.Root>
-		{/if}
+			/>
+		</a>
 	{/each}
 </nav>

@@ -31,7 +31,7 @@ const config = {
 				background: 'hsl(var(--background) / <alpha-value>)',
 				foreground: {
 					DEFAULT: 'hsl(var(--foreground) / <alpha-value>)',
-					dim: 'hsl(var(--foreground-dim) / <alpha-value>)'
+					paragraph: 'hsl(var(--foreground-paragraph) / <alpha-value>)'
 				},
 				primary: {
 					solid: 'hsl(var(--primary-solid) / <alpha-value>)',
