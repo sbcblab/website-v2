@@ -1,4 +1,6 @@
 <script>
+	import { afterNavigate } from '$app/navigation';
+	import { page } from '$app/stores';
 	import '$src/app.css';
 	import Footer from '$src/components/footer.svelte';
 	import { Header } from '$src/components/header';
@@ -8,6 +10,15 @@
 	export let data;
 
 	const { socials, contact } = data;
+
+	afterNavigate(() => {
+		const hash = $page.url.hash;
+		if (hash) {
+			document.getElementById(location.hash.slice(1))?.scrollIntoView({
+				behavior: 'smooth'
+			});
+		}
+	});
 </script>
 
 <svelte:head>

@@ -42,8 +42,8 @@
 		>
 			{#each page.subpages as subpage}
 				{#if !subpage.subpages}
-					<DropdownMenu.Item href={subpage.href} class={classes.item}>
-						<span class={classes.label}>{subpage.label}</span>
+					<DropdownMenu.Item class={classes.item}>
+						<a href={subpage.href} class={classes.label}>{subpage.label}</a>
 					</DropdownMenu.Item>
 				{:else}
 					<DropdownMenu.Sub>

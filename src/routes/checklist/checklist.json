@@ -5,7 +5,7 @@
 		["feat: make header email and phone expandable on mobile", true],
 		["style: turn nav links into boxes", true],
 		["feat: add nav research dropdown menu", true],
-		["fix: implement link component with section handler", false],
+		["fix: nav links with hash (first-render-only)", true],
 		["feat: add mobile nav menu", false]
 	],
 	"Footer": [["style: update footer style", false]],
