@@ -11,8 +11,7 @@
 		--card-foreground: var(--background);
 		--popover: var(--background);
 		--popover-foreground: var(--foreground);
-		--primary-solid: 172 100% 34%;
-		--primary-link: 172 100% 34%;
+		--primary: 172 100% 34%;
 		--primary-green: 160 90% 39%;
 		--primary-blue: 184 90% 41%;
 		--primary-foreground: var(--background);
@@ -42,7 +41,7 @@
 
 	body {
 		@apply bg-background text-foreground;
-		@apply selection:bg-primary-solid selection:text-primary-foreground;
+		@apply selection:bg-primary selection:text-primary-foreground;
 	}
 }
 
@@ -93,7 +92,7 @@ ul {
 }
 
 li::marker {
-	@apply text-primary-solid;
+	@apply text-primary;
 }
 
 small {
@@ -105,7 +104,7 @@ strong {
 }
 
 section a {
-	@apply text-primary-link transition-opacity;
+	@apply text-primary transition-opacity;
 }
 
 section a:hover,
@@ -123,19 +122,4 @@ img {
 	--mask: linear-gradient(to bottom, #000 90%, transparent);
 	mask-image: var(--mask);
 	-webkit-mask-image: var(--mask);
-}
-
-/* Gradient Handling */
-
-.bg-primary {
-	@apply bg-gradient-to-r from-primary-green to-primary-blue;
-}
-
-.decoration-primary {
-	@apply relative mb-8 pb-4 no-underline;
-}
-
-.decoration-primary::after {
-	@apply bg-gradient-to-r from-primary-green to-primary-blue;
-	@apply absolute bottom-0 left-1/2 -z-10 h-1.5 w-10 -translate-x-1/2 rounded-full content-[''];
 }

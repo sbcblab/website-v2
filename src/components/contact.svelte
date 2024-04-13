@@ -18,25 +18,25 @@
 		<div class="flex flex-col gap-2 text-sm">
 			{#if contact.showEmail}
 				<div class="flex items-center gap-2">
-					<RiMailFill class="h-4 w-4 text-primary-solid" />
+					<RiMailFill class="h-4 w-4 text-primary" />
 					<span>{contact.info.email}</span>
 				</div>
 			{/if}
 			{#if contact.showPhone}
 				<div class="flex items-center gap-2">
-					<RiPhoneFill class="h-4 w-4 text-primary-solid" />
+					<RiPhoneFill class="h-4 w-4 text-primary" />
 					<span>{contact.info.phone}</span>
 				</div>
 			{/if}
 			{#if contact.showLocation}
 				<div class="flex items-center gap-2">
-					<RiHome2Fill class="h-4 w-4 text-primary-solid" />
+					<RiHome2Fill class="h-4 w-4 text-primary" />
 					<span>{contact.info.location}</span>
 				</div>
 			{/if}
 			{#if contact.showAddress}
 				<div class="flex items-center gap-2">
-					<RiMapPinFill class="h-4 w-4 text-primary-solid" />
+					<RiMapPinFill class="h-4 w-4 text-primary" />
 					<span>{contact.info.address}</span>
 				</div>
 			{/if}

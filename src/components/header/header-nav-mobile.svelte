@@ -19,7 +19,7 @@
 	</Sheet.Trigger>
 	<Sheet.Content class="flex flex-col gap-5">
 		<Sheet.Header class="h-10">
-			<LogoIcon class="mr-auto text-primary-solid" />
+			<LogoIcon class="mr-auto text-primary" />
 		</Sheet.Header>
 		<ScrollArea class="bottom-fade grow">
 			<div class="flex flex-col gap-3 pb-12">

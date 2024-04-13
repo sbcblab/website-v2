@@ -25,7 +25,7 @@
 	<div
 		class={cn(
 			!(path === link.href) && 'scale-y-0',
-			'absolute left-0 right-0 top-0 h-[0.375rem] origin-top bg-primary-solid transition-transform'
+			'absolute left-0 right-0 top-0 h-[0.375rem] origin-top bg-primary transition-transform'
 		)}
 	/>
 </a>

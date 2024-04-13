@@ -24,7 +24,7 @@
 			/>
 			<div class="flex flex-col gap-1">
 				<span class="text-[1.1875rem]">{member.name}</span>
-				<span class="font-medium text-primary-solid">{member.role}</span>
+				<span class="font-medium text-primary">{member.role}</span>
 			</div>
 			<span class="font-medium text-foreground-paragraph">{member.areas.join(', ')}</span>
 			<div class="mt-auto flex text-[2rem] [&>a]:text-foreground-paragraph">

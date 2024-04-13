@@ -19,22 +19,17 @@
 			<button
 				on:click={() => (selectedArea = area)}
 				class={cn(
-					selectedArea === area
-						? 'bg-background text-primary-solid'
-						: 'bg-gray-100 text-foreground/80',
+					selectedArea === area ? 'bg-background text-primary' : 'bg-gray-100 text-foreground/80',
 					'relative flex items-center gap-3 text-nowrap border-r py-3 pl-5 pr-16 font-medium [&:not(:last-child)]:border-b'
 				)}
 			>
 				{#if selectedArea === area}
 					<div class="absolute -right-1 bottom-0 top-0 w-2 bg-background" />
-					<div class="absolute bottom-0 left-0 top-0 z-20 w-1 bg-primary-solid" />
+					<div class="absolute bottom-0 left-0 top-0 z-20 w-1 bg-primary" />
 				{/if}
 				{#if area.iconUrl}
 					<div
-						class={cn(
-							selectedArea === area ? 'bg-primary-solid' : 'bg-foreground/80',
-							'mask h-5 w-5'
-						)}
+						class={cn(selectedArea === area ? 'bg-primary' : 'bg-foreground/80', 'mask h-5 w-5')}
 						style={`mask-image: url(${area.iconUrl}); -webkit-mask-image: url(${area.iconUrl});`}
 					/>
 				{/if}

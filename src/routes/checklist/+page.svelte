@@ -11,7 +11,7 @@
 		<div>
 			{#each tasks as task}
 				{@const completed = task[1]}
-				<div class={cn(completed && 'bg-primary-solid/20', 'flex items-center gap-4 p-4')}>
+				<div class={cn(completed && 'bg-primary/20', 'flex items-center gap-4 p-4')}>
 					<div class="h-5 w-5 shrink-0">
 						{#if completed}
 							<LucideCheck class="h-full w-full" />

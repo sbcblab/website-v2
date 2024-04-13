@@ -34,10 +34,9 @@ const config = {
 					paragraph: 'hsl(var(--foreground-paragraph) / <alpha-value>)'
 				},
 				primary: {
-					solid: 'hsl(var(--primary-solid) / <alpha-value>)',
+					DEFAULT: 'hsl(var(--primary) / <alpha-value>)',
 					green: 'hsl(var(--primary-green) / <alpha-value>)',
 					blue: 'hsl(var(--primary-blue) / <alpha-value>)',
-					link: 'hsl(var(--primary-link) / <alpha-value>)',
 					foreground: 'hsl(var(--primary-foreground) / <alpha-value>)'
 				},
 				secondary: {
