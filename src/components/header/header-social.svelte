@@ -1,28 +1,29 @@
 <script lang="ts">
 	import type { Socials } from '$lib/data';
 	import { cn } from '$lib/utils';
-	import RiGithubFill from '~icons/ri/github-fill';
-	import RiInstagramLine from '~icons/ri/instagram-line';
-	import RiLinkedinBoxFill from '~icons/ri/linkedin-box-fill';
-	import RiTwitterXFill from '~icons/ri/twitter-x-fill';
+	import GithubIcon from '~icons/ri/github-fill';
+	import InstagramIcon from '~icons/ri/instagram-line';
+	import LinkedinIcon from '~icons/ri/linkedin-box-fill';
+	import TwitterIcon from '~icons/ri/twitter-x-fill';
 
 	export let socials: Socials;
 
-	const linkClass = 'transition-colors hover:text-card-foreground/75';
-	const iconClass = 'h-5 w-5 md:w-6 md:h-6';
+	const items = [
+		{ href: socials.twitter, icon: TwitterIcon },
+		{ href: socials.instagram, icon: InstagramIcon },
+		{ href: socials.github, icon: GithubIcon },
+		{ href: socials.linkedin, icon: LinkedinIcon }
+	];
 </script>
 
-<div class={cn($$restProps.class, 'flex items-center gap-4 md:gap-5')}>
-	<a href={socials.twitter} class={linkClass} target="_blank">
-		<RiTwitterXFill class={iconClass} />
-	</a>
-	<a href={socials.instagram} class={linkClass} target="_blank">
-		<RiInstagramLine class={iconClass} />
-	</a>
-	<a href={socials.github} class={linkClass} target="_blank">
-		<RiGithubFill class={iconClass} />
-	</a>
-	<a href={socials.linkedin} class={linkClass} target="_blank">
-		<RiLinkedinBoxFill class={iconClass} />
-	</a>
+<div class={cn('flex items-center gap-4 md:gap-5', $$restProps.class)}>
+	{#each items as item}
+		<a
+			href={item.href}
+			target="_blank"
+			class="text-card-foreground/75 transition-colors hover:text-card-foreground"
+		>
+			<svelte:component this={item.icon} class="h-5 w-5" />
+		</a>
+	{/each}
 </div>

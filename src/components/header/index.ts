@@ -1,4 +1,3 @@
-import HeaderContactMobile from './header-contact-mobile.svelte';
 import HeaderContactPopover from './header-contact-popover.svelte';
 import HeaderContact from './header-contact.svelte';
 import HeaderInfo from './header-info.svelte';
@@ -12,7 +11,6 @@ import Header from './header.svelte';
 export {
 	Header,
 	HeaderContact,
-	HeaderContactMobile,
 	HeaderContactPopover,
 	HeaderInfo,
 	HeaderNav,
