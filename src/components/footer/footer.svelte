@@ -20,18 +20,20 @@
 
 <footer class="bg-card">
 	<div class="container text-card-foreground/75">
-		<div class="flex items-center justify-between py-10">
-			<div class="flex flex-col gap-2">
+		<div class="flex flex-col items-center justify-between gap-10 py-10 md:flex-row">
+			<div class="flex flex-col gap-3 md:gap-2">
 				{#each items as item}
 					<div class="flex items-center gap-3">
-						<svelte:component this={item.icon} class="h-4 w-4" />
-						<span class="text-sm font-light">{item.text}</span>
+						<svelte:component this={item.icon} class="h-4 w-4 shrink-0" />
+						<span class="text-xs font-light lg:text-sm">{item.text}</span>
 					</div>
 				{/each}
 			</div>
 			<LogoFooter class="h-24" />
 		</div>
-		<div class="flex items-center justify-between border-t border-background/10 py-8">
+		<div
+			class="flex flex-col-reverse items-center justify-between gap-10 border-t border-background/10 py-8 md:flex-row"
+		>
 			<span class="text-xs font-light text-card-foreground/50">
 				© Copyright 2022 SBCB Laboratory. All Rights Reserved.
 			</span>

@@ -8,7 +8,7 @@
 		["fix: nav links with hash (first-render-only)", true],
 		["feat: add mobile nav menu", true]
 	],
-	"Footer": [["style: update footer style", false]],
+	"Footer": [["style: adjust footer responsiveness and styles", true]],
 	"Home": [
 		["feat: add slogan under banner", false],
 		["feat: add carousel banner", false],
