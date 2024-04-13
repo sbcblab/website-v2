@@ -5,7 +5,7 @@ import HeaderNavDropdown from './header-nav-dropdown.svelte';
 import HeaderNavItem from './header-nav-item.svelte';
 import HeaderNavMobile from './header-nav-mobile.svelte';
 import HeaderNav from './header-nav.svelte';
-import HeaderSocial from './header-social.svelte';
+import HeaderSocials from './header-socials.svelte';
 import Header from './header.svelte';
 
 export {
@@ -17,5 +17,5 @@ export {
 	HeaderNavDropdown,
 	HeaderNavItem,
 	HeaderNavMobile,
-	HeaderSocial
+	HeaderSocials
 };

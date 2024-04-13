@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { HeaderContact, HeaderSocial } from '$components/header';
+	import { HeaderContact, HeaderSocials } from '$components/header';
 	import type { Contact, Socials } from '$lib/data';
 
 	export let contact: Contact;
@@ -9,6 +9,6 @@
 <div class="bg-card">
 	<div class="container flex justify-between py-3 md:py-4">
 		<HeaderContact {contact} />
-		<HeaderSocial {socials} />
+		<HeaderSocials {socials} />
 	</div>
 </div>

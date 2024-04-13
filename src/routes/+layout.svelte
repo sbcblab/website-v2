@@ -1,10 +1,10 @@
 <script>
 	import { afterNavigate } from '$app/navigation';
 	import { page } from '$app/stores';
-	import '$src/app.css';
-	import Footer from '$src/components/footer.svelte';
-	import { Header } from '$src/components/header';
+	import { Footer } from '$components/footer';
+	import { Header } from '$components/header';
 
+	import '$src/app.css';
 	import '@fontsource-variable/inter';
 
 	export let data;
