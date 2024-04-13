@@ -6,7 +6,8 @@
 		["style: turn nav links into boxes", true],
 		["feat: add nav research dropdown menu", true],
 		["fix: nav links with hash (first-render-only)", true],
-		["feat: add mobile nav menu", true]
+		["feat: add mobile nav menu", true],
+		["feat: make mobile navbar sticky", false]
 	],
 	"Footer": [["style: update footer style", false]],
 	"Home": [

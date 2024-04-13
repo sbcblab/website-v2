@@ -7,11 +7,11 @@
 	export let contact: Contact;
 
 	const iconClass = 'h-5 w-5';
-	const textClass = 'text-background/75';
-	const contactClass = 'flex items-center gap-2';
+	const textClass = 'text-background/70 text-sm';
+	const contactClass = 'flex items-center gap-3';
 </script>
 
-<div class={cn($$restProps.class, 'gap-9')}>
+<div class={cn($$restProps.class, 'gap-10')}>
 	<div class={contactClass}>
 		<HeroiconsEnvelopeSolid class={iconClass} />
 		<span class={textClass}>{contact.email}</span>

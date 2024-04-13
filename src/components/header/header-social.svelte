@@ -9,10 +9,10 @@
 	export let socials: Socials;
 
 	const linkClass = 'transition-colors hover:text-card-foreground/75';
-	const iconClass = 'h-7 w-7';
+	const iconClass = 'h-5 w-5 md:w-6 md:h-6';
 </script>
 
-<div class={cn($$restProps.class, 'flex items-center gap-5')}>
+<div class={cn($$restProps.class, 'flex items-center gap-4 md:gap-5')}>
 	<a href={socials.twitter} class={linkClass} target="_blank">
 		<RiTwitterXFill class={iconClass} />
 	</a>

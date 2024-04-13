@@ -1,16 +1,15 @@
 <script lang="ts">
-	import SocialLinks from '$components/social-links.svelte';
+	import { HeaderContact, HeaderContactMobile, HeaderSocial } from '$components/header';
 	import type { Contact, Socials } from '$lib/data';
-	import { HeaderContact, HeaderContactMobile } from './';
 
 	export let contact: Contact;
 	export let socials: Socials;
 </script>
 
 <div class="bg-card text-sm text-background/50">
-	<div class="container flex justify-between px-8">
+	<div class="container flex justify-between px-8 py-3">
 		<HeaderContact {contact} class="hidden md:flex" />
 		<HeaderContactMobile {contact} class="md:hidden" />
-		<SocialLinks {socials} class="py-4" />
+		<HeaderSocial {socials} />
 	</div>
 </div>

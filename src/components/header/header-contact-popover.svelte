@@ -21,15 +21,18 @@
 
 <Popover.Root open={popoverOpen} onOpenChange={(value) => (popoverOpen = value)}>
 	<Popover.Trigger
-		class={cn(popoverOpen && 'text-background/75', 'flex items-center gap-1 transition-colors')}
+		class={cn(
+			popoverOpen && 'text-background/75',
+			'flex items-center gap-[.0625rem] transition-colors'
+		)}
 	>
-		<svelte:component this={icon} class="h-6 w-6" />
-		<ChevronDownIcon class={cn(popoverOpen && 'rotate-180', 'transition-transform')} />
+		<svelte:component this={icon} class="h-5 w-5" />
+		<ChevronDownIcon class="h-4 w-4" />
 	</Popover.Trigger>
 	<Popover.Content
-		class="flex w-fit flex-col items-center gap-2 border-background/10 bg-card text-sm text-background/75"
+		class="mt-1 flex w-fit flex-col items-center gap-2 border-background/10 bg-card text-sm text-background/75"
 	>
-		<button on:click={(e) => handleClick(e.currentTarget)} class="flex items-center gap-2">
+		<button on:click={(e) => handleClick(e.currentTarget)} class="flex items-center gap-2 text-sm">
 			{text}
 			<BiCopy class="h-3 w-3 text-background/50" />
 		</button>
