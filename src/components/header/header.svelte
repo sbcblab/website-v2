@@ -1,18 +1,23 @@
 <script lang="ts">
 	import Logo from '$components/assets/logo.svelte';
-	import { HeaderInfo, HeaderNav } from '$components/header';
-	import type { Contact, Socials } from '$lib/data';
+	import { HeaderInfo, HeaderNav, HeaderNavMobile } from '$components/header';
+	import type { Contact, NavLink, Socials } from '$lib/data';
+	import { writable } from 'svelte/store';
 
 	export let contact: Contact;
 	export let socials: Socials;
+	export let nav: NavLink[];
+
+	const mobileNavOpen = writable(false);
 </script>
 
 <header>
 	<HeaderInfo {contact} {socials} />
-	<div class="container flex h-[8.5rem] justify-between gap-16">
-		<a href="/" class="py-6">
-			<Logo class="h-full" />
+	<div class="container relative flex h-28 justify-between md:h-[8.5rem]">
+		<a href="/" class="shrink-0 py-4 md:py-6">
+			<Logo class="h-full shrink-0" />
 		</a>
-		<HeaderNav class="hidden md:flex" />
+		<HeaderNav {nav} class="hidden lg:flex" />
+		<HeaderNavMobile {nav} open={mobileNavOpen} class="inline-flex lg:hidden" />
 	</div>
 </header>

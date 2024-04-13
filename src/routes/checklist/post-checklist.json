@@ -1,0 +1,5 @@
+{
+	"Header": [["refactor: desktop nav dropdown menu", false]],
+	"Sections": [["feat: add zoom functionality to section images", false]],
+	"General": [["feat: make all website colors modifiable on strapi", false]]
+}

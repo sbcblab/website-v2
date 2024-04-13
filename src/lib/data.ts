@@ -85,6 +85,12 @@ export interface ResearchArea {
 	keywords: string[];
 }
 
+export interface NavLink {
+	label: string;
+	href: string;
+	subLinks?: NavLink[];
+}
+
 export interface Socials {
 	twitter: string;
 	instagram: string;
@@ -203,6 +209,12 @@ export async function getSections(pageSlug: PageSlug): Promise<Section[]> {
 	});
 
 	return sections;
+}
+
+export async function getNav(): Promise<NavLink[]> {
+	const data = await fetchData('global');
+
+	return data.attributes.nav;
 }
 
 export async function getSocials(): Promise<Socials> {

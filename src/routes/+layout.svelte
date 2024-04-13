@@ -9,7 +9,7 @@
 
 	export let data;
 
-	const { socials, contact } = data;
+	const { socials, contact, nav } = data;
 
 	afterNavigate(() => {
 		const hash = $page.url.hash;
@@ -26,7 +26,7 @@
 </svelte:head>
 
 <div class="flex h-fit min-h-screen min-w-fit flex-col">
-	<Header {socials} {contact} />
+	<Header {socials} {contact} {nav} />
 	<main class="relative grow pb-8">
 		<slot />
 	</main>

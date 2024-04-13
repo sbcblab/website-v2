@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { HeaderNavItem } from '$components/header';
+	import type { NavLink } from '$lib/data';
 	import { cn, flyAndScale, sleep } from '$lib/utils';
 	import { DropdownMenu } from 'bits-ui';
 	import ChevronRightIcon from '~icons/radix-icons/chevron-right';
 
-	export let page: any;
+	export let link: NavLink;
 
 	let open: boolean = false;
 	let pointerOnTrigger: boolean = false;
@@ -27,7 +28,7 @@
 <DropdownMenu.Root {open} disableFocusFirstItem>
 	<DropdownMenu.Trigger class="focus:outline-none">
 		<HeaderNavItem
-			{page}
+			{link}
 			on:pointerenter={() => (pointerOnTrigger = true)}
 			on:pointerleave={() => (pointerOnTrigger = false)}
 		/>
@@ -40,32 +41,37 @@
 			on:pointerenter={() => (pointerOnContent = true)}
 			on:pointerleave={() => (pointerOnContent = false)}
 		>
-			{#each page.subpages as subpage}
-				{#if !subpage.subpages}
-					<DropdownMenu.Item class={classes.item}>
-						<a href={subpage.href} class={classes.label}>{subpage.label}</a>
-					</DropdownMenu.Item>
-				{:else}
-					<DropdownMenu.Sub>
-						<DropdownMenu.SubTrigger class={classes.item}>
-							<a href={subpage.href} class={classes.label}>{subpage.label}</a>
-							<ChevronRightIcon class="h-4 w-4" />
-						</DropdownMenu.SubTrigger>
-						<DropdownMenu.SubContent class={cn('-mt-2', classes.content)} transition={flyAndScale}>
-							<div
-								on:pointerenter={() => (pointerOnSub = true)}
-								on:pointerleave={() => (pointerOnSub = false)}
+			{#if !!link.subLinks}
+				{#each link.subLinks as subLink}
+					{#if !subLink.subLinks}
+						<DropdownMenu.Item class={classes.item}>
+							<a href={subLink.href} class={classes.label}>{subLink.label}</a>
+						</DropdownMenu.Item>
+					{:else}
+						<DropdownMenu.Sub>
+							<DropdownMenu.SubTrigger class={classes.item}>
+								<a href={subLink.href} class={classes.label}>{subLink.label}</a>
+								<ChevronRightIcon class="h-4 w-4" />
+							</DropdownMenu.SubTrigger>
+							<DropdownMenu.SubContent
+								class={cn('-mt-2', classes.content)}
+								transition={flyAndScale}
 							>
-								{#each subpage.subpages as subsubpage}
-									<DropdownMenu.Item href={subsubpage.href} class={classes.item}>
-										<span class={classes.label}>{subsubpage.label}</span>
-									</DropdownMenu.Item>
-								{/each}
-							</div>
-						</DropdownMenu.SubContent>
-					</DropdownMenu.Sub>
-				{/if}
-			{/each}
+								<div
+									on:pointerenter={() => (pointerOnSub = true)}
+									on:pointerleave={() => (pointerOnSub = false)}
+								>
+									{#each subLink.subLinks as subsubpage}
+										<DropdownMenu.Item href={subsubpage.href} class={classes.item}>
+											<span class={classes.label}>{subsubpage.label}</span>
+										</DropdownMenu.Item>
+									{/each}
+								</div>
+							</DropdownMenu.SubContent>
+						</DropdownMenu.Sub>
+					{/if}
+				{/each}
+			{/if}
 		</div>
 	</DropdownMenu.Content>
 </DropdownMenu.Root>

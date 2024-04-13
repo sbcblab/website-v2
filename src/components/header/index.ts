@@ -3,6 +3,7 @@ import HeaderContact from './header-contact.svelte';
 import HeaderInfo from './header-info.svelte';
 import HeaderNavDropdown from './header-nav-dropdown.svelte';
 import HeaderNavItem from './header-nav-item.svelte';
+import HeaderNavMobile from './header-nav-mobile.svelte';
 import HeaderNav from './header-nav.svelte';
 import Header from './header.svelte';
 
@@ -13,5 +14,6 @@ export {
 	HeaderInfo,
 	HeaderNav,
 	HeaderNavDropdown,
-	HeaderNavItem
+	HeaderNavItem,
+	HeaderNavMobile
 };

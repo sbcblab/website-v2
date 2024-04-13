@@ -117,23 +117,12 @@ img {
 	@apply inline-block h-[revert-layer];
 }
 
-.lead {
-	@apply text-xl text-muted-foreground;
-}
+/* Utilities */
 
-.large {
-	@apply text-lg font-semibold;
-}
-
-.muted {
-	@apply text-sm text-muted-foreground;
-}
-
-.mask {
-	mask-size: 100%;
-	-webkit-mask-repeat: no-repeat;
-	mask-repeat: no-repeat;
-	mask-position: center;
+.bottom-fade {
+	--mask: linear-gradient(to bottom, #000 90%, transparent);
+	mask-image: var(--mask);
+	-webkit-mask-image: var(--mask);
 }
 
 /* Gradient Handling */
