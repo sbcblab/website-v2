@@ -17,7 +17,9 @@
 		<a href="/" class="shrink-0 py-4 md:py-6">
 			<Logo class="h-full shrink-0" />
 		</a>
-		<HeaderNav {nav} class="hidden lg:flex" />
-		<HeaderNavMobile {nav} open={mobileNavOpen} class="inline-flex lg:hidden" />
+		<div class="flex">
+			<HeaderNav {nav} class="hidden lg:flex" />
+			<HeaderNavMobile {nav} open={mobileNavOpen} class="inline-flex lg:hidden" />
+		</div>
 	</div>
 </header>
