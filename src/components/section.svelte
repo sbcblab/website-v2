@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Section } from '$lib/data';
+	import Banner from './banner.svelte';
 	import Collaborators from './collaborators.svelte';
 	import Contact from './contact.svelte';
 	import Guests from './guests.svelte';
@@ -29,6 +30,8 @@
 			<div class="container">
 				<Markdown content={component.content} />
 			</div>
+		{:else if component.type === 'banner'}
+			<Banner {component} />
 		{:else}
 			<div class="container mt-12">
 				{#if ['image', 'image-row'].includes(component.type)}

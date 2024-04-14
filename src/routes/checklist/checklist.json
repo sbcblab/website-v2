@@ -10,24 +10,24 @@
 	],
 	"Footer": [["style: adjust footer responsiveness and styles", true]],
 	"Home": [
-		["feat: add slogan under banner", false],
-		["feat: add carousel banner", false],
-		["style: update about section style", false],
-		["style: update hiring section style", false],
-		["style: update tools-datasets section style", false],
-		["style: update international-cooperation section style", false],
-		["style: update partnerships section style", false]
+		["feat: add carousel banner", true],
+		["feat: add slogan", false],
+		["style: about", false],
+		["style: hiring", false],
+		["style: tools-datasets", false],
+		["style: international-cooperation", false],
+		["style: partnerships", false]
 	],
 	"Research": [
-		["style: update research-areas section style", false],
-		["style: update publications section style", false],
-		["style: update facilities section style", false]
+		["style: research-areas", false],
+		["style: publications", false],
+		["style: facilities", false]
 	],
-	"Projects": [["style: update projects section style", false]],
+	"Projects": [["style: projects", false]],
 	"Members": [
-		["style: update members section style", false],
-		["style: update guests section style", false],
-		["style: update collaborators section style", false]
+		["style: members", false],
+		["style: guests", false],
+		["style: collaborators", false]
 	],
-	"Contact": [["style: update contact section style", false]]
+	"Contact": [["style: contact", false]]
 }

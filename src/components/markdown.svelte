@@ -1,9 +1,9 @@
 <script lang="ts">
 	import SvelteMarkdown from 'svelte-markdown';
 
-	export let content: string | undefined;
+	export let content: string;
 </script>
 
-{#if content}
+<div {...$$restProps}>
 	<SvelteMarkdown source={content} />
-{/if}
+</div>

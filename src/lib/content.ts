@@ -91,6 +91,23 @@ export async function processSectionContent(content: any): Promise<(object | und
 			};
 		}
 
+		if (component.__component === 'unique.banner') {
+			proccessedComponent = {
+				type: 'banner',
+				defaultBackgroundUrl:
+					env.PUBLIC_STRAPI_URL + component.defaultBackground.data.attributes.url,
+				slides: component.slides.map((slide: any) => {
+					return {
+						heading: slide.heading,
+						description: slide.description,
+						link: slide.link,
+						imageUrl: env.PUBLIC_STRAPI_URL + slide.image.data.attributes.url,
+						backgroundUrl: env.PUBLIC_STRAPI_URL + slide.background.data.attributes.url
+					};
+				})
+			};
+		}
+
 		if (component.__component === 'unique.tools-and-datasets') {
 			proccessedComponent = {
 				type: 'tools-datasets',

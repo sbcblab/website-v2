@@ -6,8 +6,6 @@
 	const { sections } = data;
 </script>
 
-<div class="mb-12 h-[26rem] bg-gray-200" />
-
 {#each sections as section}
 	<Section {section} />
 {/each}
