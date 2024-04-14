@@ -1,5 +1,4 @@
-import { env } from '$env/dynamic/public';
-import { getContact } from './data';
+import { getContact, STRAPI_URL } from './data';
 
 export async function processSectionContent(content: any): Promise<(object | undefined)[]> {
 	const proccessedContent: (object | undefined)[] = [];
@@ -31,7 +30,7 @@ export async function processSectionContent(content: any): Promise<(object | und
 		if (component.__component === 'general.image') {
 			proccessedComponent = {
 				type: 'image',
-				imageUrl: env.PUBLIC_STRAPI_URL + component.image.data.attributes.url,
+				imageUrl: STRAPI_URL + component.image.data.attributes.url,
 				alt: component.image.data.attributes.alternativeText,
 				height: component.height,
 				link: component.link,
@@ -42,7 +41,7 @@ export async function processSectionContent(content: any): Promise<(object | und
 		if (component.__component === 'general.image') {
 			proccessedComponent = {
 				type: 'image',
-				imageUrl: env.PUBLIC_STRAPI_URL + component.image.data.attributes.url,
+				imageUrl: STRAPI_URL + component.image.data.attributes.url,
 				alt: component.image.data.attributes.alternativeText,
 				height: component.height,
 				link: component.link,
@@ -57,7 +56,7 @@ export async function processSectionContent(content: any): Promise<(object | und
 				justify: component.justify,
 				images: component.images.map((image: any) => {
 					return {
-						imageUrl: env.PUBLIC_STRAPI_URL + image.image.data.attributes.url,
+						imageUrl: STRAPI_URL + image.image.data.attributes.url,
 						alt: image.image.data.attributes.alternativeText,
 						height: component.imagesHeight,
 						link: image.link,
@@ -94,15 +93,14 @@ export async function processSectionContent(content: any): Promise<(object | und
 		if (component.__component === 'unique.banner') {
 			proccessedComponent = {
 				type: 'banner',
-				defaultBackgroundUrl:
-					env.PUBLIC_STRAPI_URL + component.defaultBackground.data.attributes.url,
+				defaultBackgroundUrl: STRAPI_URL + component.defaultBackground.data.attributes.url,
 				slides: component.slides.map((slide: any) => {
 					return {
 						heading: slide.heading,
 						description: slide.description,
 						link: slide.link,
-						imageUrl: env.PUBLIC_STRAPI_URL + slide.image.data.attributes.url,
-						backgroundUrl: env.PUBLIC_STRAPI_URL + slide.background.data.attributes.url
+						imageUrl: STRAPI_URL + slide.image.data.attributes.url,
+						backgroundUrl: STRAPI_URL + slide.background.data.attributes.url
 					};
 				})
 			};
@@ -116,7 +114,7 @@ export async function processSectionContent(content: any): Promise<(object | und
 						title: tool.attributes.title,
 						description: tool.attributes.description,
 						link: tool.attributes.link,
-						imageUrl: env.PUBLIC_STRAPI_URL + tool.attributes.image.data.attributes.url
+						imageUrl: STRAPI_URL + tool.attributes.image.data.attributes.url
 					};
 				}),
 				datasets: component.datasets.data.map((dataset: any) => {
@@ -124,7 +122,7 @@ export async function processSectionContent(content: any): Promise<(object | und
 						title: dataset.attributes.title,
 						description: dataset.attributes.description,
 						link: dataset.attributes.link,
-						imageUrl: env.PUBLIC_STRAPI_URL + dataset.attributes.image.data.attributes.url
+						imageUrl: STRAPI_URL + dataset.attributes.image.data.attributes.url
 					};
 				})
 			};
@@ -171,7 +169,7 @@ export async function processSectionContent(content: any): Promise<(object | und
 						title: project.attributes.title,
 						link: project.attributes.link,
 						description: project.attributes.description,
-						imageUrl: env.PUBLIC_STRAPI_URL + project.attributes.image.data.attributes.url
+						imageUrl: STRAPI_URL + project.attributes.image.data.attributes.url
 					};
 				})
 			};
@@ -182,7 +180,7 @@ export async function processSectionContent(content: any): Promise<(object | und
 				type: 'members',
 				members: component.members.data.map((member: any) => {
 					return {
-						pictureUrl: env.PUBLIC_STRAPI_URL + member.attributes.picture.data.attributes.url,
+						pictureUrl: STRAPI_URL + member.attributes.picture.data.attributes.url,
 						name: member.attributes.name,
 						role: member.attributes.role,
 						areas: member.attributes.areas.data.map((area: any) => area.attributes.name),
@@ -223,7 +221,7 @@ export async function processSectionContent(content: any): Promise<(object | und
 						country: {
 							name: collaborator.attributes.country.data.attributes.name,
 							flagUrl:
-								env.PUBLIC_STRAPI_URL +
+								STRAPI_URL +
 								collaborator.attributes.country.data.attributes.flag.data.attributes.url
 						}
 					};
@@ -240,8 +238,7 @@ export async function processSectionContent(content: any): Promise<(object | und
 						fullTitle: area.attributes.fullTitle,
 						description: area.attributes.description,
 						iconUrl:
-							area.attributes.icon.data &&
-							env.PUBLIC_STRAPI_URL + area.attributes.icon.data.attributes.url,
+							area.attributes.icon.data && STRAPI_URL + area.attributes.icon.data.attributes.url,
 						keywords: area.attributes.keywords.map((keyword: any) => keyword.name)
 					};
 				})

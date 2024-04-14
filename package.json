@@ -8,13 +8,12 @@
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"precommit": "git add . && lint-staged"
+		"precommit": "git add . && lint-staged && npm run check"
 	},
 	"lint-staged": {
-		"*": [
+		"*.{js,ts,svelte,json}": [
 			"eslint --fix",
-			"prettier --write",
-			"npm run check"
+			"prettier --write"
 		]
 	},
 	"devDependencies": {
