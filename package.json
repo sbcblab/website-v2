@@ -8,8 +8,14 @@
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"lint": "prettier --check . && eslint . --fix",
-		"format": "prettier --write ."
+		"precommit": "git add . && lint-staged"
+	},
+	"lint-staged": {
+		"*": [
+			"eslint --fix",
+			"prettier --write",
+			"npm run check"
+		]
 	},
 	"devDependencies": {
 		"@iconify/json": "^2.2.189",
@@ -25,6 +31,8 @@
 		"eslint": "^8.56.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.35.1",
+		"husky": "^9.0.11",
+		"lint-staged": "^15.2.2",
 		"postcss": "^8.4.35",
 		"prettier": "^3.2.5",
 		"prettier-plugin-svelte": "^3.2.2",
