@@ -11,7 +11,7 @@
 	"Footer": [["style: adjust footer responsiveness and styles", true]],
 	"Home": [
 		["feat: add carousel banner", true],
-		["feat: add slogan", false],
+		["feat: add slogan", true],
 		["style: about", false],
 		["style: hiring", false],
 		["style: tools-datasets", false],
@@ -29,5 +29,10 @@
 		["style: guests", false],
 		["style: collaborators", false]
 	],
-	"Contact": [["style: contact", false]]
+	"Contact": [["style: contact", false]],
+	"General": [["feat: make all svg colors reactive", false]],
+	"Performance": [
+		["feat: optimize images", false],
+		["feat: replace carousel js animations with css", false]
+	]
 }

@@ -1,8 +1,7 @@
-import { env } from '$env/dynamic/private';
+import { env as privateEnv } from '$env/dynamic/private';
+import { env as publicEnv } from '$env/dynamic/public';
 import qs from 'qs';
 import { processSectionContent } from './content';
-
-export const STRAPI_URL = 'https://sbcb.inf.ufrgs.br/strapi';
 
 type PageSlug = 'home' | 'research' | 'projects' | 'team' | 'contact';
 
@@ -117,11 +116,14 @@ export interface ContactSection {
 
 async function fetchData(endpoint: string, urlParamsObject?: object) {
 	const queryString = decodeURI(qs.stringify(urlParamsObject));
-	return await fetch(`${STRAPI_URL}/api/${endpoint}${queryString ? `?${queryString}` : ''}`, {
-		headers: {
-			Authorization: `Bearer ${env.STRAPI_API_TOKEN}`
+	return await fetch(
+		`${publicEnv.PUBLIC_STRAPI_URL}/api/${endpoint}${queryString ? `?${queryString}` : ''}`,
+		{
+			headers: {
+				Authorization: `Bearer ${privateEnv.STRAPI_API_TOKEN}`
+			}
 		}
-	})
+	)
 		.then((response) => response.json())
 		.then((data) => data.data);
 }

@@ -5,9 +5,9 @@
 @layer base {
 	:root {
 		--background: 0 0% 100%;
-		--foreground: 0 0% 11%;
-		--foreground-paragraph: 0 0% 34%;
-		--card: var(--foreground);
+		--foreground: 220 15% 11%;
+		--foreground-paragraph: 215 15% 34%;
+		--card: 0 0% 8%;
 		--card-foreground: var(--background);
 		--popover: var(--background);
 		--popover-foreground: var(--foreground);

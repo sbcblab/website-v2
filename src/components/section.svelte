@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Section } from '$lib/data';
+	import DOMPurify from 'isomorphic-dompurify';
 	import Banner from './banner.svelte';
 	import Collaborators from './collaborators.svelte';
 	import Contact from './contact.svelte';
@@ -11,6 +12,7 @@
 	import Publications from './publications.svelte';
 	import ResearchAreas from './research-areas.svelte';
 	import SectionImage from './section-image.svelte';
+	import Slogan from './slogan.svelte';
 	import ToolsDatasets from './tools-datasets.svelte';
 
 	export let section: Section;
@@ -32,6 +34,8 @@
 			</div>
 		{:else if component.type === 'banner'}
 			<Banner {component} />
+		{:else if component.type === 'slogan'}
+			<Slogan text={component.text} />
 		{:else}
 			<div class="container mt-12">
 				{#if ['image', 'image-row'].includes(component.type)}
@@ -48,7 +52,8 @@
 						{/if}
 					</div>
 				{:else if component.type === 'html'}
-					{@html component.content}
+					<!-- eslint-disable-next-line svelte/no-at-html-tags (sanitize() will prevent XSS attacks) -->
+					{@html DOMPurify.sanitize(component.content)}
 				{:else if component.type === 'iframe'}
 					<Iframe {component} />
 				{:else if component.type === 'tools-datasets'}
