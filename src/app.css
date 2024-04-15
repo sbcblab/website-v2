@@ -48,23 +48,19 @@
 /* Base Styles */
 
 h1 {
-	@apply text-6xl font-bold tracking-tight;
-}
-
-h2 {
 	@apply text-4xl font-light;
 }
 
-h3 {
-	@apply text-4xl font-bold tracking-tight;
+h2 {
+	@apply text-4xl font-bold;
 }
 
-h4 {
-	@apply text-2xl font-bold tracking-tight;
+h3 {
+	@apply text-3xl font-bold;
 }
 
 p {
-	@apply my-8 text-justify text-lg leading-[1.875rem] text-foreground-paragraph;
+	@apply my-8 text-lg leading-[1.875rem] text-foreground-paragraph;
 }
 
 blockquote {
@@ -121,4 +117,32 @@ img {
 .bottom-fade {
 	--mask: linear-gradient(to bottom, #000 90%, transparent);
 	mask-image: var(--mask);
+}
+
+.strong-underline strong {
+	font-weight: inherit;
+	position: relative;
+}
+.strong-underline strong::after {
+	background-image: var(--underline);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	content: '';
+	display: block;
+	height: 0.3em;
+	left: -0.2em;
+	position: absolute;
+	top: calc(100% - 0.15em);
+	width: calc(100% + 0.4em);
+}
+
+.slogan {
+	@apply container my-20 max-w-[40rem] text-center text-[2.75rem]/[1.1] font-bold;
+}
+
+.slogan p {
+	margin: 0;
+	font-size: inherit;
+	color: inherit;
+	line-height: inherit;
 }

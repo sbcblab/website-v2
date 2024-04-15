@@ -31,8 +31,5 @@
 	],
 	"Contact": [["style: contact", false]],
 	"General": [["feat: make all svg colors reactive", false]],
-	"Performance": [
-		["feat: optimize images", false],
-		["feat: replace carousel js animations with css", false]
-	]
+	"Performance": [["feat: optimize images", false]]
 }

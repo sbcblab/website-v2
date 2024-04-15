@@ -7,16 +7,23 @@ export async function processSectionContent(content: any): Promise<(object | und
 	for (const component of content) {
 		let proccessedComponent: object | undefined;
 
-		if (component.__component === 'general.heading') {
+		if (component.__component === 'general.heading-1') {
 			proccessedComponent = {
-				type: 'heading',
+				type: 'heading-1',
 				text: component.text
 			};
 		}
 
-		if (component.__component === 'general.subheading') {
+		if (component.__component === 'general.heading-2') {
 			proccessedComponent = {
-				type: 'subheading',
+				type: 'heading-2',
+				text: component.text
+			};
+		}
+
+		if (component.__component === 'general.heading-3') {
+			proccessedComponent = {
+				type: 'heading-3',
 				text: component.text
 			};
 		}

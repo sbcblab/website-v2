@@ -21,12 +21,16 @@
 
 <section id={section.slug}>
 	{#each section.content as component}
-		{#if component.type === 'heading'}
+		{#if component.type === 'heading-1'}
 			<div class="mb-12 bg-card">
-				<h2 class="container py-6 text-card-foreground">{component.text}</h2>
+				<h1 class="container py-6 text-card-foreground">{component.text}</h1>
 			</div>
-		{:else if component.type === 'subheading'}
-			<div class="container mb-8">
+		{:else if component.type === 'heading-2'}
+			<div class="container mb-10 mt-20">
+				<h2>{component.text}</h2>
+			</div>
+		{:else if component.type === 'heading-3'}
+			<div class="container mb-4 mt-8">
 				<h3>{component.text}</h3>
 			</div>
 		{:else if component.type === 'rich-text'}
@@ -38,7 +42,7 @@
 		{:else if component.type === 'slogan'}
 			<Slogan text={component.text} />
 		{:else}
-			<div class="container mt-12">
+			<div class="container mb-16">
 				{#if ['image', 'image-row'].includes(component.type)}
 					<div
 						class="my-6 flex"

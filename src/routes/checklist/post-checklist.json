@@ -1,4 +1,5 @@
 {
+	"Performance": [["feat: replace carousel js animations with css", false]],
 	"General": [
 		["feat: make all website colors customizable on strapi", false],
 		["refactor: move all types to a single file and add missing types", false]
