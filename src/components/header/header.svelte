@@ -15,7 +15,7 @@
 	<HeaderInfo {contact} {socials} />
 	<div class="container relative flex h-[6.5rem] justify-between md:h-[8.5rem]">
 		<a href="/" class="shrink-0 py-4 md:py-6">
-			<Logo class="h-full shrink-0" />
+			<Logo class="h-full shrink-0 text-foreground" />
 		</a>
 		<div class="flex">
 			<HeaderNav {nav} class="hidden lg:flex" />

@@ -1,5 +1,5 @@
 {
-	"Sections": [["style: update general section spacing and text style", true]],
+	"General": [["style: fix all responsiveness issues", true]],
 	"Header": [
 		["feat: add header info bar", true],
 		["feat: make header email and phone expandable on mobile", true],
@@ -8,28 +8,15 @@
 		["fix: nav links with hash (first-render-only)", true],
 		["feat: add mobile nav menu", true]
 	],
+	"Sections": [["style: update general section spacing and text style", true]],
 	"Footer": [["style: adjust footer responsiveness and styles", true]],
 	"Home": [
 		["feat: add carousel banner", true],
 		["feat: add slogan", true],
-		["style: redesign partnerships section and remake SVGs", true],
-		["style: about", false],
-		["style: hiring", false],
-		["style: tools-datasets", false],
-		["style: international-cooperation", false]
+		["style: redesign partnerships section and remake SVGs", true]
 	],
-	"Research": [
-		["style: research-areas", false],
-		["style: publications", false],
-		["style: facilities", false]
-	],
-	"Projects": [["style: projects", false]],
-	"Members": [
-		["style: members", false],
-		["style: guests", false],
-		["style: collaborators", false]
-	],
-	"Contact": [["style: contact", false]],
-	"General": [["feat: make all svg colors reactive", false]],
-	"Performance": [["feat: optimize images", false]]
+	"Performance": [
+		["chore: optimize images", false],
+		["refactor: optimize preload javascript", false]
+	]
 }

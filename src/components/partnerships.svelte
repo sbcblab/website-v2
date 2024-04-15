@@ -10,8 +10,10 @@
 	};
 </script>
 
-<div class="my-20 space-y-10">
-	<h3 class="text-center text-xl">{component.heading}</h3>
+<div class="mt-12 space-y-10">
+	{#if component.heading}
+		<h3 class="text-center text-xl">{component.heading}</h3>
+	{/if}
 	<div class="grid grid-cols-2 justify-items-center gap-10 px-4 md:grid-cols-4 md:px-0">
 		{#each component.partnerships as partnership}
 			<a

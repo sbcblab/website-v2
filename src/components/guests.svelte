@@ -10,7 +10,7 @@
 	const { guests } = component;
 </script>
 
-<div class="grid grid-cols-2 gap-10">
+<div class="grid grid-cols-1 gap-x-4 gap-y-10 md:grid-cols-2">
 	{#each guests as guest}
 		<div class="flex flex-col gap-1">
 			<div class="flex items-baseline gap-1 leading-none">

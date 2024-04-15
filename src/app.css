@@ -59,8 +59,12 @@ h3 {
 	@apply text-3xl font-bold;
 }
 
+h4 {
+	@apply text-2xl font-bold;
+}
+
 p {
-	@apply my-8 text-lg leading-[1.875rem] text-foreground-paragraph;
+	@apply my-8 text-justify text-lg leading-[1.875rem] text-foreground-paragraph md:text-start;
 }
 
 blockquote {
@@ -145,4 +149,5 @@ img {
 	font-size: inherit;
 	color: inherit;
 	line-height: inherit;
+	text-align: inherit;
 }

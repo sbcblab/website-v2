@@ -22,11 +22,11 @@
 <section id={section.slug}>
 	{#each section.content as component}
 		{#if component.type === 'heading-1'}
-			<div class="mb-12 bg-card">
+			<div class="mb-12 bg-card text-center md:text-start">
 				<h1 class="container py-6 text-card-foreground">{component.text}</h1>
 			</div>
 		{:else if component.type === 'heading-2'}
-			<div class="container mb-10 mt-20">
+			<div class="container mb-8 mt-20 text-center md:text-start">
 				<h2>{component.text}</h2>
 			</div>
 		{:else if component.type === 'heading-3'}

@@ -2,6 +2,7 @@
 	import type { ResearchArea } from '$lib/data';
 	import { cn } from '$lib/utils';
 	import Markdown from './markdown.svelte';
+	import Svg from './svg.svelte';
 
 	export let component: {
 		researchAreas: ResearchArea[];
@@ -12,7 +13,7 @@
 	let selectedArea: ResearchArea = researchAreas[0];
 </script>
 
-<div class="flex">
+<div class="flex flex-col md:flex-row">
 	<div class="relative z-10 flex h-min flex-col border-y">
 		<div class="absolute bottom-0 left-0 top-0 z-10 w-1 bg-[#6E6E6E]" />
 		{#each researchAreas as area}
@@ -24,13 +25,18 @@
 				)}
 			>
 				{#if selectedArea === area}
-					<div class="absolute -right-1 bottom-0 top-0 w-2 bg-background" />
+					<div class="absolute -right-1 bottom-0 top-0 hidden w-2 bg-background md:block" />
 					<div class="absolute bottom-0 left-0 top-0 z-20 w-1 bg-primary" />
 				{/if}
 				{#if area.iconUrl}
-					<div
+					<!-- <div
 						class={cn(selectedArea === area ? 'bg-primary' : 'bg-foreground/80', 'mask h-5 w-5')}
 						style={`mask-image: url(${area.iconUrl}); -webkit-mask-image: url(${area.iconUrl});`}
+					/> -->
+					<Svg
+						src={area.iconUrl}
+						overrideFill
+						class={cn(selectedArea === area ? 'text-primary' : 'text-foreground/80', 'h-5 w-5')}
 					/>
 				{/if}
 				<span>{area.title}</span>
@@ -38,7 +44,7 @@
 		{/each}
 	</div>
 	<div class="-translate-x-[1px] border p-8 [&>p]:text-base">
-		<h3 class="mb-4 text-lg leading-none">{selectedArea.fullTitle}</h3>
+		<h3 class="mb-4 text-lg">{selectedArea.fullTitle}</h3>
 		<Markdown content={researchAreas.find((area) => area === selectedArea)?.description || ''} />
 		{#if selectedArea.keywords.length}
 			<h4 class="font-base mb-4 mt-10 text-base leading-none">Keywords</h4>

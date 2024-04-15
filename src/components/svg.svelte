@@ -18,12 +18,13 @@
 
 				svg.setAttribute('width', '100%');
 				svg.setAttribute('height', '100%');
-				svg.setAttribute('class', $$restProps.class);
 
 				if (overrideFill) {
 					svg.setAttribute('fill', 'currentColor');
 					svg.querySelectorAll('path').forEach((path) => {
-						path.style.fill = 'currentColor';
+						if (path.getAttribute('fill') !== 'none') {
+							path.style.fill = 'currentColor';
+						}
 					});
 				}
 
@@ -32,4 +33,4 @@
 	});
 </script>
 
-<div bind:this={container}></div>
+<div bind:this={container} class={$$restProps.class}></div>
