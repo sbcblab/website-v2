@@ -12,11 +12,11 @@
 	"Home": [
 		["feat: add carousel banner", true],
 		["feat: add slogan", true],
+		["style: redesign partnerships section and remake SVGs", true],
 		["style: about", false],
 		["style: hiring", false],
 		["style: tools-datasets", false],
-		["style: international-cooperation", false],
-		["style: partnerships", false]
+		["style: international-cooperation", false]
 	],
 	"Research": [
 		["style: research-areas", false],

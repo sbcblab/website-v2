@@ -137,6 +137,20 @@ export async function processSectionContent(content: any): Promise<(object | und
 			};
 		}
 
+		if (component.__component === 'unique.partnerships') {
+			proccessedComponent = {
+				type: 'partnerships',
+				heading: component.heading,
+				partnerships: component.partnerships.map((partnership: any) => {
+					return {
+						name: partnership.name,
+						link: partnership.link,
+						imageUrl: env.PUBLIC_STRAPI_URL + partnership.image.data.attributes.url
+					};
+				})
+			};
+		}
+
 		if (component.__component === 'unique.publications') {
 			const publications = component.publications.data.reduce((acc: any, publication: any) => {
 				const publishDate = new Date(publication.attributes.publishDate);

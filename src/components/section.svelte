@@ -8,6 +8,7 @@
 	import Iframe from './iframe.svelte';
 	import Markdown from './markdown.svelte';
 	import Members from './members.svelte';
+	import Partnerships from './partnerships.svelte';
 	import Projects from './projects.svelte';
 	import Publications from './publications.svelte';
 	import ResearchAreas from './research-areas.svelte';
@@ -18,7 +19,7 @@
 	export let section: Section;
 </script>
 
-<section id={section.slug} class="mb-16">
+<section id={section.slug}>
 	{#each section.content as component}
 		{#if component.type === 'heading'}
 			<div class="mb-12 bg-card">
@@ -58,6 +59,8 @@
 					<Iframe {component} />
 				{:else if component.type === 'tools-datasets'}
 					<ToolsDatasets {component} />
+				{:else if component.type === 'partnerships'}
+					<Partnerships {component} />
 				{:else if component.type === 'publications'}
 					<Publications {component} />
 				{:else if component.type === 'projects'}

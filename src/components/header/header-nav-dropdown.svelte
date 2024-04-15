@@ -19,7 +19,7 @@
 	}
 
 	const classes = {
-		content: 'rounded-none px-0 py-2 shadow-lg bg-neutral-800 text-card-foreground border-none',
+		content: 'rounded-none px-0 py-2 shadow-lg bg-card text-card-foreground border-none',
 		item: 'cursor-pointer rounded-none px-4 py-2 data-[highlighted]:bg-background/10 data-[state=open]:bg-background/10 data-[highlighted]:text-card-foreground data-[state=open]:text-card-foreground flex items-center justify-between',
 		label: 'text-nowrap pr-8 grow'
 	};

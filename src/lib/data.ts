@@ -138,6 +138,9 @@ export async function getSections(pageSlug: PageSlug): Promise<Section[]> {
 						populate: {
 							image: '*',
 							defaultBackground: '*',
+							partnerships: {
+								populate: '*'
+							},
 							slides: {
 								populate: '*'
 							},

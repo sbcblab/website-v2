@@ -1,8 +1,11 @@
 {
+	"General": [
+		["feat: make all website colors customizable on strapi", false],
+		["refactor: move all types to a single file and add missing types", false]
+	],
 	"Header": [
 		["refactor: desktop nav dropdown menu", false],
 		["feat: make mobile navbar sticky", false]
 	],
-	"Sections": [["feat: add zoom functionality to section images", false]],
-	"General": [["feat: make all website colors modifiable on strapi", false]]
+	"Sections": [["feat: add zoom functionality to section images", false]]
 }

@@ -121,5 +121,4 @@ img {
 .bottom-fade {
 	--mask: linear-gradient(to bottom, #000 90%, transparent);
 	mask-image: var(--mask);
-	-webkit-mask-image: var(--mask);
 }
