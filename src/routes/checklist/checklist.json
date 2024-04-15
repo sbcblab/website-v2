@@ -16,7 +16,8 @@
 		["style: redesign partnerships section and remake SVGs", true]
 	],
 	"Performance": [
-		["chore: optimize images", false],
-		["refactor: optimize preload javascript", false]
+		["chore: optimize all raster images", true],
+		["refactor: optimize preload javascript", false],
+		["chore: optimize all vectors", false]
 	]
 }
