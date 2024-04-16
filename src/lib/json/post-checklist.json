@@ -1,7 +1,7 @@
 {
-	"Performance": [["feat: replace carousel js animations with css", false]],
 	"General": [
-		["feat: make all website colors customizable on strapi", false],
+		["chore: join socials and contact on strapi and allow custom icons", false],
+		["chore: make all website colors customizable on strapi", false],
 		["refactor: move all types to a single file and add missing types", false]
 	],
 	"Header": [

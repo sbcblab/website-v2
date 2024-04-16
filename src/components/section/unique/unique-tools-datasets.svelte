@@ -9,7 +9,7 @@
 	const { tools, datasets } = component;
 </script>
 
-<div class="mb-16 grid grid-cols-2 gap-4 md:grid-cols-4">
+<div class="container mb-16 grid grid-cols-2 gap-4 md:grid-cols-4">
 	{#each [...tools, ...datasets] as item}
 		<div class="flex flex-col gap-1 rounded-lg border p-4 text-sm">
 			<img src={item.imageUrl} alt={item.title} class="aspect-[5/4]" />

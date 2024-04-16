@@ -17,7 +17,7 @@
 	],
 	"Performance": [
 		["chore: optimize all raster images", true],
-		["refactor: optimize preload javascript", false],
+		["refactor: optimize preload/render javascript", true],
 		["chore: optimize all vectors", false]
 	]
 }

@@ -3,7 +3,7 @@
 </script>
 
 <div
-	class="align-center absolute left-1/2 top-1/2 my-auto flex -translate-x-1/2 -translate-y-1/2 flex-col gap-2 text-center"
+	class="align-center absolute left-1/2 top-1/2 my-auto flex w-full -translate-x-1/2 -translate-y-1/2 flex-col gap-2 text-center"
 >
 	<span class="text-lg font-medium text-primary">404</span>
 	<span class="text-5xl font-semibold">Page not found</span>

@@ -1,12 +1,14 @@
 import { env as privateEnv } from '$env/dynamic/private';
 import { env as publicEnv } from '$env/dynamic/public';
+import { processSectionContent } from '$lib/content';
+import urlParamsObject from '$lib/json/url-params.json';
 import qs from 'qs';
-import { processSectionContent } from './content';
 
-type PageSlug = 'home' | 'research' | 'projects' | 'team' | 'contact';
+export interface Sections {
+	[key: string]: Section[];
+}
 
 export interface Section {
-	heading: string;
 	slug: string;
 	content: any[];
 }
@@ -128,94 +130,23 @@ async function fetchData(endpoint: string, urlParamsObject?: object) {
 		.then((data) => data.data);
 }
 
-export async function getSections(pageSlug: PageSlug): Promise<Section[]> {
-	const urlParamsObject = {
-		filters: { slug: { $eq: pageSlug } },
-		populate: {
-			sections: {
-				populate: {
-					content: {
-						populate: {
-							image: '*',
-							defaultBackground: '*',
-							partnerships: {
-								populate: '*'
-							},
-							slides: {
-								populate: '*'
-							},
-							tools: {
-								populate: {
-									image: '*'
-								}
-							},
-							datasets: {
-								populate: {
-									image: '*'
-								}
-							},
-							publications: {
-								sort: ['publishDate:desc'],
-								populate: {
-									authors: '*'
-								}
-							},
-							projects: {
-								populate: {
-									image: '*'
-								}
-							},
-							images: {
-								populate: '*'
-							},
-							members: {
-								populate: {
-									picture: '*',
-									areas: '*'
-								}
-							},
-							guests: {
-								populate: {
-									country: '*'
-								}
-							},
-							collaborators: {
-								populate: {
-									country: {
-										populate: '*'
-									}
-								}
-							},
-							researchAreas: {
-								populate: {
-									keywords: '*',
-									icon: '*'
-								}
-							},
-							styles: {
-								populate: '*'
-							}
-						}
-					}
-				}
-			}
-		}
-	};
-	const data = await fetchData('pages', urlParamsObject);
+export async function getSections(): Promise<Sections> {
+	const pages = await fetchData('pages', urlParamsObject);
 
-	for (const section of data[0].attributes.sections.data) {
-		section.attributes.content = await processSectionContent(section.attributes.content);
-	}
+	const processedSections: Sections = {};
 
-	const sections = data[0].attributes.sections.data.map((section: any) => {
-		return {
-			heading: section.attributes.heading,
-			slug: section.attributes.slug,
-			content: section.attributes.content
-		};
+	pages.forEach((page: any) => {
+		const sections = page.attributes.sections.data.map((section: any) => {
+			return {
+				slug: section.attributes.slug,
+				content: processSectionContent(section.attributes.content)
+			};
+		});
+
+		processedSections[page.attributes.slug] = sections;
 	});
 
-	return sections;
+	return processedSections;
 }
 
 export async function getNav(): Promise<NavLink[]> {

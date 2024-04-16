@@ -25,7 +25,7 @@
 	];
 </script>
 
-<div class="grid grid-cols-4 gap-x-4 gap-y-16 text-center md:gap-x-6 md:text-start">
+<div class="container grid grid-cols-4 gap-x-4 gap-y-16 text-center md:gap-x-6 md:text-start">
 	{#each members as member}
 		<div
 			class="col-span-2 flex flex-col gap-4 text-sm last:odd:col-start-2 md:col-span-1 md:last:odd:col-start-auto"

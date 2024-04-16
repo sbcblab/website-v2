@@ -1,26 +1,25 @@
 <script lang="ts">
-	import type { ContactSection } from '$lib/data';
+	import type { Contact, ContactSection } from '$lib/data';
+	import { getContext } from 'svelte';
 	import MailIcon from '~icons/fa6-solid/envelope';
 	import HouseIcon from '~icons/fa6-solid/house';
 	import PinIcon from '~icons/fa6-solid/location-dot';
 	import PhoneIcon from '~icons/fa6-solid/phone';
 
-	export let component: {
-		contact: ContactSection;
-	};
+	export let component: ContactSection;
 
-	const { contact } = component;
+	const contact: Contact = getContext('contact');
 
 	const items = [
-		{ show: contact.showEmail, icon: MailIcon, text: contact.info.email },
-		{ show: contact.showPhone, icon: PhoneIcon, text: contact.info.phone },
-		{ show: contact.showLocation, icon: HouseIcon, text: contact.info.location },
-		{ show: contact.showAddress, icon: PinIcon, text: contact.info.address }
+		{ show: component.showEmail, icon: MailIcon, text: contact.email },
+		{ show: component.showPhone, icon: PhoneIcon, text: contact.phone },
+		{ show: component.showLocation, icon: HouseIcon, text: contact.location },
+		{ show: component.showAddress, icon: PinIcon, text: contact.address }
 	];
 </script>
 
-<div class="flex flex-col gap-8">
-	<span class="text-2xl font-medium">{contact.subheading}</span>
+<div class="container flex flex-col gap-8">
+	<span class="text-2xl font-medium">{component.subheading}</span>
 	<div class="flex flex-col gap-3 text-foreground-paragraph md:gap-2">
 		{#each items as { show, icon, text }}
 			{#if show}

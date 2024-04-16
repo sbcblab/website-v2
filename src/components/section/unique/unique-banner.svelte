@@ -1,8 +1,8 @@
 <script lang="ts">
+	import Markdown from '$components/markdown.svelte';
+	import Button from '$components/ui/button/button.svelte';
 	import * as Carousel from '$components/ui/carousel';
 	import Autoplay from 'embla-carousel-autoplay';
-	import Markdown from './markdown.svelte';
-	import Button from './ui/button/button.svelte';
 
 	export let component: {
 		defaultBackgroundUrl: string;
@@ -25,7 +25,7 @@
 		<Carousel.Content class="ml-0">
 			{#each slides as slide}
 				<Carousel.Item
-					class="bg-card bg-cover bg-center pl-0"
+					class="bg-background bg-cover bg-center pl-0"
 					style={`background-image: url(${slide.backgroundUrl}), url(${component.defaultBackgroundUrl})`}
 				>
 					<div
@@ -46,6 +46,7 @@
 							/>
 							<Button
 								href={slide.link}
+								target="_blank"
 								variant="secondary"
 								class="mt-4 h-8 px-3 text-xs hover:opacity-100 md:mt-8 md:h-10 md:px-5 md:text-sm"
 							>

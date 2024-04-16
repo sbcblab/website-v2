@@ -2,7 +2,7 @@
 	import { cn } from '$lib/utils';
 	import LucideCheck from '~icons/lucide/check';
 	import MdiDot from '~icons/mdi/dot';
-	import checklist from './checklist.json';
+	import checklist from '../../lib/json/checklist.json';
 </script>
 
 <div class="container my-4 space-y-4">

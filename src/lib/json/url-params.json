@@ -1,0 +1,71 @@
+{
+	"populate": {
+		"sections": {
+			"populate": {
+				"content": {
+					"populate": {
+						"image": "*",
+						"defaultBackground": "*",
+						"partnerships": {
+							"populate": "*"
+						},
+						"slides": {
+							"populate": "*"
+						},
+						"tools": {
+							"populate": {
+								"image": "*"
+							}
+						},
+						"datasets": {
+							"populate": {
+								"image": "*"
+							}
+						},
+						"publications": {
+							"sort": ["publishDate:desc"],
+							"populate": {
+								"authors": "*"
+							}
+						},
+						"projects": {
+							"populate": {
+								"image": "*"
+							}
+						},
+						"images": {
+							"populate": "*"
+						},
+						"members": {
+							"populate": {
+								"picture": "*",
+								"areas": "*"
+							}
+						},
+						"guests": {
+							"populate": {
+								"country": "*"
+							}
+						},
+						"collaborators": {
+							"populate": {
+								"country": {
+									"populate": "*"
+								}
+							}
+						},
+						"researchAreas": {
+							"populate": {
+								"keywords": "*",
+								"icon": "*"
+							}
+						},
+						"styles": {
+							"populate": "*"
+						}
+					}
+				}
+			}
+		}
+	}
+}

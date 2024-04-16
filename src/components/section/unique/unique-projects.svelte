@@ -8,7 +8,7 @@
 	const { projects } = component;
 </script>
 
-<div class="flex flex-col gap-8">
+<div class="container flex flex-col gap-8">
 	{#each projects as project}
 		<div class="space-y-4 border p-4">
 			<a href={`https://sbcb.inf.ufrgs.br${project.link}`} target="_blank" class="text-foreground">

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Svg from './svg.svelte';
+	import Svg from '$components/svg.svelte';
 
 	export let component: {
 		heading: string;
@@ -10,7 +10,7 @@
 	};
 </script>
 
-<div class="mt-12 space-y-10">
+<div class="container mt-12 space-y-10">
 	{#if component.heading}
 		<h3 class="text-center text-xl">{component.heading}</h3>
 	{/if}
