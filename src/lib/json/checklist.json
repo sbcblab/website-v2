@@ -1,23 +1,20 @@
 {
-	"General": [["style: fix all responsiveness issues", true]],
-	"Header": [
-		["feat: add header info bar", true],
-		["feat: make header email and phone expandable on mobile", true],
-		["style: turn nav links into boxes", true],
-		["feat: add nav research dropdown menu", true],
-		["fix: nav links with hash (first-render-only)", true],
-		["feat: add mobile nav menu", true]
-	],
-	"Sections": [["style: update general section spacing and text style", true]],
-	"Footer": [["style: adjust footer responsiveness and styles", true]],
-	"Home": [
-		["feat: add carousel banner", true],
-		["feat: add slogan", true],
-		["style: redesign partnerships section and remake SVGs", true]
-	],
-	"Performance": [
-		["chore: optimize all raster images", true],
-		["refactor: optimize preload/render javascript", true],
-		["chore: optimize all vectors", false]
+	"tasks": [
+		["fix: make banner elements render conditional", true],
+		["fix: banner increasing screen on mobile", false],
+		["feat: add heading color option to banner", false],
+		["chore: add character limit to banner heading and description", false],
+		["style: switch link images hover animation to scale", false],
+		["feat: add expand functionality to no-link images", false],
+		["style: normalize rounded corners in all images", false],
+		["feat: add copy to clipboard functionality to all contact sections", false],
+		["style: increase banner font size on mobile", false],
+		["style: redesign research areas section", false],
+		["feat: add back to top button on mobile", false],
+		["style: change nav dropdown animation to slide", false],
+		["style: redesign projects section and limit description length", false],
+		["style: redesign members section", false],
+		["feat: add project pages", false],
+		["feat: add tools and datasets pages", false]
 	]
 }

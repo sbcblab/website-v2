@@ -71,8 +71,12 @@ export function processSectionContent(content: any): Promise<(object | undefined
 							heading: slide.heading,
 							description: slide.description,
 							link: slide.link,
-							imageUrl: env.PUBLIC_STRAPI_URL + slide.image.data.attributes.url,
-							backgroundUrl: env.PUBLIC_STRAPI_URL + slide.background.data.attributes.url
+							imageUrl: slide.image.data
+								? env.PUBLIC_STRAPI_URL + slide.image.data?.attributes.url
+								: undefined,
+							backgroundUrl: slide.background.data
+								? env.PUBLIC_STRAPI_URL + slide.background.data?.attributes.url
+								: undefined
 						};
 					})
 				};
