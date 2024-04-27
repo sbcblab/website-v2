@@ -20,7 +20,11 @@
 					<span class="overflow-hidden text-ellipsis whitespace-pre-line">
 						{project.description}
 					</span>
-					<a href={`https://sbcb.inf.ufrgs.br${project.link}`} target="_blank">Read more</a>
+					<a
+						href={`https://sbcb.inf.ufrgs.br${project.link}`}
+						target="_blank"
+						class="font-medium text-primary transition-opacity hover:opacity-70">Read more</a
+					>
 				</div>
 			</div>
 		</div>

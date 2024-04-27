@@ -103,12 +103,11 @@ strong {
 	@apply font-semibold;
 }
 
-section a {
-	@apply text-primary transition-opacity;
+.markdown a {
+	@apply font-medium text-primary transition-opacity;
 }
 
-section a:hover,
-section a:focus {
+.markdown a:hover {
 	@apply opacity-70;
 }
 

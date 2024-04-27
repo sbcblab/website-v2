@@ -17,7 +17,10 @@
 				<a
 					href={collaborator.url}
 					target="_blank"
-					class={cn(!collaborator.url && 'cursor-default', 'font-medium')}
+					class={cn(
+						!collaborator.url ? 'cursor-default' : 'transition-opacity hover:opacity-70',
+						'font-medium text-primary'
+					)}
 				>
 					{collaborator.name}
 				</a>

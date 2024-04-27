@@ -15,7 +15,12 @@
 			<img src={item.imageUrl} alt={item.title} class="aspect-[5/4]" />
 			<strong>{item.title}</strong>
 			<span>{item.description}</span>
-			<a href={item.link} target="_blank" class="mt-auto w-fit pt-4 font-medium">Read more</a>
+			<a
+				href={item.link}
+				target="_blank"
+				class="mt-auto w-fit pt-4 font-medium text-primary transition-opacity hover:opacity-70"
+				>Read more</a
+			>
 		</div>
 	{/each}
 </div>

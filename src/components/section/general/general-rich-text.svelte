@@ -6,4 +6,4 @@
 	};
 </script>
 
-<Markdown content={component.content} class="container" />
+<Markdown content={component.content} class="markdown container" />

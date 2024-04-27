@@ -16,7 +16,7 @@
 				src={component.imageUrl}
 				alt=""
 				height={component.height}
-				class={cn(component.border && 'border')}
+				class={cn(component.border && 'border', 'transition-transform hover:scale-105')}
 			/>
 		</a>
 	{:else}

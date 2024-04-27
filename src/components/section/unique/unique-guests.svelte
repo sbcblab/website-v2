@@ -20,7 +20,10 @@
 					<a
 						href={guest.url}
 						target="_blank"
-						class={cn(!guest.url && 'cursor-default', 'font-medium text-primary')}
+						class={cn(
+							!guest.url ? 'cursor-default' : 'transition-opacity hover:opacity-70',
+							'font-medium text-primary'
+						)}
 					>
 						{guest.name}
 					</a>
