@@ -15,7 +15,7 @@
 				<h3 class="text-xl/[1.25]">{project.title}</h3>
 			</a>
 			<div class="flex gap-4">
-				<img src={project.imageUrl} alt={project.title} class="h-52" />
+				<img src={project.imageUrl} alt={project.title} class="h-52 rounded-md" />
 				<div class="flex h-52 flex-col justify-between gap-4 text-sm/[1.5]">
 					<span class="overflow-hidden text-ellipsis whitespace-pre-line">
 						{project.description}

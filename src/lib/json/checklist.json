@@ -1,8 +1,8 @@
 {
 	"tasks": [
 		["fix: make banner elements render conditional", true],
-		["style: switch link images hover animation to scale", false],
-		["style: normalize rounded corners in all images", false],
+		["style: switch link images hover animation to scale", true],
+		["style: normalize rounded corners", true],
 		["style: change nav dropdown animation to slide", false],
 		["refactor: build new carousel component and remove third-party one", false],
 		["feat: add heading color option to banner", false],

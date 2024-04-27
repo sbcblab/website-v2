@@ -33,7 +33,7 @@
 			<img
 				src={member.pictureUrl}
 				alt={member.name}
-				class="aspect-square rounded-lg object-cover"
+				class="aspect-square rounded-md object-cover"
 			/>
 			<div class="flex flex-col gap-1">
 				<span class="text-[1.1875rem]">{member.name}</span>

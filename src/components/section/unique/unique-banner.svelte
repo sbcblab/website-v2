@@ -37,7 +37,7 @@
 							<img
 								src={slide.imageUrl}
 								alt={slide.heading}
-								class="h-full w-full object-contain px-2 md:order-1 md:px-0"
+								class="h-full w-full rounded-md object-contain px-2 md:order-1 md:px-0"
 							/>
 						{/if}
 						<div

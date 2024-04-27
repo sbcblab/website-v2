@@ -7,7 +7,7 @@
 
 <div class="container mt-12">
 	<iframe
-		class="rounded-lg bg-[#e5e3df] shadow-lg"
+		class="rounded-md bg-[#e5e3df] shadow-lg"
 		title="Google Maps"
 		src={component.src}
 		style={component.styles.map((style) => `${style.key}: ${style.value};`).join(' ')}

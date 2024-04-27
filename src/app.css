@@ -72,7 +72,7 @@ blockquote {
 }
 
 code {
-	@apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
+	@apply relative rounded-md bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
 }
 
 table {
@@ -113,6 +113,15 @@ strong {
 
 img {
 	@apply inline-block h-[revert-layer];
+}
+
+.markdown img,
+.html img {
+	@apply rounded-md;
+}
+
+#international-cooperation img {
+	--radius: 0.75rem;
 }
 
 /* Utilities */
