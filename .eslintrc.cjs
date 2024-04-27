@@ -17,7 +17,8 @@ module.exports = {
 	},
 	rules: {
 		'@typescript-eslint/no-explicit-any': 'off',
-		'@typescript-eslint/no-unused-vars': 'warn'
+		'@typescript-eslint/no-unused-vars': 'warn',
+		'svelte/valid-compile': 'warn'
 	},
 	env: {
 		browser: true,
