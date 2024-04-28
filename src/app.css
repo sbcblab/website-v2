@@ -64,7 +64,7 @@ h4 {
 }
 
 p {
-	@apply my-8 text-justify text-lg leading-[1.875rem] text-foreground-paragraph md:text-start;
+	@apply my-8 text-center text-lg leading-[1.875rem] text-foreground-paragraph md:text-start;
 }
 
 blockquote {
