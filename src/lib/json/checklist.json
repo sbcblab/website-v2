@@ -4,7 +4,7 @@
 		["style: switch link images hover animation to scale", true],
 		["style: normalize rounded corners", true],
 		["refactor: build new dropdown component and remove third-party one", true],
-		["feat: add heading color option to banner", false],
+		["feat: add heading color option to banner slide", true],
 		["feat: add expand feature to no-link images", false],
 		["feat: add copy to clipboard feature to all contact sections", false],
 		["feat: add back to top button", false],

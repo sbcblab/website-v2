@@ -8,6 +8,7 @@
 		defaultBackgroundUrl: string;
 		slides: {
 			heading?: string;
+			headingColor?: string;
 			description?: string;
 			link?: string;
 			imageUrl?: string;
@@ -44,7 +45,12 @@
 							class="mx-auto flex max-w-[28rem] flex-col items-center gap-4 text-center md:items-start md:justify-center md:text-left"
 						>
 							{#if slide.heading}
-								<h3 class="text-2xl text-secondary md:text-3xl">{slide.heading}</h3>
+								<h3
+									class="text-2xl text-secondary md:text-3xl"
+									style={slide.headingColor && `color: ${slide.headingColor}`}
+								>
+									{slide.heading}
+								</h3>
 							{/if}
 							{#if slide.description}
 								<Markdown

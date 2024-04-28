@@ -69,6 +69,7 @@ export function processSectionContent(content: any): Promise<(object | undefined
 					slides: component.slides.map((slide: any) => {
 						return {
 							heading: slide.heading,
+							headingColor: slide.headingColor,
 							description: slide.description,
 							link: slide.link,
 							imageUrl: slide.image.data
