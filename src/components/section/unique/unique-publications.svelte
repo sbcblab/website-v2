@@ -1,34 +1,29 @@
 <script lang="ts">
-	import type { Publication } from '$lib/data';
+	import type { Publications } from '$lib/types';
 
-	export let component: {
-		publications: {
-			year: string;
-			publications: Publication[];
-		}[];
-	};
+	export let component: Publications;
 
 	const { publications } = component;
 </script>
 
 <div class="container mb-20">
-	{#each publications as yearPublications}
-		<h3 class="mt-6 text-xl font-medium">{yearPublications.year}</h3>
+	{#each publications as { year, publications: yearPublications }}
+		<h3 class="mt-6 text-xl font-medium">{year}</h3>
 		<ul class="my-2 flex flex-col gap-2">
-			{#each yearPublications.publications as publication}
+			{#each yearPublications as publication}
 				<li>
 					<a
-						href={publication.link}
+						href={publication.doi}
 						target="_blank"
-						class="block text-sm font-light text-foreground transition-none"
+						class="block text-sm font-light text-foreground hover:opacity-70"
 					>
 						<span>{publication.authors?.join('; ')} </span><span class="font-medium">
 							{publication.title}</span
-						><span>. {publication.journal}</span>{#if publication.volume}<span
+						><span>. {publication.booktitle}</span>{#if publication.volume}<span
 								>, v. {publication.volume}</span
-							>{/if}<span>, p. {publication.startPage}</span>{#if publication.endPage}<span>
-								- {publication.endPage}</span
-							>{/if}<span>, {publication.publishDate.getFullYear()}.</span>
+							>{/if}{#if publication.pages}<span>, p. {publication.pages}</span>{/if}<span
+							>, {publication.year}.</span
+						>
 					</a>
 				</li>
 			{/each}

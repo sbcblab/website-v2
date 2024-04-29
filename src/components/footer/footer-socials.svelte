@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Socials } from '$lib/data';
+	import type { Socials } from '$lib/types';
 	import { cn } from '$lib/utils';
 	import GithubIcon from '~icons/ri/github-fill';
 	import InstagramIcon from '~icons/ri/instagram-line';

@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { HeaderNavDropdown, HeaderNavItem } from '$components/header';
-	import type { NavLink } from '$lib/data';
+	import type { Global } from '$lib/types';
 	import { cn } from '$lib/utils';
 
-	export let nav: NavLink[];
+	export let nav: Global['nav'];
 </script>
 
 <nav class={cn($$props.class)}>

@@ -1,7 +1,8 @@
 <script lang="ts">
 	import * as Section from '$components/section';
+	import type { Section as SectionType } from '$lib/types';
 
-	export let section: any;
+	export let section: SectionType;
 
 	const components: { [key: string]: any } = {
 		'heading-1': Section.General.Heading1,

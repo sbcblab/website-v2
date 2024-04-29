@@ -2,13 +2,13 @@
 	import LogoIcon from '$components/assets/logo-icon.svelte';
 	import { ScrollArea } from '$components/ui/scroll-area';
 	import * as Sheet from '$components/ui/sheet';
-	import type { NavLink } from '$lib/data';
+	import type { Global } from '$lib/types';
 	import { cn } from '$lib/utils';
 	import { type Writable } from 'svelte/store';
 	import TablerMenuDeep from '~icons/tabler/menu-deep';
 
 	export let open: Writable<boolean>;
-	export let nav: NavLink[];
+	export let nav: Global['nav'];
 
 	const closeSheet = () => open.set(false);
 </script>

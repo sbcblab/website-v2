@@ -1,12 +1,10 @@
 <script lang="ts">
-	import type { ResearchArea } from '$lib/data';
+	import type { ResearchArea, ResearchAreas } from '$lib/types';
 	import { cn } from '$lib/utils';
 	import Markdown from '../../markdown.svelte';
 	import Svg from '../../svg.svelte';
 
-	export let component: {
-		researchAreas: ResearchArea[];
-	};
+	export let component: ResearchAreas;
 
 	const { researchAreas } = component;
 
@@ -42,7 +40,7 @@
 	<div class="-translate-x-[1px] border p-8 [&>p]:text-base">
 		<h3 class="mb-4 text-lg">{selectedArea.fullTitle}</h3>
 		<Markdown content={researchAreas.find((area) => area === selectedArea)?.description || ''} />
-		{#if selectedArea.keywords.length}
+		{#if selectedArea.keywords.length !== 0}
 			<h4 class="font-base mb-4 mt-10 text-base leading-none">Keywords</h4>
 			<div class="flex flex-wrap gap-1 text-sm/[1] text-foreground/80">
 				{#each selectedArea.keywords as keyword}

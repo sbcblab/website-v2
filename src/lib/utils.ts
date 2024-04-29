@@ -1,7 +1,6 @@
 import { clsx, type ClassValue } from 'clsx';
-import { cubicOut } from 'svelte/easing';
-import type { TransitionConfig } from 'svelte/transition';
 import { twMerge } from 'tailwind-merge';
+import type { Publication } from './types';
 
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
@@ -16,83 +15,59 @@ export function sleep(ms: number) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-export function proccessPublications(component: any) {
-	const publications = component.publications.data.reduce((acc: any, publication: any) => {
-		const publishDate = new Date(publication.attributes.publishDate);
-		const year = publishDate.getFullYear();
-		if (!acc[year]) {
-			acc[year] = [];
+export function processPublications(component: any) {
+	const publicationsByYear: { [year: string]: Publication[] } = {};
+	const years = new Set<string>();
+
+	component.publications.data.forEach((publication: any) => {
+		const {
+			title,
+			year,
+			publicationDate,
+			type,
+			doi,
+			authors,
+			booktitle,
+			address,
+			volume,
+			issue,
+			pages
+		} = publication.attributes;
+
+		if (!years.has(year)) {
+			years.add(year);
+			publicationsByYear[year] = [];
 		}
-		acc[year].push({
-			authors: publication.attributes.authors.map((author: any) => author.name),
-			title: publication.attributes.title,
-			publishDate,
-			journal: publication.attributes.journal,
-			volume: publication.attributes.volume,
-			startPage: publication.attributes.startPage,
-			endPage: publication.attributes.endPage,
-			link: publication.attributes.link
+
+		publicationsByYear[year].push({
+			authors: authors.map((author: any) => author.name),
+			title,
+			year,
+			publicationDate,
+			type,
+			doi,
+			booktitle,
+			address,
+			volume,
+			issue,
+			pages
 		});
-		return acc;
-	}, {});
-	const years = Object.keys(publications);
-	years.sort((a, b) => parseInt(b) - parseInt(a));
-	const sortedPublications = years.map((year: any) => {
+	});
+
+	const sortedYears = Array.from(years).sort((a, b) => {
+		return parseInt(b) - parseInt(a);
+	});
+
+	const sortedPublications = sortedYears.map((year) => {
+		const publications = publicationsByYear[year];
 		return {
 			year,
-			publications: publications[year]
+			publications
 		};
 	});
+
 	return {
 		type: 'publications',
 		publications: sortedPublications
 	};
 }
-
-type FlyAndScaleParams = {
-	y?: number;
-	x?: number;
-	start?: number;
-	duration?: number;
-};
-
-export const flyAndScale = (
-	node: Element,
-	params: FlyAndScaleParams = { y: -8, x: 0, start: 0.95, duration: 150 }
-): TransitionConfig => {
-	const style = getComputedStyle(node);
-	const transform = style.transform === 'none' ? '' : style.transform;
-
-	const scaleConversion = (valueA: number, scaleA: [number, number], scaleB: [number, number]) => {
-		const [minA, maxA] = scaleA;
-		const [minB, maxB] = scaleB;
-
-		const percentage = (valueA - minA) / (maxA - minA);
-		const valueB = percentage * (maxB - minB) + minB;
-
-		return valueB;
-	};
-
-	const styleToString = (style: Record<string, number | string | undefined>): string => {
-		return Object.keys(style).reduce((str, key) => {
-			if (style[key] === undefined) return str;
-			return str + `${key}:${style[key]};`;
-		}, '');
-	};
-
-	return {
-		duration: params.duration ?? 150,
-		delay: 0,
-		css: (t) => {
-			const y = scaleConversion(t, [0, 1], [params.y ?? 5, 0]);
-			const x = scaleConversion(t, [0, 1], [params.x ?? 0, 0]);
-			const scale = scaleConversion(t, [0, 1], [params.start ?? 0.95, 1]);
-
-			return styleToString({
-				transform: `${transform} translate3d(${x}px, ${y}px, 0) scale(${scale})`,
-				opacity: t
-			});
-		},
-		easing: cubicOut
-	};
-};

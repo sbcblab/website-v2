@@ -1,9 +1,7 @@
 <script lang="ts">
-	import type { Project } from '$lib/data';
+	import type { Projects } from '$lib/types';
 
-	export let component: {
-		projects: Project[];
-	};
+	export let component: Projects;
 
 	const { projects } = component;
 </script>

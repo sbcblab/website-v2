@@ -1,11 +1,9 @@
 <script lang="ts">
-	import type { Guest } from '$lib/data';
+	import type { Guests } from '$lib/types';
 	import { cn } from '$lib/utils';
 	import FaCalendar from '~icons/fa/calendar';
 
-	export let component: {
-		guests: Guest[];
-	};
+	export let component: Guests;
 
 	const { guests } = component;
 </script>
@@ -18,10 +16,10 @@
 				<span>
 					<span>{guest.year} -</span>
 					<a
-						href={guest.url}
+						href={guest.link}
 						target="_blank"
 						class={cn(
-							!guest.url ? 'cursor-default' : 'transition-opacity hover:opacity-70',
+							!guest.link ? 'cursor-default' : 'transition-opacity hover:opacity-70',
 							'font-medium text-primary'
 						)}
 					>

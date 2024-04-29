@@ -1,8 +1,7 @@
 <script lang="ts">
-	export let component: {
-		src: string;
-		styles: { key: string; value: string }[];
-	};
+	import type { Map } from '$lib/types';
+
+	export let component: Map;
 </script>
 
 <div class="container mt-12">

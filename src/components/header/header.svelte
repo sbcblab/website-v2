@@ -1,12 +1,12 @@
 <script lang="ts">
 	import Logo from '$components/assets/logo.svelte';
 	import { HeaderInfo, HeaderNav, HeaderNavMobile } from '$components/header';
-	import type { Contact, NavLink, Socials } from '$lib/data';
+	import type { Contact, Global, Socials } from '$lib/types';
 	import { writable } from 'svelte/store';
 
 	export let contact: Contact;
 	export let socials: Socials;
-	export let nav: NavLink[];
+	export let nav: Global['nav'];
 
 	const mobileNavOpen = writable(false);
 </script>

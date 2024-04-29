@@ -5,7 +5,7 @@
 	import checklist from '../../lib/json/checklist.json';
 </script>
 
-<div class="container my-4 space-y-4">
+<div class="container my-4">
 	{#each checklist.tasks as task}
 		{@const completed = task[1]}
 		<div class={cn(completed && 'bg-primary/20', 'flex items-center gap-4 p-4')}>

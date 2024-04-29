@@ -1,10 +1,8 @@
 <script lang="ts">
-	import type { Collaborator } from '$lib/data';
+	import type { Collaborators } from '$lib/types';
 	import { cn } from '$lib/utils';
 
-	export let component: {
-		collaborators: Collaborator[];
-	};
+	export let component: Collaborators;
 
 	const { collaborators } = component;
 </script>
@@ -19,10 +17,10 @@
 			/>
 			<div class="flex flex-col">
 				<a
-					href={collaborator.url}
+					href={collaborator.link}
 					target="_blank"
 					class={cn(
-						!collaborator.url ? 'cursor-default' : 'transition-opacity hover:opacity-70',
+						!collaborator.link ? 'cursor-default' : 'transition-opacity hover:opacity-70',
 						'font-medium text-primary'
 					)}
 				>

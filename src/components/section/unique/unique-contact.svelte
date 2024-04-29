@@ -1,12 +1,12 @@
 <script lang="ts">
-	import type { Contact, ContactSection } from '$lib/data';
+	import type { Contact, ContactUs } from '$lib/types';
 	import { getContext } from 'svelte';
 	import MailIcon from '~icons/fa6-solid/envelope';
 	import HouseIcon from '~icons/fa6-solid/house';
 	import PinIcon from '~icons/fa6-solid/location-dot';
 	import PhoneIcon from '~icons/fa6-solid/phone';
 
-	export let component: ContactSection;
+	export let component: ContactUs;
 
 	const contact: Contact = getContext('contact');
 

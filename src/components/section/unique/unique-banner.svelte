@@ -2,19 +2,10 @@
 	import Markdown from '$components/markdown.svelte';
 	import Button from '$components/ui/button/button.svelte';
 	import * as Carousel from '$components/ui/carousel';
+	import type { Banner } from '$lib/types';
 	import Autoplay from 'embla-carousel-autoplay';
 
-	export let component: {
-		defaultBackgroundUrl: string;
-		slides: {
-			heading?: string;
-			headingColor?: string;
-			description?: string;
-			link?: string;
-			imageUrl?: string;
-			backgroundUrl?: string;
-		}[];
-	};
+	export let component: Banner;
 
 	const { slides } = component;
 

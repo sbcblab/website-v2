@@ -1,7 +1,7 @@
 <script lang="ts">
 	import LogoFooter from '$components/assets/logo-footer.svelte';
 	import { FooterSocials } from '$components/footer';
-	import type { Contact, Socials } from '$lib/data';
+	import type { Contact, Socials } from '$lib/types';
 	import MailIcon from '~icons/fa6-solid/envelope';
 	import HouseIcon from '~icons/fa6-solid/house';
 	import PinIcon from '~icons/fa6-solid/location-dot';

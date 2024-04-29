@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Member } from '$lib/data';
+	import type { Members } from '$lib/types';
 	import { cn } from '$lib/utils';
 	import DblpIcon from '~icons/academicons/dblp';
 	import GoogleScholarIcon from '~icons/academicons/google-scholar';
@@ -7,9 +7,7 @@
 	import OrcidIcon from '~icons/academicons/orcid';
 	import ResearchGateIcon from '~icons/academicons/researchgate';
 
-	export let component: {
-		members: Member[];
-	};
+	export let component: Members;
 
 	const { members } = component;
 

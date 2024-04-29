@@ -1,11 +1,8 @@
 <script lang="ts">
-	import type { ToolDataset } from '$lib/data';
+	import type { ToolsDatasets } from '$lib/types';
 	import { onMount } from 'svelte';
 
-	export let component: {
-		tools: ToolDataset[];
-		datasets: ToolDataset[];
-	};
+	export let component: ToolsDatasets;
 
 	const { tools, datasets } = component;
 

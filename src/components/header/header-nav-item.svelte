@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page as pageStore } from '$app/stores';
-	import type { NavLink } from '$lib/data';
+	import type { NavLink } from '$lib/types';
 	import { cn } from '$lib/utils';
 
 	export let link: NavLink;

@@ -1,13 +1,8 @@
 <script lang="ts">
 	import Svg from '$components/svg.svelte';
+	import type { Partnerships } from '$lib/types';
 
-	export let component: {
-		heading: string;
-		partnerships: {
-			link: string;
-			imageUrl: string;
-		}[];
-	};
+	export let component: Partnerships;
 </script>
 
 <div class="container mt-12 space-y-10">

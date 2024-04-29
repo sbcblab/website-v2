@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { HeaderNavItem } from '$components/header';
 	import * as Dropdown from '$components/ui/dropdown';
-	import type { NavLink } from '$lib/data';
+	import type { NavLink } from '$lib/types';
 
 	export let link: NavLink;
 </script>

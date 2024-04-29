@@ -2,8 +2,6 @@
 	import '$src/app.css';
 	import '@fontsource-variable/inter';
 
-	import { afterNavigate } from '$app/navigation';
-	import { page } from '$app/stores';
 	import { Footer } from '$components/footer';
 	import { Header } from '$components/header';
 	import { setContext } from 'svelte';
@@ -13,15 +11,6 @@
 	const { socials, contact, nav } = data;
 
 	setContext('contact', contact);
-
-	afterNavigate(() => {
-		const hash = $page.url.hash;
-		if (hash) {
-			document.getElementById(location.hash.slice(1))?.scrollIntoView({
-				behavior: 'smooth'
-			});
-		}
-	});
 </script>
 
 <svelte:head>

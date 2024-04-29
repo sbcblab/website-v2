@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { HeaderContact, HeaderSocials } from '$components/header';
-	import type { Contact, Socials } from '$lib/data';
+	import type { Contact, Socials } from '$lib/types';
 
 	export let contact: Contact;
 	export let socials: Socials;

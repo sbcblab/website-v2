@@ -1,16 +1,8 @@
 <script lang="ts">
+	import type { ImageRow } from '$lib/types';
 	import { cn } from '$lib/utils';
 
-	export let component: {
-		imagesHeight?: number;
-		gap?: number;
-		border?: boolean;
-		justify?: 'center' | 'space-between' | 'space-around' | 'flex-start' | 'flex-end';
-		images: {
-			imageUrl: string;
-			link?: string;
-		}[];
-	};
+	export let component: ImageRow;
 </script>
 
 <div

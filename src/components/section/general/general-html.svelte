@@ -1,9 +1,8 @@
 <script lang="ts">
+	import type { HTML } from '$lib/types';
 	import DOMPurify from 'isomorphic-dompurify';
 
-	export let component: {
-		content: string;
-	};
+	export let component: HTML;
 
 	const content = DOMPurify.sanitize(component.content);
 </script>

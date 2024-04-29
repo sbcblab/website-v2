@@ -1,12 +1,8 @@
 <script lang="ts">
+	import type { Image } from '$lib/types';
 	import { cn } from '$lib/utils';
 
-	export let component: {
-		imageUrl?: string;
-		height?: number;
-		link?: string;
-		border?: boolean;
-	};
+	export let component: Image;
 </script>
 
 <div class="container text-center">

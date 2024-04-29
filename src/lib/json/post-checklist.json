@@ -2,8 +2,6 @@
 	"tasks": [
 		["chore: join socials and contact on strapi and allow custom icons", false],
 		["chore: make all website colors customizable on strapi", false],
-		["refactor: move all types to a single file and add missing types", false],
-		["refactor: desktop nav dropdown menu", false],
 		["feat: make mobile navbar sticky", false]
 	]
 }

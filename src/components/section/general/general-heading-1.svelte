@@ -1,7 +1,7 @@
 <script lang="ts">
-	export let component: {
-		text: string;
-	};
+	import type { Heading } from '$lib/types';
+
+	export let component: Heading;
 </script>
 
 <div class="mb-12 bg-card text-center md:text-start">

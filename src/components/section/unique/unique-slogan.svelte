@@ -1,10 +1,9 @@
 <script lang="ts">
 	import Markdown from '$components/markdown.svelte';
 	import { env } from '$env/dynamic/public';
+	import type { Slogan } from '$lib/types';
 
-	export let component: {
-		text: string;
-	};
+	export let component: Slogan;
 </script>
 
 <div

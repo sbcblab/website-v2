@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { HeaderContactPopover } from '$components/header';
-	import type { Contact } from '$lib/data';
+	import type { Contact } from '$lib/types';
 	import MailIcon from '~icons/fa6-solid/envelope';
 	import PhoneIcon from '~icons/fa6-solid/phone';
 

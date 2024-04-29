@@ -1,7 +1,7 @@
 <script lang="ts">
-	export let component: {
-		text: string;
-	};
+	import type { Heading } from '$lib/types';
+
+	export let component: Heading;
 </script>
 
 <div class="container mb-4 mt-8">

@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { cn, flyAndScale } from '$lib/utils.js';
+	import { flyAndScale } from '$lib/transition';
+	import { cn } from '$lib/utils';
 	import { Popover as PopoverPrimitive } from 'bits-ui';
 
 	type $$Props = PopoverPrimitive.ContentProps;
