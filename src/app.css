@@ -149,7 +149,7 @@ img {
 }
 
 .slogan {
-	@apply container my-20 max-w-[40rem] text-center text-[2.75rem]/[1.1] font-bold;
+	@apply container mb-20 mt-32 max-w-[40rem] text-center text-[2.75rem]/[1.1] font-bold;
 }
 
 .slogan p {

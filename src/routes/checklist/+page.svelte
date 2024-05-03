@@ -1,19 +1,29 @@
 <script lang="ts">
+	import checklist from '$lib/json/checklist.json';
 	import { cn } from '$lib/utils';
-	import LucideCheck from '~icons/lucide/check';
-	import MdiDot from '~icons/mdi/dot';
-	import checklist from '../../lib/json/checklist.json';
+	import FluentSpinnerIos16Regular from '~icons/fluent/spinner-ios-16-regular';
+	import CheckIcon from '~icons/lucide/check';
+	import DotIcon from '~icons/mdi/dot';
 </script>
 
-<div class="container my-4">
+<div class="container mt-4">
 	{#each checklist.tasks as task}
-		{@const completed = task[1]}
-		<div class={cn(completed && 'bg-primary/20', 'flex items-center gap-4 p-4')}>
+		{@const inProgress = task[1] === 2}
+		{@const done = task[1] === 1}
+		<div
+			class={cn(
+				done && 'bg-green-500/20',
+				inProgress && 'bg-blue-500/20',
+				'flex items-center gap-4 p-4'
+			)}
+		>
 			<div class="h-5 w-5 shrink-0">
-				{#if completed}
-					<LucideCheck class="h-full w-full" />
+				{#if done}
+					<CheckIcon class="h-full w-full" />
+				{:else if inProgress}
+					<FluentSpinnerIos16Regular class="h-full w-full animate-spin p-0.5" />
 				{:else}
-					<MdiDot class="h-full w-full" />
+					<DotIcon class="h-full w-full" />
 				{/if}
 			</div>
 			<span class="font-medium">{task[0]}</span>

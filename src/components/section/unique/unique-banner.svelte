@@ -56,7 +56,7 @@
 							{#if slide.description}
 								<Markdown
 									content={slide.description}
-									class="*:m-0 *:text-center *:text-sm *:font-light *:text-secondary/85 *:md:text-start *:lg:text-xl"
+									class="*:m-0 *:text-center *:text-base *:font-light *:text-secondary/85 *:md:text-start *:lg:text-xl"
 								/>
 							{/if}
 							{#if slide.link}
@@ -64,7 +64,7 @@
 									href={slide.link}
 									target="_blank"
 									variant="secondary"
-									class="mt-6 h-8 rounded-full px-4 text-xs lg:h-9 lg:px-5 lg:text-sm"
+									class="mt-6 h-9 rounded-full px-5 text-sm lg:h-10 lg:px-6 lg:text-base"
 								>
 									Read more
 								</Button>

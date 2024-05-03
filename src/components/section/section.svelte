@@ -13,6 +13,7 @@
 		image: Section.General.Image,
 		map: Section.General.Map,
 		'rich-text': Section.General.RichText,
+		about: Section.Unique.About,
 		banner: Section.Unique.Banner,
 		collaborators: Section.Unique.Collaborators,
 		contact: Section.Unique.Contact,

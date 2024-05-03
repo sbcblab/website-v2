@@ -62,6 +62,14 @@ export function processSectionContent(content: Section['content']): Promise<obje
 						};
 					})
 				};
+			case 'unique.about-us':
+				return {
+					type: 'about',
+					mainParagraph: component.mainParagraph,
+					bodyText: component.bodyText,
+					imageUrl: env.PUBLIC_STRAPI_URL + component.image.data.attributes.url,
+					imageLink: component.imageLink
+				};
 			case 'unique.banner':
 				return {
 					type: 'banner',

@@ -19,7 +19,7 @@
 
 <div class="flex h-fit min-h-screen min-w-fit flex-col">
 	<Header {socials} {contact} {nav} />
-	<main class="relative mb-20 min-h-[30rem] grow">
+	<main class="relative mb-32 min-h-[30rem] grow">
 		<slot />
 	</main>
 	<Footer {socials} {contact} />

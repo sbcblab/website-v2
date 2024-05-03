@@ -204,6 +204,13 @@ export interface Style {
 
 // Unique ---------------------------------------------------------------------
 
+export interface AboutUs {
+	mainParagraph?: string;
+	bodyText?: string;
+	imageUrl?: string;
+	imageLink?: string;
+}
+
 export interface Banner {
 	slides: Slide[];
 	defaultBackgroundUrl: string;

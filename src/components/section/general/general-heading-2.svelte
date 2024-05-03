@@ -4,6 +4,6 @@
 	export let component: Heading;
 </script>
 
-<div class="container mb-8 mt-20 text-center md:text-start">
+<div class="container mb-8 mt-32 text-center md:text-start">
 	<h2>{component.text}</h2>
 </div>

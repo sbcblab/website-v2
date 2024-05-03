@@ -1,24 +1,24 @@
 {
 	"tasks": [
-		["fix: make banner elements render conditional", true],
-		["style: switch link images hover animation to scale", true],
-		["style: normalize rounded corners", true],
-		["refactor: build new dropdown component and remove third-party one", true],
-		["feat: add heading color option to banner slide", true],
-		["style: redesign tools and datasets section list", true],
-		["refactor: rewrite types based on strapi and render content conditionally", true],
-		["style: redesign projects section list", true],
-		["fix: banner responsiveness with more than 3 slides", true],
-		["style: adjust size and alignments of paragraphs and sections", false],
-		["feat: add project pages", false],
-		["feat: add tools and datasets pages", false],
-		["chore: auto add and order publications to section", false],
+		["fix: make banner elements render conditional", 1],
+		["style: switch link images hover animation to scale", 1],
+		["style: normalize rounded corners", 1],
+		["refactor: build new dropdown component and remove third-party one", 1],
+		["feat: add heading color option to banner slide", 1],
+		["style: redesign tools and datasets section list", 1],
+		["refactor: rewrite types based on strapi and render content conditionally", 1],
+		["style: redesign projects section list", 1],
+		["fix: banner responsiveness with more than 3 slides", 1],
+		["style: adjust size and alignments of paragraphs and sections", 2],
+		["feat: add project pages", 0],
+		["feat: add tools and datasets pages", 0],
+		["chore: auto add and order publications to section", 0],
 
-		["feat: add expand feature to no-link images", false],
-		["style: adjust research-areas section design", false],
-		["style: adjust members section design", false],
-		["feat: add publication types", false],
-		["feat: add copy to clipboard feature to all contact sections", false],
-		["feat: add back to top button", false]
+		["feat: add expand feature to no-link images", 0],
+		["style: adjust research-areas section design", 0],
+		["style: adjust members section design", 0],
+		["feat: add publication types", 0],
+		["feat: add copy to clipboard feature to all contact sections", 0],
+		["feat: add back to top button", 0]
 	]
 }

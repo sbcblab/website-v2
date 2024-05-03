@@ -1,3 +1,4 @@
+import UniqueAbout from './unique-about.svelte';
 import UniqueBanner from './unique-banner.svelte';
 import UniqueCollaborators from './unique-collaborators.svelte';
 import UniqueContact from './unique-contact.svelte';
@@ -11,6 +12,7 @@ import UniqueSlogan from './unique-slogan.svelte';
 import UniqueToolsDatasets from './unique-tools-datasets.svelte';
 
 export {
+	UniqueAbout as About,
 	UniqueBanner as Banner,
 	UniqueCollaborators as Collaborators,
 	UniqueContact as Contact,

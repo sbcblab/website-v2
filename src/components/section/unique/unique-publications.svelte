@@ -6,16 +6,16 @@
 	const { publications } = component;
 </script>
 
-<div class="container mb-20">
+<div class="container mb-24">
 	{#each publications as { year, publications: yearPublications }}
-		<h3 class="mt-6 text-xl font-medium">{year}</h3>
+		<h3 class="mt-8 border-b pb-1 text-2xl font-medium">{year}</h3>
 		<ul class="my-2 flex flex-col gap-2">
 			{#each yearPublications as publication}
 				<li>
 					<a
 						href={publication.doi}
 						target="_blank"
-						class="block text-sm font-light text-foreground hover:opacity-70"
+						class="block text-sm font-light transition-all hover:text-primary hover:brightness-[.8]"
 					>
 						<span>{publication.authors?.join('; ')} </span><span class="font-medium">
 							{publication.title}</span
