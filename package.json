@@ -49,6 +49,7 @@
 		"@fontsource-variable/inter": "^5.0.17",
 		"bits-ui": "^0.21.3",
 		"clsx": "^2.1.0",
+		"embla-carousel": "^8.0.2",
 		"embla-carousel-autoplay": "^8.0.2",
 		"embla-carousel-svelte": "^8.0.2",
 		"isomorphic-dompurify": "^2.7.0",

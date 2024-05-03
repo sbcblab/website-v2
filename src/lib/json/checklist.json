@@ -8,15 +8,17 @@
 		["style: redesign tools and datasets section list", true],
 		["refactor: rewrite types based on strapi and render content conditionally", true],
 		["style: redesign projects section list", true],
+		["fix: banner responsiveness with more than 3 slides", true],
+		["style: adjust size and alignments of paragraphs and sections", false],
+		["feat: add project pages", false],
+		["feat: add tools and datasets pages", false],
+		["chore: auto add and order publications to section", false],
+
+		["feat: add expand feature to no-link images", false],
 		["style: adjust research-areas section design", false],
 		["style: adjust members section design", false],
 		["feat: add publication types", false],
-		["style: adjust size and alignments of paragraphs and sections", false],
 		["feat: add copy to clipboard feature to all contact sections", false],
-		["feat: add expand feature to no-link images", false],
-		["feat: add back to top button", false],
-		["refactor: build new carousel component and remove third-party one", false],
-		["feat: add project pages", false],
-		["feat: add tools and datasets pages", false]
+		["feat: add back to top button", false]
 	]
 }

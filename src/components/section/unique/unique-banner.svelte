@@ -1,52 +1,62 @@
 <script lang="ts">
-	import Markdown from '$components/markdown.svelte';
-	import Button from '$components/ui/button/button.svelte';
-	import * as Carousel from '$components/ui/carousel';
 	import type { Banner } from '$lib/types';
+	import Markdown from '$src/components/markdown.svelte';
+	import Button from '$src/components/ui/button/button.svelte';
+	import type { EmblaCarouselType } from 'embla-carousel';
 	import Autoplay from 'embla-carousel-autoplay';
+	import emblaCarouselSvelte from 'embla-carousel-svelte';
+	import ChevronLeftIcon from '~icons/radix-icons/chevron-left';
+	import ChevronRightIcon from '~icons/radix-icons/chevron-right';
 
 	export let component: Banner;
-
 	const { slides } = component;
 
+	let emblaApi: EmblaCarouselType;
+
+	const options = { loop: true };
 	const autoplay = Autoplay({ delay: 5000 });
+	const plugins = [autoplay];
+
+	const scroll = (target: 'prev' | 'next') => {
+		target === 'prev' ? emblaApi.scrollPrev() : emblaApi.scrollNext();
+		autoplay.reset();
+	};
 </script>
 
-<div class="shadow-xl">
-	<Carousel.Root plugins={[autoplay]} opts={{ loop: true, watchSlides: false }}>
-		<Carousel.Content class="ml-0">
+<div class="relative shadow-xl">
+	<div
+		use:emblaCarouselSvelte={{ options, plugins }}
+		on:emblaInit={(e) => (emblaApi = e.detail)}
+		class="overflow-hidden"
+	>
+		<div class="flex">
 			{#each slides as slide}
-				<Carousel.Item
-					class="bg-background bg-cover bg-center pl-0"
-					style={slide.backgroundUrl
-						? `background-image: url(${slide.backgroundUrl})`
-						: `background-image: url(${component.defaultBackgroundUrl})`}
+				<div
+					class="w-0 shrink-0 grow-0 basis-full bg-cover bg-center"
+					style={`background-image: url(${slide.backgroundUrl || component.defaultBackgroundUrl})`}
 				>
 					<div
-						class="container grid h-[33rem] grid-rows-2 gap-8 p-12 drop-shadow-xl md:h-[30rem] md:grid-cols-2 md:grid-rows-1 md:gap-12 md:py-16"
+						class="container flex h-full flex-col items-center justify-center gap-12 px-8 py-16 drop-shadow-xl md:flex-row-reverse md:justify-between md:px-24"
 					>
 						{#if slide.imageUrl}
-							<img
-								src={slide.imageUrl}
-								alt={slide.heading}
-								class="h-full w-full rounded-md object-contain px-2 md:order-1 md:px-0"
-							/>
+							<div class="flex justify-center px-6 md:px-0">
+								<img
+									src={slide.imageUrl}
+									alt={slide.heading}
+									class="h-fit max-h-56 rounded-md md:max-h-none md:w-full md:max-w-[28rem]"
+								/>
+							</div>
 						{/if}
 						<div
-							class="mx-auto flex max-w-[28rem] flex-col items-center gap-4 text-center md:items-start md:justify-center md:text-left"
+							class="flex max-w-96 flex-col items-center gap-4 text-card-foreground md:w-full md:items-start lg:max-w-[30rem] lg:gap-6"
 						>
 							{#if slide.heading}
-								<h3
-									class="text-2xl text-secondary md:text-3xl"
-									style={slide.headingColor && `color: ${slide.headingColor}`}
-								>
-									{slide.heading}
-								</h3>
+								<h3 class="text-2xl/[1] lg:text-3xl/[1]">{slide.heading}</h3>
 							{/if}
 							{#if slide.description}
 								<Markdown
 									content={slide.description}
-									class="*:m-0 *:text-center *:text-sm *:font-light *:text-secondary/85 *:md:text-start *:md:text-xl"
+									class="*:m-0 *:text-center *:text-sm *:font-light *:text-secondary/85 *:md:text-start *:lg:text-xl"
 								/>
 							{/if}
 							{#if slide.link}
@@ -54,17 +64,28 @@
 									href={slide.link}
 									target="_blank"
 									variant="secondary"
-									class="mt-4 h-8 px-3 text-xs hover:opacity-100 md:mt-8 md:h-10 md:px-5 md:text-sm"
+									class="mt-6 h-8 rounded-full px-4 text-xs lg:h-9 lg:px-5 lg:text-sm"
 								>
 									Read more
 								</Button>
 							{/if}
 						</div>
 					</div>
-				</Carousel.Item>
+				</div>
 			{/each}
-		</Carousel.Content>
-		<Carousel.Button on:click={autoplay.reset} direction="previous" />
-		<Carousel.Button on:click={autoplay.reset} direction="next" />
-	</Carousel.Root>
+		</div>
+	</div>
+
+	<button
+		on:click={() => scroll('prev')}
+		class="absolute left-3 top-1/2 flex h-8 w-8 -translate-y-1/2 touch-manipulation items-center justify-center rounded-full bg-background opacity-15 transition-opacity hover:opacity-50 md:left-8 md:h-12 md:w-12"
+	>
+		<ChevronLeftIcon class="h-1/2 w-1/2" />
+	</button>
+	<button
+		on:click={() => scroll('next')}
+		class="absolute right-3 top-1/2 flex h-8 w-8 -translate-y-1/2 touch-manipulation items-center justify-center rounded-full bg-background opacity-15 transition-opacity hover:opacity-50 md:right-8 md:h-12 md:w-12"
+	>
+		<ChevronRightIcon class="h-1/2 w-1/2" />
+	</button>
 </div>
