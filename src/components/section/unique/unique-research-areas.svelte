@@ -19,7 +19,7 @@
 				on:click={() => (selectedArea = area)}
 				class={cn(
 					selectedArea === area ? 'bg-background text-primary' : 'bg-gray-100 text-foreground/80',
-					'relative flex items-center gap-3 text-nowrap border-r py-3 pl-5 pr-16 font-medium [&:not(:last-child)]:border-b'
+					'relative flex items-center gap-3 border-r py-2 pl-5 pr-10 md:py-3 md:pl-5 md:pr-16 [&:not(:last-child)]:border-b'
 				)}
 			>
 				{#if selectedArea === area}
@@ -30,19 +30,29 @@
 					<Svg
 						src={area.iconUrl}
 						overrideFill
-						class={cn(selectedArea === area ? 'text-primary' : 'text-foreground/80', 'h-5 w-5')}
+						class={cn(
+							selectedArea === area ? 'text-primary' : 'text-foreground/80',
+							'h-4 w-4 md:h-5 md:w-5'
+						)}
 					/>
 				{/if}
-				<span>{area.title}</span>
+				<span class="text-nowrap text-sm font-medium md:text-base">{area.title}</span>
 			</button>
 		{/each}
 	</div>
-	<div class="-translate-x-[1px] border p-8 [&>p]:text-base">
+	<div
+		class="-translate-x-[1px] border px-5 py-8 text-center md:px-8 md:text-start [&>p]:text-base"
+	>
 		<h3 class="mb-4 text-lg">{selectedArea.fullTitle}</h3>
-		<Markdown content={researchAreas.find((area) => area === selectedArea)?.description || ''} />
+		<Markdown
+			content={researchAreas.find((area) => area === selectedArea)?.description || ''}
+			class="*:text-sm *:md:text-start *:md:text-base"
+		/>
 		{#if selectedArea.keywords.length !== 0}
 			<h4 class="font-base mb-4 mt-10 text-base leading-none">Keywords</h4>
-			<div class="flex flex-wrap gap-1 text-sm/[1] text-foreground/80">
+			<div
+				class="flex flex-wrap justify-center gap-1 text-sm/[1] text-foreground/80 md:justify-start"
+			>
 				{#each selectedArea.keywords as keyword}
 					<span class="rounded-full border px-2 py-1">{keyword}</span>
 				{/each}

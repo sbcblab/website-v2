@@ -8,14 +8,14 @@
 
 <div class="container mb-24">
 	{#each publications as { year, publications: yearPublications }}
-		<h3 class="mt-8 border-b pb-1 text-2xl font-medium">{year}</h3>
-		<ul class="my-2 flex flex-col gap-2">
+		<h4 class="mt-8 border-b pb-1 text-xl font-medium md:text-2xl">{year}</h4>
+		<ul class="my-2 flex flex-col gap-3">
 			{#each yearPublications as publication}
 				<li>
 					<a
 						href={publication.doi}
 						target="_blank"
-						class="block text-sm font-light transition-all hover:text-primary hover:brightness-[.8]"
+						class="block text-xs font-light transition-all hover:text-primary hover:brightness-[.8] md:text-sm"
 					>
 						<span>{publication.authors?.join('; ')} </span><span class="font-medium">
 							{publication.title}</span

@@ -48,11 +48,11 @@
 /* Base Styles */
 
 h1 {
-	@apply text-4xl font-light;
+	@apply text-3xl font-light md:text-4xl;
 }
 
 h2 {
-	@apply text-4xl font-bold;
+	@apply text-3xl font-bold md:text-4xl;
 }
 
 h3 {
@@ -64,7 +64,7 @@ h4 {
 }
 
 p {
-	@apply my-8 text-center text-lg leading-[1.875rem] text-foreground-paragraph md:text-start;
+	@apply my-8 text-center text-foreground-paragraph md:text-lg;
 }
 
 blockquote {
@@ -120,8 +120,31 @@ img {
 	@apply rounded-md;
 }
 
+.markdown img {
+	@apply object-contain;
+}
+
 #international-cooperation img {
 	--radius: 0.75rem;
+	@apply object-contain;
+}
+
+#international-cooperation p {
+	@apply mb-12;
+}
+
+#facilities p {
+	@apply text-start;
+}
+
+#guests h2,
+#collaborators h2 {
+	@apply md:text-start;
+}
+
+#projects p,
+#members p {
+	@apply text-sm sm:text-base md:text-start md:text-lg;
 }
 
 /* Utilities */

@@ -26,7 +26,7 @@
 				>
 					{collaborator.name}
 				</a>
-				<span class="text-sm leading-none text-foreground-paragraph">
+				<span class="text-sm text-foreground-paragraph">
 					{[collaborator.institute, collaborator.university, collaborator.country.name]
 						.filter((x) => !!x)
 						.join('/')}
