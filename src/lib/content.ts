@@ -171,6 +171,43 @@ export function processSectionContent(content: Section['content']): Promise<obje
 						};
 					})
 				};
+			case 'unique.hiring':
+				return {
+					type: 'hiring',
+					aboveHeading: component.aboveHeading,
+					heading: component.heading,
+					lead: component.lead,
+					requirements: {
+						title: component.requirementsTitle,
+						items: component.requirements.map((requirement: any) => {
+							return {
+								text: requirement.text,
+								iconUrl: env.PUBLIC_STRAPI_URL + requirement.icon.data.attributes.url
+							};
+						})
+					},
+					benefits: {
+						title: component.benefitsTitle,
+						items: component.benefits.map((benefit: any) => {
+							return {
+								text: benefit.text,
+								iconUrl: env.PUBLIC_STRAPI_URL + benefit.icon.data.attributes.url
+							};
+						})
+					},
+					ppgc: {
+						description: component.ppgcDescription,
+						iconUrl: env.PUBLIC_STRAPI_URL + component.ppgcIcon.data.attributes.url
+					},
+					ppgbcm: {
+						description: component.ppgbcmDescription,
+						iconUrl: env.PUBLIC_STRAPI_URL + component.ppgbcmIcon.data.attributes.url
+					},
+					apply: {
+						link: component.applyLink,
+						text: component.applyText
+					}
+				};
 			case 'unique.collaborators':
 				return {
 					type: 'collaborators',

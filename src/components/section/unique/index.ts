@@ -3,6 +3,7 @@ import UniqueBanner from './unique-banner.svelte';
 import UniqueCollaborators from './unique-collaborators.svelte';
 import UniqueContact from './unique-contact.svelte';
 import UniqueGuests from './unique-guests.svelte';
+import UniqueHiring from './unique-hiring.svelte';
 import UniqueMembers from './unique-members.svelte';
 import UniquePartnerships from './unique-partnerships.svelte';
 import UniqueProjects from './unique-projects.svelte';
@@ -17,6 +18,7 @@ export {
 	UniqueCollaborators as Collaborators,
 	UniqueContact as Contact,
 	UniqueGuests as Guests,
+	UniqueHiring as Hiring,
 	UniqueMembers as Members,
 	UniquePartnerships as Partnerships,
 	UniqueProjects as Projects,

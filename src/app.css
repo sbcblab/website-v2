@@ -152,10 +152,28 @@ img {
 	@apply container mb-20 mt-32 max-w-[40rem] text-center text-[2.75rem]/[1.1] font-bold;
 }
 
-.slogan p {
+.apply-text {
+	@apply strong-medium max-w-[30rem] text-xs font-light text-foreground-paragraph/60;
+}
+
+.apply-text a {
+	@apply transition-opacity;
+}
+
+.apply-text a:hover {
+	@apply opacity-70;
+}
+
+.slogan p,
+.apply-text p {
 	margin: 0;
 	font-size: inherit;
+	font-weight: inherit;
 	color: inherit;
 	line-height: inherit;
 	text-align: inherit;
+}
+
+.strong-medium strong {
+	@apply font-medium;
 }

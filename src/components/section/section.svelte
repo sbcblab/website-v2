@@ -18,6 +18,7 @@
 		collaborators: Section.Unique.Collaborators,
 		contact: Section.Unique.Contact,
 		guests: Section.Unique.Guests,
+		hiring: Section.Unique.Hiring,
 		members: Section.Unique.Members,
 		partnerships: Section.Unique.Partnerships,
 		projects: Section.Unique.Projects,

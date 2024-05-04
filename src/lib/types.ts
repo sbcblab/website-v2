@@ -178,6 +178,11 @@ export interface Author {
 	name: string;
 }
 
+export interface HiringItem {
+	text: string;
+	iconUrl: string;
+}
+
 export interface Keyword {
 	name: string;
 }
@@ -230,6 +235,32 @@ export interface ContactUs {
 
 export interface Guests {
 	guests: Guest[];
+}
+
+export interface Hiring {
+	aboveHeading?: string;
+	heading?: string;
+	lead?: string;
+	requirements: {
+		title: string;
+		items: HiringItem[];
+	};
+	benefits: {
+		title: string;
+		items: HiringItem[];
+	};
+	ppgc: {
+		description?: string;
+		iconUrl: string;
+	};
+	ppgbcm: {
+		description?: string;
+		iconUrl: string;
+	};
+	apply: {
+		link?: string;
+		text?: string;
+	};
 }
 
 export interface Members {

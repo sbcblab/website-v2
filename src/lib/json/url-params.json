@@ -62,7 +62,15 @@
 						},
 						"styles": {
 							"populate": "*"
-						}
+						},
+						"requirements": {
+							"populate": "*"
+						},
+						"benefits": {
+							"populate": "*"
+						},
+						"ppgcIcon": "*",
+						"ppgbcmIcon": "*"
 					}
 				}
 			}
