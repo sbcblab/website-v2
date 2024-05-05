@@ -22,12 +22,6 @@
 								"image": "*"
 							}
 						},
-						"publications": {
-							"sort": ["publicationDate:desc"],
-							"populate": {
-								"authors": "*"
-							}
-						},
 						"projects": {
 							"populate": {
 								"image": "*"

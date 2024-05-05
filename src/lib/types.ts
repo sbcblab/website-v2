@@ -277,6 +277,8 @@ export interface Projects {
 }
 
 export interface Publications {
+	heading?: string;
+	headingType: 'h1' | 'h2';
 	publications: { year: number; publications: Publication[] }[];
 }
 

@@ -1,6 +1,5 @@
 import { env } from '$env/dynamic/public';
 import type { Section } from '$lib/types';
-import { processPublications } from '$lib/utils';
 
 export function processSectionContent(content: Section['content']): Promise<object[]> {
 	return content.map((component: any) => {
@@ -128,7 +127,12 @@ export function processSectionContent(content: Section['content']): Promise<obje
 					})
 				};
 			case 'unique.publications':
-				return processPublications(component);
+				return {
+					type: 'publications',
+					heading: component.heading,
+					headingType: component.headingType,
+					publications: []
+				};
 			case 'unique.projects':
 				return {
 					type: 'projects',

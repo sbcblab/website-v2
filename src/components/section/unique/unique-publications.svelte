@@ -1,13 +1,25 @@
 <script lang="ts">
-	import type { Publications } from '$lib/types';
+	import { Heading1, Heading2 } from '$components/section/general';
+	import type { Publication, Publications } from '$lib/types';
+	import { groupPublicationsByYear } from '$lib/utils';
+	import { getContext } from 'svelte';
 
 	export let component: Publications;
 
-	const { publications } = component;
+	const publications: Publication[] = getContext('publications');
+	const publicationsByYear = groupPublicationsByYear(publications);
 </script>
 
+{#if component.heading}
+	{#if component.headingType === 'h1'}
+		<Heading1 component={{ text: component.heading }} />
+	{:else}
+		<Heading2 component={{ text: component.heading }} />
+	{/if}
+{/if}
+
 <div class="container mb-24">
-	{#each publications as { year, publications: yearPublications }}
+	{#each publicationsByYear as { year, publications: yearPublications }}
 		<h4 class="mt-8 border-b pb-1 text-xl font-medium md:text-2xl">{year}</h4>
 		<ul class="my-2 flex flex-col gap-3">
 			{#each yearPublications as publication}

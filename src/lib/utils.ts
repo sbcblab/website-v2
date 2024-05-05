@@ -1,6 +1,6 @@
+import type { Publication, Publications } from '$lib/types';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import type { Publication } from './types';
 
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
@@ -15,59 +15,27 @@ export function sleep(ms: number) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-export function processPublications(component: any) {
-	const publicationsByYear: { [year: string]: Publication[] } = {};
-	const years = new Set<string>();
+export function groupPublicationsByYear(publications: Publication[]) {
+	const publicationsByYearObject: { [key: string]: Publication[] } = {};
+	const publicationsByYearArray: Publications['publications'] = [];
+	const years = new Set<number>();
 
-	component.publications.data.forEach((publication: any) => {
-		const {
-			title,
-			year,
-			publicationDate,
-			type,
-			doi,
-			authors,
-			booktitle,
-			address,
-			volume,
-			issue,
-			pages
-		} = publication.attributes;
+	publications.forEach((publication) => {
+		const { year } = publication;
 
 		if (!years.has(year)) {
 			years.add(year);
-			publicationsByYear[year] = [];
+			publicationsByYearObject[year] = [];
 		}
 
-		publicationsByYear[year].push({
-			authors: authors.map((author: any) => author.name),
-			title,
-			year,
-			publicationDate,
-			type,
-			doi,
-			booktitle,
-			address,
-			volume,
-			issue,
-			pages
-		});
+		publicationsByYearObject[year].push(publication);
 	});
 
-	const sortedYears = Array.from(years).sort((a, b) => {
-		return parseInt(b) - parseInt(a);
+	const sortedYears = Array.from(years).sort((a, b) => b - a);
+
+	sortedYears.forEach((year) => {
+		publicationsByYearArray.push({ year, publications: publicationsByYearObject[year] });
 	});
 
-	const sortedPublications = sortedYears.map((year) => {
-		const publications = publicationsByYear[year];
-		return {
-			year,
-			publications
-		};
-	});
-
-	return {
-		type: 'publications',
-		publications: sortedPublications
-	};
+	return publicationsByYearArray;
 }
