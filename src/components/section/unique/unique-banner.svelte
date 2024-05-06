@@ -51,7 +51,12 @@
 							class="flex max-w-96 flex-col items-center gap-4 text-card-foreground md:w-full md:items-start lg:max-w-[30rem] lg:gap-6"
 						>
 							{#if slide.heading}
-								<h3 class="text-2xl/[1] lg:text-3xl/[1]">{slide.heading}</h3>
+								<h3
+									class="text-2xl/[1] lg:text-3xl/[1]"
+									style={slide.headingColor && `color: ${slide.headingColor}`}
+								>
+									{slide.heading}
+								</h3>
 							{/if}
 							{#if slide.description}
 								<Markdown
