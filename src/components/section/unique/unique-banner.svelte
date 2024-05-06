@@ -52,7 +52,7 @@
 						>
 							{#if slide.heading}
 								<h3
-									class="text-2xl/[1] lg:text-3xl/[1]"
+									class="text-2xl/[1] lg:text-3xl/[1] text-center md:text-start"
 									style={slide.headingColor && `color: ${slide.headingColor}`}
 								>
 									{slide.heading}
