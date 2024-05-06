@@ -8,10 +8,11 @@
 
 	export let data;
 
-	const { socials, contact, nav, publications } = data;
+	const { socials, contact, nav, publications, projectPages } = data;
 
 	setContext('contact', contact);
 	setContext('publications', publications);
+	setContext('project-pages', projectPages);
 </script>
 
 <svelte:head>

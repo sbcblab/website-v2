@@ -7,7 +7,7 @@
 	const { projects } = component;
 </script>
 
-<div class="md:mt-26 container mt-32 flex flex-col gap-24 md:gap-10">
+<div class="container mt-24 flex flex-col gap-24 md:mt-12 md:gap-12">
 	{#each projects as project}
 		<div
 			class="flex flex-col items-center gap-8 rounded-lg text-center transition-shadow duration-200 md:flex-row md:p-8 md:text-start md:hover:shadow-[0_0_25px_-7px_rgba(0,0,0,0.2)]"

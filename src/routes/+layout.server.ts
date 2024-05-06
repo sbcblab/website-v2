@@ -1,4 +1,11 @@
-import { getContact, getNav, getPublications, getSections, getSocials } from '$lib/data';
+import {
+	getContact,
+	getNav,
+	getProjectPages,
+	getPublications,
+	getSections,
+	getSocials
+} from '$lib/data';
 import type { LayoutServerLoad } from './$types';
 
 export const load: LayoutServerLoad = async () => {
@@ -7,14 +14,16 @@ export const load: LayoutServerLoad = async () => {
 	const contactPromise = getContact();
 	const navPromise = getNav();
 	const publicationsPromise = getPublications();
+	const projectPagesPromise = getProjectPages();
 
-	const [sections, socials, contact, nav, publications] = await Promise.all([
+	const [sections, socials, contact, nav, publications, projectPages] = await Promise.all([
 		sectionsPromise,
 		socialsPromise,
 		contactPromise,
 		navPromise,
-		publicationsPromise
+		publicationsPromise,
+		projectPagesPromise
 	]);
 
-	return { sections, socials, contact, nav, publications };
+	return { sections, socials, contact, nav, publications, projectPages };
 };

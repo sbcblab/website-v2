@@ -14,15 +14,14 @@
 		["style: adjust members section style and responsiveness", 1],
 		["style: adjust size/alignment of paragraphs and headings", 1],
 		["chore: auto add and order publications to section", 1],
-		["style: adjust facilities section style and turn it into unique component", 2],
-		["feat: add project pages", 0],
-		["feat: add tools and datasets pages", 0],
-
-		["feat: add expand feature to no-link images", 0],
-		["style: adjust research-areas section design", 0],
-		["style: adjust members section design", 0],
+		["style: redesign research-areas section", 1],
+		["feat: add project pages", 1],
+		["feat: add confid page", 0],
+		["feat: add covid page", 0],
+		["feat: add nias page", 0],
 		["feat: add publication types", 0],
+		["feat: add back to top button", 0],
 		["feat: add copy to clipboard feature to all contact sections", 0],
-		["feat: add back to top button", 0]
+		["feat: add zoom to images with no link", 0]
 	]
 }

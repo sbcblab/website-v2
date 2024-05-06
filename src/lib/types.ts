@@ -72,6 +72,25 @@ export interface Project {
 	imageUrl?: string;
 }
 
+export interface ProjectPage {
+	slug: string;
+	heading: string;
+	title: string;
+	lead?: string;
+	startDate?: string;
+	endDate?: string;
+	imageUrls?: string[];
+	services?: Service[];
+	description?: string;
+	researchers?: Researcher[];
+	students?: Researcher[];
+	scholarshipStudents?: Researcher[];
+	tools?: Tool[];
+	datasets?: Dataset[];
+	publications?: Publication[];
+	partners?: Partnership[];
+}
+
 export interface Publication {
 	title: string;
 	year: number;
@@ -191,6 +210,22 @@ export interface Partnership {
 	name: string;
 	link?: string;
 	imageUrl: string;
+}
+
+export interface Researcher {
+	name: string;
+	role?: string;
+	link?: string;
+	program?: string;
+	institute?: string;
+	university?: string;
+	country: Country;
+}
+
+export interface Service {
+	title: string;
+	iconUrl?: string;
+	content: string;
 }
 
 export interface Slide {

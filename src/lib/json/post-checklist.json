@@ -1,7 +1,8 @@
 {
 	"tasks": [
-		["chore: join socials and contact on strapi and allow custom icons", false],
-		["chore: make all website colors customizable on strapi", false],
-		["feat: make mobile navbar sticky", false]
+		["style: adjust facilities section style", 0],
+		["chore: join socials and contact on strapi and allow custom icons", 0],
+		["chore: make all website colors customizable on strapi", 0],
+		["feat: make mobile navbar sticky", 0]
 	]
 }
