@@ -22,7 +22,8 @@
 				if (overrideFill) {
 					svg.setAttribute('fill', 'currentColor');
 					svg.querySelectorAll('path').forEach((path) => {
-						if (path.getAttribute('fill') !== 'none') {
+						path.style.color = 'currentColor';
+						if (path.getAttribute('fill') && path.getAttribute('fill') !== 'none') {
 							path.style.fill = 'currentColor';
 						}
 					});

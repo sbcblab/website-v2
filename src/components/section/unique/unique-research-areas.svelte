@@ -11,50 +11,40 @@
 	let selectedArea: ResearchArea = researchAreas[0];
 </script>
 
-<div class="container flex flex-col md:flex-row">
-	<div class="relative z-10 flex h-min flex-col border-y">
-		<div class="absolute bottom-0 left-0 top-0 z-10 w-1 bg-[#6E6E6E]" />
+<div class="container flex w-full flex-col md:flex-row">
+	<div
+		class="flex h-fit justify-center overflow-hidden rounded-t-[2rem] bg-gray-500/5 px-3 pt-3 md:flex-col md:rounded-bl-3xl md:rounded-tr-none md:pb-3 md:pr-0"
+	>
 		{#each researchAreas as area}
 			<button
 				on:click={() => (selectedArea = area)}
 				class={cn(
-					selectedArea === area ? 'bg-background text-primary' : 'bg-gray-100 text-foreground/80',
-					'relative flex items-center gap-3 border-r py-2 pl-5 pr-10 md:py-3 md:pl-5 md:pr-16 [&:not(:last-child)]:border-b'
+					'flex items-center gap-4 text-nowrap rounded-t-full p-3.5 text-start text-sm font-medium md:rounded-bl-full md:rounded-tr-none md:pl-5 md:pr-12',
+					area === selectedArea
+						? 'shadow-center rounded-tab z-10 bg-background text-primary'
+						: 'text-gray-400'
 				)}
 			>
-				{#if selectedArea === area}
-					<div class="absolute -right-1 bottom-0 top-0 hidden w-2 bg-background md:block" />
-					<div class="absolute bottom-0 left-0 top-0 z-20 w-1 bg-primary" />
-				{/if}
-				{#if area.iconUrl}
-					<Svg
-						src={area.iconUrl}
-						overrideFill
-						class={cn(
-							selectedArea === area ? 'text-primary' : 'text-foreground/80',
-							'h-4 w-4 md:h-5 md:w-5'
-						)}
-					/>
-				{/if}
-				<span class="text-nowrap text-sm font-medium md:text-base">{area.title}</span>
+				<Svg src={area.iconUrl} overrideFill class="h-5 w-5 shrink-0" />
+				<span class="hidden md:inline">{area.title}</span>
 			</button>
 		{/each}
 	</div>
+
 	<div
-		class="-translate-x-[1px] border px-5 py-8 text-center md:px-8 md:text-start [&>p]:text-base"
+		class="shadow-center grow rounded-3xl rounded-t-none p-8 text-center md:w-min md:rounded-tr-3xl md:text-start"
 	>
-		<h3 class="mb-4 text-lg">{selectedArea.fullTitle}</h3>
+		<h3 class="text-lg">{selectedArea.fullTitle}</h3>
 		<Markdown
 			content={researchAreas.find((area) => area === selectedArea)?.description || ''}
-			class="*:text-sm *:md:text-start *:md:text-base"
+			class="*:text-s *:md:text-start *:md:text-base"
 		/>
-		{#if selectedArea.keywords.length !== 0}
-			<h4 class="font-base mb-4 mt-10 text-base leading-none">Keywords</h4>
+		{#if selectedArea.keywords.length > 0}
 			<div
-				class="flex flex-wrap justify-center gap-1 text-sm/[1] text-foreground/80 md:justify-start"
+				class="mt-12 flex flex-wrap justify-center gap-x-5 gap-y-1.5 text-xs font-light text-foreground-paragraph/60 md:justify-start"
 			>
 				{#each selectedArea.keywords as keyword}
-					<span class="rounded-full border px-2 py-1">{keyword}</span>
+					<span>{keyword}</span>
 				{/each}
 			</div>
 		{/if}
