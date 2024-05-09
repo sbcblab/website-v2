@@ -13,6 +13,7 @@
 		image: Section.General.Image,
 		map: Section.General.Map,
 		'rich-text': Section.General.RichText,
+		tabs: Section.General.Tabs,
 		about: Section.Unique.About,
 		banner: Section.Unique.Banner,
 		collaborators: Section.Unique.Collaborators,
@@ -23,7 +24,6 @@
 		partnerships: Section.Unique.Partnerships,
 		projects: Section.Unique.Projects,
 		publications: Section.Unique.Publications,
-		'research-areas': Section.Unique.ResearchAreas,
 		slogan: Section.Unique.Slogan,
 		'tools-datasets': Section.Unique.ToolsDatasets
 	};

@@ -60,7 +60,7 @@ h3 {
 }
 
 h4 {
-	@apply text-2xl font-bold;
+	@apply text-lg font-bold;
 }
 
 p {
@@ -220,4 +220,8 @@ img {
 
 .rounded-tab::after {
 	@apply bottom-0 right-0 translate-x-full rounded-bl-full shadow-[-5px_5px_0_5px_white] md:translate-x-0 md:translate-y-full md:rounded-tr-full md:shadow-[5px_-5px_0_5px_white];
+}
+
+.font-size-unset p {
+	font-size: unset;
 }

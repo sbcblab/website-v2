@@ -61,6 +61,19 @@ export function processSectionContent(content: Section['content']): Promise<obje
 						};
 					})
 				};
+			case 'general.tabs':
+				return {
+					type: 'tabs',
+					items: component.items.map((item: any) => {
+						return {
+							title: item.title,
+							fullTitle: item.fullTitle,
+							iconUrl: item.icon.data && env.PUBLIC_STRAPI_URL + item.icon.data.attributes.url,
+							content: item.content,
+							keywords: item.keywords?.split(',').map((item: string) => item.trim())
+						};
+					})
+				};
 			case 'unique.about-us':
 				return {
 					type: 'about',
@@ -115,7 +128,6 @@ export function processSectionContent(content: Section['content']): Promise<obje
 					})
 				};
 			case 'unique.partnerships':
-				console.log(component.partnerships.data);
 				return {
 					type: 'partnerships',
 					partnerships: component.partnerships.data.map((partnership: any) => {
@@ -227,21 +239,6 @@ export function processSectionContent(content: Section['content']): Promise<obje
 									env.PUBLIC_STRAPI_URL +
 									collaborator.attributes.country.data.attributes.flag.data.attributes.url
 							}
-						};
-					})
-				};
-			case 'unique.research-areas':
-				return {
-					type: 'research-areas',
-					researchAreas: component.researchAreas.data.map((area: any) => {
-						return {
-							title: area.attributes.title,
-							fullTitle: area.attributes.fullTitle,
-							description: area.attributes.description,
-							iconUrl:
-								area.attributes.icon.data &&
-								env.PUBLIC_STRAPI_URL + area.attributes.icon.data.attributes.url,
-							keywords: area.attributes.keywords.map((keyword: any) => keyword.name)
 						};
 					})
 				};

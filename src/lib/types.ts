@@ -75,12 +75,13 @@ export interface Project {
 export interface ProjectPage {
 	slug: string;
 	heading: string;
+	subHeading?: string;
 	title: string;
 	lead?: string;
 	startDate?: string;
 	endDate?: string;
 	imageUrls?: string[];
-	services?: Service[];
+	services: TabItem[];
 	description?: string;
 	researchers?: Researcher[];
 	students?: Researcher[];
@@ -103,14 +104,6 @@ export interface Publication {
 	volume?: number;
 	issue?: number;
 	pages?: string;
-}
-
-export interface ResearchArea {
-	title: string;
-	iconUrl: string;
-	description: string;
-	fullTitle?: string;
-	keywords: Keyword[];
 }
 
 export interface Section {
@@ -187,6 +180,10 @@ export interface RichText {
 	content: string;
 }
 
+export interface Tabs {
+	items: TabItem[];
+}
+
 // List -----------------------------------------------------------------------
 
 export interface Area {
@@ -200,10 +197,6 @@ export interface Author {
 export interface HiringItem {
 	text: string;
 	iconUrl: string;
-}
-
-export interface Keyword {
-	name: string;
 }
 
 export interface Partnership {
@@ -222,12 +215,6 @@ export interface Researcher {
 	country: Country;
 }
 
-export interface Service {
-	title: string;
-	iconUrl?: string;
-	content: string;
-}
-
 export interface Slide {
 	heading?: string;
 	link?: string;
@@ -240,6 +227,14 @@ export interface Slide {
 export interface Style {
 	key: string;
 	value: string;
+}
+
+export interface TabItem {
+	title: string;
+	fullTitle?: string;
+	iconUrl: string;
+	content: string;
+	keywords?: string[];
 }
 
 // Unique ---------------------------------------------------------------------
@@ -314,10 +309,6 @@ export interface Publications {
 	heading?: string;
 	headingType: 'h1' | 'h2';
 	publications: { year: number; publications: Publication[] }[];
-}
-
-export interface ResearchAreas {
-	researchAreas: ResearchArea[];
 }
 
 export interface Slogan {

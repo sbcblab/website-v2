@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { Heading1 } from '$components/section/general';
+	import { Heading1, Tabs } from '$components/section/general';
 	import type { ProjectPage } from '$lib/types';
 	import { error } from '@sveltejs/kit';
 	import { getContext } from 'svelte';
@@ -13,12 +13,14 @@
 	}
 </script>
 
-<Heading1 component={{ text: 'DSBA' }} />
+<Heading1 component={{ text: project.heading }} />
 
-<div class="container flex flex-col gap-12">
+<div class="flex flex-col gap-12">
 	<!-- Header -->
-	<div class="flex flex-col items-center gap-3 text-center">
-		<span class="font-semibold text-primary">{project.heading}</span>
+	<div class="container flex flex-col items-center gap-3 text-center">
+		{#if project.subHeading}
+			<span class="font-semibold text-primary">{project.subHeading}</span>
+		{/if}
 		<h2>{project.title}</h2>
 		{#if project.lead}
 			<span class="max-w-[38rem] text-foreground-paragraph md:text-lg">{project.lead}</span>
@@ -42,7 +44,7 @@
 
 	<!-- Images -->
 	{#if project.imageUrls}
-		<div class="flex h-52 gap-3">
+		<div class="container flex h-52 gap-3">
 			{#each project.imageUrls as imageUrl}
 				<div class="w-full">
 					<img src={imageUrl} alt="" class="h-full w-full rounded-lg object-cover" />
@@ -52,4 +54,7 @@
 	{/if}
 
 	<!-- Services -->
+	{#if project.services.length > 0}
+		<Tabs component={{ items: project.services }} />
+	{/if}
 </div>

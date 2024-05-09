@@ -93,13 +93,14 @@ export async function getPublications(): Promise<Publication[]> {
 export async function getProjectPages(): Promise<ProjectPage[]> {
 	const data = await fetchData('project-pages', {
 		populate:
-			'images, services, researchers.country.flag, students.country.flag, scholarshipStudents.country.flag, tools.image, datasets.image, publications.authors, partners.image'
+			'images, services.icon, researchers.country.flag, students.country.flag, scholarshipStudents.country.flag, tools.image, datasets.image, publications.authors, partners.image'
 	});
 
 	return data.map((projectPage: any) => {
 		return {
 			slug: projectPage.attributes.slug,
 			heading: projectPage.attributes.heading,
+			subHeading: projectPage.attributes.subHeading,
 			title: projectPage.attributes.title,
 			lead: projectPage.attributes.lead,
 			startDate: projectPage.attributes.startDate,
@@ -110,10 +111,12 @@ export async function getProjectPages(): Promise<ProjectPage[]> {
 			services: projectPage.attributes.services.map((service: any) => {
 				return {
 					title: service.title,
+					fullTitle: service.fullTitle,
 					iconUrl: service.icon
 						? env.PUBLIC_STRAPI_URL + service.icon.data.attributes.url
 						: undefined,
-					description: service.description
+					content: service.content,
+					keywords: service.keywords?.split(',').map((item: string) => item.trim())
 				};
 			}),
 			description: projectPage.attributes.description,

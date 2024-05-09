@@ -6,6 +6,9 @@
 					"populate": {
 						"image": "*",
 						"defaultBackground": "*",
+						"items": {
+							"populate": "*"
+						},
 						"partnerships": {
 							"populate": "*"
 						},
@@ -46,12 +49,6 @@
 								"country": {
 									"populate": "*"
 								}
-							}
-						},
-						"researchAreas": {
-							"populate": {
-								"keywords": "*",
-								"icon": "*"
 							}
 						},
 						"styles": {

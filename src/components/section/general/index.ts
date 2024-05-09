@@ -6,6 +6,7 @@ import GeneralImageRow from './general-image-row.svelte';
 import GeneralImage from './general-image.svelte';
 import GeneralMap from './general-map.svelte';
 import GeneralRichText from './general-rich-text.svelte';
+import GeneralTabs from './general-tabs.svelte';
 
 export {
 	GeneralHeading1 as Heading1,
@@ -15,5 +16,6 @@ export {
 	GeneralImage as Image,
 	GeneralImageRow as ImageRow,
 	GeneralMap as Map,
-	GeneralRichText as RichText
+	GeneralRichText as RichText,
+	GeneralTabs as Tabs
 };
