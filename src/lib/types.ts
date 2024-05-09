@@ -80,16 +80,16 @@ export interface ProjectPage {
 	lead?: string;
 	startDate?: string;
 	endDate?: string;
-	imageUrls?: string[];
+	imageUrls: string[];
 	services: TabItem[];
 	description?: string;
-	researchers?: Researcher[];
-	students?: Researcher[];
-	scholarshipStudents?: Researcher[];
-	tools?: Tool[];
-	datasets?: Dataset[];
-	publications?: Publication[];
-	partners?: Partnership[];
+	researchers: Researcher[];
+	students: Researcher[];
+	scholarshipStudents: Researcher[];
+	tools: Tool[];
+	datasets: Dataset[];
+	publications: Publication[];
+	partners: Partnership[];
 }
 
 export interface Publication {

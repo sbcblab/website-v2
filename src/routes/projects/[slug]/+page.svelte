@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import Markdown from '$components/markdown.svelte';
 	import { Heading1, Tabs } from '$components/section/general';
 	import type { ProjectPage } from '$lib/types';
 	import { error } from '@sveltejs/kit';
-	import { getContext } from 'svelte';
+	import { getContext, onMount } from 'svelte';
 
 	const projectPages: ProjectPage[] = getContext('project-pages');
 	const project = projectPages.find((p) => p.slug === $page.params.slug);
@@ -11,6 +12,17 @@
 	if (!project) {
 		error(404);
 	}
+
+	const sections = [
+		project.researchers.length > 0 && 'Researchers',
+		project.students.length > 0 && 'Students',
+		project.scholarshipStudents.length > 0 && 'Scholarship Students',
+		(project.tools.length > 0 || project.datasets.length > 0) && 'Tools and Datasets',
+		project.publications.length > 0 && 'Publications',
+		project.partners.length > 0 && 'Partners'
+	].filter(Boolean);
+
+	onMount(() => console.log(project));
 </script>
 
 <Heading1 component={{ text: project.heading }} />
@@ -43,7 +55,7 @@
 	</div>
 
 	<!-- Images -->
-	{#if project.imageUrls}
+	{#if project.imageUrls.length > 0}
 		<div class="container flex h-52 gap-3">
 			{#each project.imageUrls as imageUrl}
 				<div class="w-full">
@@ -56,5 +68,20 @@
 	<!-- Services -->
 	{#if project.services.length > 0}
 		<Tabs component={{ items: project.services }} />
+	{/if}
+
+	<!-- Navigation -->
+	<div class="container my-8 flex flex-wrap justify-center gap-4">
+		{#each sections as section}
+			<button
+				class="rounded-full bg-primary px-6 py-2.5 font-medium text-primary-foreground transition-opacity hover:opacity-70"
+				>{section}</button
+			>
+		{/each}
+	</div>
+
+	<!-- Description -->
+	{#if project.description}
+		<Markdown class="container -my-8" content={project.description} />
 	{/if}
 </div>
