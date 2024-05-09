@@ -207,7 +207,7 @@ export interface Keyword {
 }
 
 export interface Partnership {
-	name: string;
+	name?: string;
 	link?: string;
 	imageUrl: string;
 }
@@ -303,7 +303,6 @@ export interface Members {
 }
 
 export interface Partnerships {
-	heading: string;
 	partnerships: Partnership[];
 }
 

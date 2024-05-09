@@ -115,14 +115,14 @@ export function processSectionContent(content: Section['content']): Promise<obje
 					})
 				};
 			case 'unique.partnerships':
+				console.log(component.partnerships.data);
 				return {
 					type: 'partnerships',
-					heading: component.heading,
-					partnerships: component.partnerships.map((partnership: any) => {
+					partnerships: component.partnerships.data.map((partnership: any) => {
 						return {
-							name: partnership.name,
-							link: partnership.link,
-							imageUrl: env.PUBLIC_STRAPI_URL + partnership.image.data.attributes.url
+							name: partnership.attributes.name,
+							link: partnership.attributes.link,
+							imageUrl: env.PUBLIC_STRAPI_URL + partnership.attributes.image.data.attributes.url
 						};
 					})
 				};

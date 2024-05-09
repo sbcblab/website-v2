@@ -23,7 +23,10 @@
 					svg.setAttribute('fill', 'currentColor');
 					svg.querySelectorAll('path').forEach((path) => {
 						path.style.color = 'currentColor';
-						if (path.getAttribute('fill') && path.getAttribute('fill') !== 'none') {
+						if (
+							(path.getAttribute('fill') && path.getAttribute('fill') !== 'none') ||
+							path.style.fill
+						) {
 							path.style.fill = 'currentColor';
 						}
 					});
