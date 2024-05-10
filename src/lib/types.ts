@@ -68,6 +68,7 @@ export interface Page {
 export interface Project {
 	title: string;
 	link?: string;
+	newTab: boolean;
 	description?: string;
 	imageUrl?: string;
 }

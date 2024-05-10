@@ -152,6 +152,7 @@ export function processSectionContent(content: Section['content']): Promise<obje
 						return {
 							title: project.attributes.title,
 							link: project.attributes.link,
+							newTab: project.attributes.newTab,
 							description: project.attributes.description,
 							imageUrl: env.PUBLIC_STRAPI_URL + project.attributes.image.data.attributes.url
 						};
