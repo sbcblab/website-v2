@@ -3,8 +3,9 @@
 	import Markdown from '$components/markdown.svelte';
 	import { Heading1, Tabs } from '$components/section/general';
 	import type { ProjectPage } from '$lib/types';
+	import Researchers from '$src/components/researchers.svelte';
 	import { error } from '@sveltejs/kit';
-	import { getContext, onMount } from 'svelte';
+	import { getContext } from 'svelte';
 
 	const projectPages: ProjectPage[] = getContext('project-pages');
 	const project = projectPages.find((p) => p.slug === $page.params.slug);
@@ -13,21 +14,23 @@
 		error(404);
 	}
 
-	const sections = [
-		project.researchers.length > 0 && 'Researchers',
-		project.students.length > 0 && 'Students',
-		project.scholarshipStudents.length > 0 && 'Scholarship Students',
-		(project.tools.length > 0 || project.datasets.length > 0) && 'Tools and Datasets',
-		project.publications.length > 0 && 'Publications',
-		project.partners.length > 0 && 'Partners'
-	].filter(Boolean);
-
-	onMount(() => console.log(project));
+	const sections: { label: string; id: string }[] = [
+		...(project.researchers.length > 0 ? [{ label: 'Researchers', id: 'researchers' }] : []),
+		...(project.students.length > 0 ? [{ label: 'Students', id: 'students' }] : []),
+		...(project.scholarshipStudents.length > 0
+			? [{ label: 'Scholarship Students', id: 'scholarship-students' }]
+			: []),
+		...(project.tools.length > 0 || project.datasets.length > 0
+			? [{ label: 'Tools & Datasets', id: 'tools-datasets' }]
+			: []),
+		...(project.publications.length > 0 ? [{ label: 'Publications', id: 'publications' }] : []),
+		...(project.partners.length > 0 ? [{ label: 'Partners', id: 'partners' }] : [])
+	];
 </script>
 
 <Heading1 component={{ text: project.heading }} />
 
-<div class="flex flex-col gap-12">
+<div class="flex flex-col gap-16">
 	<!-- Header -->
 	<div class="container flex flex-col items-center gap-3 text-center">
 		{#if project.subHeading}
@@ -71,17 +74,43 @@
 	{/if}
 
 	<!-- Navigation -->
-	<div class="container my-8 flex flex-wrap justify-center gap-4">
-		{#each sections as section}
-			<button
+	<div class="container flex flex-wrap justify-center gap-4">
+		{#each sections as { label, id }}
+			<a
+				href={`#${id}`}
 				class="rounded-full bg-primary px-6 py-2.5 font-medium text-primary-foreground transition-opacity hover:opacity-70"
-				>{section}</button
 			>
+				{label}
+			</a>
 		{/each}
 	</div>
 
 	<!-- Description -->
 	{#if project.description}
 		<Markdown class="container -my-8" content={project.description} />
+	{/if}
+
+	<!-- Researchers -->
+	{#if project.researchers.length > 0}
+		<section id="researchers" class="*:md:text-start">
+			<h3 class="container text-center md:text-start">Researchers</h3>
+			<Researchers list={project.researchers} />
+		</section>
+	{/if}
+
+	<!-- Students -->
+	{#if project.students.length > 0}
+		<section id="students" class="*:md:text-start">
+			<h3 class="container text-center md:text-start">Graduate Students/Collaborators</h3>
+			<Researchers list={project.students} />
+		</section>
+	{/if}
+
+	<!-- Scholarship Students -->
+	{#if project.scholarshipStudents.length > 0}
+		<section id="scholarship-students" class="*:md:text-start">
+			<h3 class="container text-center md:text-start">Scholarship Students</h3>
+			<Researchers list={project.scholarshipStudents} />
+		</section>
 	{/if}
 </div>

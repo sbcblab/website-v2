@@ -11,7 +11,7 @@
 	{#each collaborators as collaborator}
 		<div class="flex items-center gap-3">
 			<img
-				class="w-12 rounded"
+				class="w-14 rounded"
 				src={collaborator.country.flagUrl}
 				alt={collaborator.country.name}
 			/>
