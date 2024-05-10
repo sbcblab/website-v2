@@ -2,6 +2,7 @@
 	import '$src/app.css';
 	import '@fontsource-variable/inter';
 
+	import BackToTop from '$components/back-to-top.svelte';
 	import { Footer } from '$components/footer';
 	import { Header } from '$components/header';
 	import { setContext } from 'svelte';
@@ -20,6 +21,7 @@
 </svelte:head>
 
 <div class="flex h-fit min-h-screen min-w-fit flex-col">
+	<BackToTop />
 	<Header {socials} {contact} {nav} />
 	<main class="relative mb-32 min-h-[30rem] grow">
 		<slot />
