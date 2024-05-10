@@ -2,6 +2,7 @@
 	import { page } from '$app/stores';
 	import Markdown from '$components/markdown.svelte';
 	import { Heading1, Tabs } from '$components/section/general';
+	import { ToolsDatasets } from '$components/section/unique';
 	import type { ProjectPage } from '$lib/types';
 	import Researchers from '$src/components/researchers.svelte';
 	import { error } from '@sveltejs/kit';
@@ -87,12 +88,12 @@
 
 	<!-- Description -->
 	{#if project.description}
-		<Markdown class="container -my-8" content={project.description} />
+		<Markdown class="container *:my-0" content={project.description} />
 	{/if}
 
 	<!-- Researchers -->
 	{#if project.researchers.length > 0}
-		<section id="researchers" class="*:md:text-start">
+		<section id="researchers" class="space-y-8">
 			<h3 class="container text-center md:text-start">Researchers</h3>
 			<Researchers list={project.researchers} />
 		</section>
@@ -100,7 +101,7 @@
 
 	<!-- Students -->
 	{#if project.students.length > 0}
-		<section id="students" class="*:md:text-start">
+		<section id="students" class="space-y-8">
 			<h3 class="container text-center md:text-start">Graduate Students/Collaborators</h3>
 			<Researchers list={project.students} />
 		</section>
@@ -108,9 +109,17 @@
 
 	<!-- Scholarship Students -->
 	{#if project.scholarshipStudents.length > 0}
-		<section id="scholarship-students" class="*:md:text-start">
+		<section id="scholarship-students" class="space-y-8">
 			<h3 class="container text-center md:text-start">Scholarship Students</h3>
 			<Researchers list={project.scholarshipStudents} />
+		</section>
+	{/if}
+
+	<!-- Tools and Datasets -->
+	{#if project.tools.length > 0 || project.datasets.length > 0}
+		<section id="tools-datasets" class="space-y-8">
+			<h3 class="container text-center md:text-start">Tools & Datasets</h3>
+			<ToolsDatasets component={{ tools: project.tools, datasets: project.datasets }} />
 		</section>
 	{/if}
 </div>

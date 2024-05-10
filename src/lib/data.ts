@@ -180,9 +180,9 @@ export async function getProjectPages(): Promise<ProjectPage[]> {
 			}),
 			datasets: projectPage.attributes.datasets.data.map((dataset: any) => {
 				return {
-					title: dataset.title,
-					link: dataset.link,
-					description: dataset.description,
+					title: dataset.attributes.title,
+					link: dataset.attributes.link,
+					description: dataset.attributes.description,
 					imageUrl: dataset.attributes.image
 						? env.PUBLIC_STRAPI_URL + dataset.attributes.image.data.attributes.url
 						: undefined

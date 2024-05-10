@@ -5,9 +5,9 @@
 	export let list: Researcher[];
 </script>
 
-<ul class="container grid list-none grid-cols-1 gap-8 md:grid-cols-2">
+<ul class="container my-0 grid list-none grid-cols-1 gap-8 md:grid-cols-2">
 	{#each list as researcher}
-		<li class="flex h-16 items-center gap-3">
+		<li class="mt-0 flex h-16 items-center gap-3">
 			<img src={researcher.country.flagUrl} alt={researcher.country.name} class="w-14 rounded" />
 			<div class="flex flex-col gap-2">
 				<a
