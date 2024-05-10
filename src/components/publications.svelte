@@ -5,21 +5,25 @@
 </script>
 
 <div class="container">
-	<ul class="ml-5 flex flex-col gap-3">
+	<ul class="ml-5 flex flex-col gap-4">
 		{#each list as publication}
-			<li>
+			<li class="mt-0">
 				<a
 					href={publication.doi}
 					target="_blank"
-					class="block text-xs font-light transition-all hover:text-primary hover:brightness-[.8] md:text-sm"
+					class="transition-all hover:text-primary hover:brightness-[.8] md:flex md:flex-col"
 				>
-					<span>{publication.authors?.join('; ')} </span><span class="font-medium">
-						{publication.title}</span
-					><span>. {publication.booktitle}</span>{#if publication.volume}<span
-							>, v. {publication.volume}</span
-						>{/if}{#if publication.pages}<span>, p. {publication.pages}</span>{/if}<span
-						>, {publication.year}.</span
-					>
+					<span>{publication.title} </span>
+					<span class="text-sm font-light text-foreground-paragraph/70">
+						<span>{publication.authors?.join('; ')}</span>
+						<span>
+							<span>{publication.booktitle}</span>{#if publication.volume}<span
+									>, v. {publication.volume}</span
+								>{/if}{#if publication.pages}<span>, p. {publication.pages}</span>{/if}<span
+								>, {publication.year}</span
+							>
+						</span>
+					</span>
 				</a>
 			</li>
 		{/each}

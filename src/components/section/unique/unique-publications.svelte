@@ -22,7 +22,7 @@
 <div class="mb-24">
 	{#each publicationsByYear as { year, publications: yearPublications }}
 		<div class="container">
-			<h4 class="mt-8 border-b pb-1 text-xl font-medium md:text-2xl">{year}</h4>
+			<h4 class="mt-10 border-b pb-1 text-xl font-medium md:text-2xl">{year}</h4>
 		</div>
 		<Publications list={yearPublications} />
 	{/each}
