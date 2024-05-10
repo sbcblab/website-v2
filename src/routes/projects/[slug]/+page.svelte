@@ -4,10 +4,10 @@
 	import Publications from '$components/publications.svelte';
 	import Researchers from '$components/researchers.svelte';
 	import { Heading1, Tabs } from '$components/section/general';
-	import { ToolsDatasets } from '$components/section/unique';
+	import { Partnerships, ToolsDatasets } from '$components/section/unique';
 	import type { ProjectPage } from '$lib/types';
 	import { error } from '@sveltejs/kit';
-	import { getContext } from 'svelte';
+	import { getContext, onMount } from 'svelte';
 
 	const projectPages: ProjectPage[] = getContext('project-pages');
 	const project = projectPages.find((p) => p.slug === $page.params.slug);
@@ -28,11 +28,15 @@
 		...(project.publications.length > 0 ? [{ label: 'Publications', id: 'publications' }] : []),
 		...(project.partners.length > 0 ? [{ label: 'Partners', id: 'partners' }] : [])
 	];
+
+	onMount(() => {
+		console.log(project);
+	});
 </script>
 
 <Heading1 component={{ text: project.heading }} />
 
-<div class="flex flex-col gap-16">
+<div class="flex flex-col gap-20">
 	<!-- Header -->
 	<div class="container flex flex-col items-center gap-3 text-center">
 		{#if project.subHeading}
@@ -129,6 +133,14 @@
 		<section id="publications" class="space-y-8">
 			<h3 class="container text-center md:text-start">Publications</h3>
 			<Publications list={project.publications} />
+		</section>
+	{/if}
+
+	<!-- Partners -->
+	{#if project.partners.length > 0}
+		<section id="partners" class="space-y-8">
+			<h3 class="container text-center md:text-start">Institutions/Finantial Support</h3>
+			<Partnerships component={{ partnerships: project.partners }} />
 		</section>
 	{/if}
 </div>

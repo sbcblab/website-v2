@@ -207,7 +207,7 @@ export async function getProjectPages(): Promise<ProjectPage[]> {
 				return {
 					name: partner.attributes.name,
 					link: partner.attributes.link,
-					image: partner.attributes.image
+					imageUrl: partner.attributes.image
 						? env.PUBLIC_STRAPI_URL + partner.attributes.image.data.attributes.url
 						: undefined
 				};
