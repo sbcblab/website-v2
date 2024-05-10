@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import Markdown from '$components/markdown.svelte';
+	import Publications from '$components/publications.svelte';
+	import Researchers from '$components/researchers.svelte';
 	import { Heading1, Tabs } from '$components/section/general';
 	import { ToolsDatasets } from '$components/section/unique';
 	import type { ProjectPage } from '$lib/types';
-	import Researchers from '$src/components/researchers.svelte';
 	import { error } from '@sveltejs/kit';
 	import { getContext } from 'svelte';
 
@@ -115,11 +116,19 @@
 		</section>
 	{/if}
 
-	<!-- Tools and Datasets -->
+	<!-- Tools & Datasets -->
 	{#if project.tools.length > 0 || project.datasets.length > 0}
 		<section id="tools-datasets" class="space-y-8">
 			<h3 class="container text-center md:text-start">Tools & Datasets</h3>
 			<ToolsDatasets component={{ tools: project.tools, datasets: project.datasets }} />
+		</section>
+	{/if}
+
+	<!-- Publications -->
+	{#if project.publications.length > 0}
+		<section id="publications" class="space-y-8">
+			<h3 class="container text-center md:text-start">Publications</h3>
+			<Publications list={project.publications} />
 		</section>
 	{/if}
 </div>
