@@ -1,4 +1,4 @@
-import type { Publication, Publications } from '$lib/types';
+import type { Publication } from '$lib/types';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -15,27 +15,29 @@ export function sleep(ms: number) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-export function groupPublicationsByYear(publications: Publication[]) {
-	const publicationsByYearObject: { [key: string]: Publication[] } = {};
-	const publicationsByYearArray: Publications['publications'] = [];
-	const years = new Set<number>();
+export function groupPublications(publications: Publication[]) {
+	const groupedPublications: { [key: string]: { year: number; publications: Publication[] }[] } =
+		{};
+	const types = [...new Set(publications.map((publication) => publication.type))];
 
-	publications.forEach((publication) => {
-		const { year } = publication;
+	types.forEach((type) => {
+		const years = [
+			...new Set(
+				publications
+					.filter((publication) => publication.type === type)
+					.map((publication) => publication.year)
+			)
+		];
 
-		if (!years.has(year)) {
-			years.add(year);
-			publicationsByYearObject[year] = [];
-		}
-
-		publicationsByYearObject[year].push(publication);
+		groupedPublications[type] = years.map((year) => {
+			return {
+				year,
+				publications: publications.filter(
+					(publication) => publication.type === type && publication.year === year
+				)
+			};
+		});
 	});
 
-	const sortedYears = Array.from(years).sort((a, b) => b - a);
-
-	sortedYears.forEach((year) => {
-		publicationsByYearArray.push({ year, publications: publicationsByYearObject[year] });
-	});
-
-	return publicationsByYearArray;
+	return groupedPublications;
 }

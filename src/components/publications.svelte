@@ -5,7 +5,7 @@
 </script>
 
 <div class="container">
-	<ul class="ml-5 flex flex-col gap-4">
+	<ul class="my-0 ml-5 flex flex-col gap-5">
 		{#each list as publication}
 			<li class="mt-0">
 				<a
