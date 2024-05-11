@@ -21,7 +21,7 @@
 					'flex items-center gap-4 text-nowrap rounded-t-full p-3.5 text-start text-sm font-medium md:rounded-bl-full md:rounded-tr-none md:pl-5 md:pr-12',
 					itemIndex === selectedIndex
 						? 'shadow-center rounded-tab z-10 bg-background text-primary'
-						: 'text-gray-400'
+						: 'text-gray-400 transition-colors hover:bg-gray-500/5'
 				)}
 			>
 				<Svg src={item.iconUrl} overrideFill class="h-5 w-5 shrink-0" />

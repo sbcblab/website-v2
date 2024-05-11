@@ -1,12 +1,12 @@
 <script lang="ts">
+	import PublicationList from '$components/publications.svelte';
+	import { Heading1, Heading2 } from '$components/section/general';
 	import type { Publication, Publications } from '$lib/types';
 	import { cn, groupPublications } from '$lib/utils';
-	import PublicationList from '$src/components/publications.svelte';
 	import { getContext } from 'svelte';
 	import BookChapterIcon from '~icons/solar/book-bold-duotone';
 	import ProceedingIcon from '~icons/solar/document-bold-duotone';
 	import JournalIcon from '~icons/solar/notebook-minimalistic-bold-duotone';
-	import { Heading1, Heading2 } from '../general';
 
 	export let component: Publications;
 
@@ -37,7 +37,9 @@
 				on:click={() => (selectedTypeKey = key)}
 				class={cn(
 					'flex items-center justify-center gap-2.5 rounded-full px-5 py-2.5',
-					key === selectedTypeKey ? 'bg-primary/10 text-primary' : 'bg-gray-500/5 text-gray-400'
+					key === selectedTypeKey
+						? 'bg-primary/10 text-primary'
+						: 'bg-gray-500/5 text-gray-400 transition-colors hover:bg-gray-500/10'
 				)}
 			>
 				<svelte:component this={icon} class="h-7 w-7" />
