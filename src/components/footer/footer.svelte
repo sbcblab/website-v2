@@ -21,7 +21,7 @@
 </script>
 
 <footer class="bg-card">
-	<div class="container text-card-foreground/75">
+	<div class="container">
 		<div class="flex flex-col items-center justify-between gap-10 py-10 md:flex-row">
 			<div class="flex flex-col gap-4 md:gap-3">
 				{#each items as item}
@@ -36,7 +36,7 @@
 					</div>
 				{/each}
 			</div>
-			<LogoFooter class="h-24" />
+			<LogoFooter class="h-24 text-card-foreground/75" />
 		</div>
 		<div
 			class="flex flex-col-reverse items-center justify-between gap-10 border-t border-background/10 py-8 md:flex-row"

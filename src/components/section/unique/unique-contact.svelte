@@ -1,6 +1,8 @@
 <script lang="ts">
 	import type { Contact, ContactUs } from '$lib/types';
+	import CopyToClipboard from '$src/components/copy-to-clipboard.svelte';
 	import { getContext } from 'svelte';
+	import CopyIcon from '~icons/bi/copy';
 	import MailIcon from '~icons/fa6-solid/envelope';
 	import HouseIcon from '~icons/fa6-solid/house';
 	import PinIcon from '~icons/fa6-solid/location-dot';
@@ -18,14 +20,17 @@
 	];
 </script>
 
-<div class="container flex flex-col gap-8">
-	<span class="text-2xl font-medium">{component.subheading}</span>
-	<div class="flex flex-col gap-3 text-foreground-paragraph md:gap-2">
+<div class="container flex flex-col gap-12">
+	<span class="text-center text-2xl font-medium md:text-start">{component.subheading}</span>
+	<div class="flex flex-col gap-3">
 		{#each items as { show, icon, text }}
 			{#if show}
 				<div class="flex items-center gap-3">
-					<svelte:component this={icon} class="h-4 w-4 shrink-0 md:h-5 md:w-4" />
-					<span class="text-sm font-light md:text-base">{text}</span>
+					<svelte:component this={icon} class="size-5 shrink-0" />
+					<CopyToClipboard {text} class="flex items-center gap-3">
+						<span class="text-start text-sm text-foreground-paragraph md:text-base">{text}</span>
+						<CopyIcon class="size-3 shrink-0 text-foreground-paragraph/50" />
+					</CopyToClipboard>
 				</div>
 			{/if}
 		{/each}

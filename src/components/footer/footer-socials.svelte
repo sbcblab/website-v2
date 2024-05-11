@@ -23,7 +23,7 @@
 			target="_blank"
 			class="text-card-foreground/50 transition-colors hover:text-card-foreground/75"
 		>
-			<svelte:component this={item.icon} class="h-6 w-6" />
+			<svelte:component this={item.icon} class="size-6" />
 		</a>
 	{/each}
 </div>
