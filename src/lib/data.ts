@@ -32,7 +32,7 @@ export async function getSections(): Promise<Sections> {
 			};
 		});
 
-		processedSections[page.attributes.slug] = sections;
+		processedSections[page.attributes.path] = sections;
 	});
 
 	return processedSections;

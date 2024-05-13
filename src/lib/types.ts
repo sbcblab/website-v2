@@ -61,7 +61,7 @@ export interface MemberArea {
 }
 
 export interface Page {
-	slug: string;
+	path: string;
 	sections: Section[];
 }
 
