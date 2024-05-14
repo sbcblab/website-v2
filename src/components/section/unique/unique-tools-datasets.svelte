@@ -27,18 +27,18 @@
 
 <div
 	bind:this={cards}
-	class="container mb-16 grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-4"
+	class="container mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-4"
 >
 	{#each [...tools, ...datasets] as item}
 		<a
 			href={item.link}
 			target="_blank"
-			class="flex items-center gap-8 rounded-lg border p-8 shadow-sm transition-all hover:scale-[1.02] hover:shadow-lg md:flex-col md:justify-center md:text-center"
+			class="flex items-center gap-8 rounded-3xl border p-8 shadow-sm transition-all hover:scale-[1.02] hover:shadow-lg md:flex-col md:justify-center md:text-center"
 		>
 			<img src={item.imageUrl} alt={item.title} class="w-20 md:h-28 md:w-auto" />
 			<div class="flex flex-col gap-3">
-				<span class="text-lg font-semibold">{item.title}</span>
-				<span class="text-xs font-light text-foreground-paragraph">{item.description}</span>
+				<strong>{item.title}</strong>
+				<span class="text-sm font-light text-foreground-paragraph/75">{item.description}</span>
 			</div>
 		</a>
 	{/each}

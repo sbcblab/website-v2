@@ -7,40 +7,39 @@
 	export let component: Hiring;
 </script>
 
-<div class="container my-32 flex flex-col items-center gap-12 py-12 text-center">
-	<div class="flex flex-col items-center gap-2">
+<div class="container flex flex-col items-center gap-12 text-center">
+	<div class="flex flex-col items-center">
 		{#if component.aboveHeading}
 			<span class="font-semibold text-primary">{component.aboveHeading}</span>
 		{/if}
 		{#if component.heading}
-			<h2>{component.heading}</h2>
+			<h2 class="my-0">{component.heading}</h2>
 		{/if}
 		{#if component.lead}
-			<span class="mt-5 max-w-[38rem] text-foreground-paragraph md:text-lg">{component.lead}</span>
+			<p class="max-w-[42rem] text-center">{component.lead}</p>
 		{/if}
 	</div>
 
 	<div class="flex flex-col gap-12 md:grid md:grid-cols-3">
 		{#each [component.requirements, component.benefits] as column}
-			<div class="flex flex-col gap-5">
-				<strong class="text-start">{column.title}</strong>
-				{#each column.items as { iconUrl, text }}
-					<div class="flex items-center gap-3">
-						<Svg src={iconUrl} class="h-6 w-6 shrink-0 text-primary" />
-						<Markdown
-							content={text}
-							class="strong-medium font-light text-foreground-paragraph *:m-0 *:text-start *:text-sm"
-						/>
-					</div>
-				{/each}
+			<div class="flex flex-col gap-6">
+				<strong class="text-start text-base">{column.title}</strong>
+				<ul class="flex flex-col gap-6 pl-0">
+					{#each column.items as { iconUrl, text }}
+						<li class="flex items-center gap-4">
+							<Svg src={iconUrl} class="size-8 shrink-0 text-primary" />
+							<Markdown content={text} class="*:!mb-0 *:text-base" />
+						</li>
+					{/each}
+				</ul>
 			</div>
 		{/each}
 
-		<div class="flex flex-col gap-5 text-start">
-			<strong class="text-start">Programs</strong>
-			<div class="flex items-center gap-3">
-				<Svg src={component.ppgc.iconUrl} class="h-10 w-10 shrink-0 text-primary-blue" />
-				<div class="flex flex-col gap-1 text-sm text-foreground-paragraph">
+		<div class="flex flex-col gap-6 text-start">
+			<strong>Programs</strong>
+			<div class="flex items-center gap-4">
+				<Svg src={component.ppgc.iconUrl} class="size-10 shrink-0 text-primary-blue" />
+				<div class="flex flex-col gap-1 text-base text-foreground-paragraph">
 					<a
 						href="https://www.inf.ufrgs.br/ppgc/en"
 						target="_blank"
@@ -49,15 +48,15 @@
 						Postgraduate Program in Computing (PPGC)
 					</a>
 					{#if component.ppgc.description}
-						<span class="text-xs font-light">
+						<span class="text-sm text-foreground-paragraph/60">
 							{component.ppgc.description}
 						</span>
 					{/if}
 				</div>
 			</div>
-			<div class="flex items-center gap-3">
-				<Svg src={component.ppgbcm.iconUrl} class="h-10 w-10 shrink-0 text-primary-green" />
-				<div class="flex flex-col gap-1 text-sm text-foreground-paragraph">
+			<div class="flex items-center gap-4">
+				<Svg src={component.ppgbcm.iconUrl} class="size-10 shrink-0 text-primary-green" />
+				<div class="flex flex-col gap-1 text-foreground-paragraph">
 					<a
 						href="https://www.ufrgs.br/ppgbcm"
 						target="_blank"
@@ -66,7 +65,7 @@
 						Postgraduate Program in Molecular and Cell Biology (PPGBCM)
 					</a>
 					{#if component.ppgbcm.description}
-						<span class="text-xs font-light">
+						<span class="text-sm text-foreground-paragraph/60">
 							{component.ppgbcm.description}
 						</span>
 					{/if}
@@ -76,11 +75,12 @@
 	</div>
 
 	{#if component.apply.link}
-		<Button href={component.apply.link} target="_blank" size="sm" class="rounded-full px-5">
-			Apply
-		</Button>
+		<Button href={component.apply.link} target="_blank" class="px-5">Apply</Button>
 	{/if}
 	{#if component.apply.text}
-		<Markdown content={component.apply.text} class="apply-text" />
+		<Markdown
+			content={component.apply.text}
+			class="apply-text max-w-[32rem] text-sm text-foreground-paragraph/60"
+		/>
 	{/if}
 </div>

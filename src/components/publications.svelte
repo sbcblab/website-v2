@@ -5,9 +5,9 @@
 </script>
 
 <div class="container">
-	<ul class="my-0 ml-5 flex flex-col gap-5">
+	<ul class="my-0 flex flex-col gap-5">
 		{#each list as publication}
-			<li class="mt-0">
+			<li class="my-0">
 				<a
 					href={publication.doi}
 					target="_blank"

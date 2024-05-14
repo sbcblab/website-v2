@@ -21,16 +21,12 @@
 			</a>
 			<div class="flex flex-col items-center gap-8 md:items-start">
 				<a href={project.link} target={project.newTab ? '_blank' : '_self'}>
-					<h3 class="text-lg font-medium md:text-xl">{project.title}</h3>
+					<span class="text-lg font-medium md:text-xl">{project.title}</span>
 				</a>
 				<span class="text-sm font-light text-foreground-paragraph md:text-base"
 					>{project.description}</span
 				>
-				<Button
-					href={project.link}
-					target={project.newTab ? '_blank' : '_self'}
-					class="rounded-full">Read more</Button
-				>
+				<Button href={project.link} target={project.newTab ? '_blank' : '_self'}>Read more</Button>
 			</div>
 		</div>
 	{/each}

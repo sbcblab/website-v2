@@ -34,7 +34,7 @@
 		class="shadow-center grow rounded-[2rem] rounded-t-none p-8 text-center md:w-min md:rounded-tr-[2rem] md:text-start"
 	>
 		{#if items[selectedIndex].fullTitle}
-			<h4>{items[selectedIndex].fullTitle}</h4>
+			<h4 class="mb-8">{items[selectedIndex].fullTitle}</h4>
 		{/if}
 		<Markdown content={items[selectedIndex].content} class="font-size-unset *:md:text-start" />
 		{#if items[selectedIndex].keywords}

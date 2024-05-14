@@ -6,7 +6,7 @@
 </script>
 
 <div
-	class="container my-6 flex"
+	class="container mt-12 flex"
 	style={`gap: ${component?.gap || 1}rem; justify-content: ${component?.justify || 'center'};`}
 >
 	{#each component.images as image}

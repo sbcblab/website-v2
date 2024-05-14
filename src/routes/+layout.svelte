@@ -20,10 +20,10 @@
 	<title>SBCB Lab</title>
 </svelte:head>
 
-<div class="flex h-fit min-h-screen min-w-fit flex-col">
+<div class="flex h-fit min-h-screen flex-col">
 	<BackToTop />
 	<Header {socials} {contact} {nav} />
-	<main class="relative mb-32 min-h-[30rem] grow">
+	<main class="relative mb-32 min-h-[30rem] grow space-y-48">
 		<slot />
 	</main>
 	<Footer {socials} {contact} />

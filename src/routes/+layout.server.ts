@@ -8,7 +8,7 @@ import {
 } from '$lib/data';
 import type { LayoutServerLoad } from './$types';
 
-export const load: LayoutServerLoad = async () => {
+export const load: LayoutServerLoad = async ({ url }) => {
 	const sectionsPromise = getSections();
 	const socialsPromise = getSocials();
 	const contactPromise = getContact();

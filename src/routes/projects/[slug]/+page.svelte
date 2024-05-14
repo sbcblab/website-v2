@@ -3,11 +3,11 @@
 	import Markdown from '$components/markdown.svelte';
 	import Publications from '$components/publications.svelte';
 	import Researchers from '$components/researchers.svelte';
-	import { Heading1, Tabs } from '$components/section/general';
+	import { Tabs } from '$components/section/general';
 	import { Partnerships, ToolsDatasets } from '$components/section/unique';
 	import type { ProjectPage } from '$lib/types';
 	import { error } from '@sveltejs/kit';
-	import { getContext, onMount } from 'svelte';
+	import { getContext } from 'svelte';
 
 	const projectPages: ProjectPage[] = getContext('project-pages');
 	const project = projectPages.find((p) => p.slug === $page.params.slug);
@@ -28,21 +28,17 @@
 		...(project.publications.length > 0 ? [{ label: 'Publications', id: 'publications' }] : []),
 		...(project.partners.length > 0 ? [{ label: 'Partners', id: 'partners' }] : [])
 	];
-
-	onMount(() => {
-		console.log(project);
-	});
 </script>
 
-<Heading1 component={{ text: project.heading }} />
+<h1 class="mb-16">{project.heading}</h1>
 
-<div class="flex flex-col gap-20">
+<div class="!mt-0 flex flex-col gap-20">
 	<!-- Header -->
-	<div class="container flex flex-col items-center gap-3 text-center">
+	<div class="container flex flex-col items-center gap-4 text-center">
 		{#if project.subHeading}
 			<span class="font-semibold text-primary">{project.subHeading}</span>
 		{/if}
-		<h2>{project.title}</h2>
+		<h2 class="my-0">{project.title}</h2>
 		{#if project.lead}
 			<span class="max-w-[38rem] text-foreground-paragraph md:text-lg">{project.lead}</span>
 		{/if}
@@ -61,18 +57,16 @@
 				{/if}
 			</div>
 		{/if}
+		{#if project.imageUrls.length > 0}
+			<div class="container mt-8 flex h-52 gap-3">
+				{#each project.imageUrls as imageUrl}
+					<div class="w-full">
+						<img src={imageUrl} alt="" class="h-full w-full rounded-lg object-cover" />
+					</div>
+				{/each}
+			</div>
+		{/if}
 	</div>
-
-	<!-- Images -->
-	{#if project.imageUrls.length > 0}
-		<div class="container flex h-52 gap-3">
-			{#each project.imageUrls as imageUrl}
-				<div class="w-full">
-					<img src={imageUrl} alt="" class="h-full w-full rounded-lg object-cover" />
-				</div>
-			{/each}
-		</div>
-	{/if}
 
 	<!-- Services -->
 	{#if project.services.length > 0}

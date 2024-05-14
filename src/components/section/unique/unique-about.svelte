@@ -8,15 +8,12 @@
 <div class="container flex flex-col items-center gap-12 lg:flex-row">
 	<div class="flex flex-col gap-10">
 		{#if component.mainParagraph}
-			<Markdown
-				content={component.mainParagraph}
-				class="*:m-0 *:text-center *:text-xl/[2rem] *:text-foreground-paragraph *:lg:text-start"
-			/>
+			<Markdown content={component.mainParagraph} />
 		{/if}
 		{#if component.bodyText}
 			<Markdown
 				content={component.bodyText}
-				class="flex flex-col gap-10 *:m-0 *:text-center *:text-base/[1.75rem] *:text-foreground-paragraph *:lg:text-start"
+				class="flex flex-col gap-10 *:m-0 *:text-center *:lg:text-start"
 			/>
 		{/if}
 	</div>

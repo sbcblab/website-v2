@@ -30,7 +30,7 @@
 	{/if}
 {/if}
 
-<div class="mb-24 flex flex-col gap-12">
+<div class="flex flex-col gap-12">
 	<div class="container flex flex-wrap justify-center gap-4 font-medium md:justify-start">
 		{#each types as { name, icon, key }}
 			<button
@@ -51,7 +51,7 @@
 	{#each groupedPublications[selectedTypeKey] as { year, publications: yearPublications }}
 		<div class="flex flex-col gap-5">
 			<div class="container">
-				<h4 class="border-b pb-1 text-primary">{year}</h4>
+				<h4 class="m-0 border-b pb-1 text-lg font-bold text-primary">{year}</h4>
 			</div>
 			<PublicationList list={yearPublications} />
 		</div>

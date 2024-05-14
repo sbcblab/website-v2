@@ -52,7 +52,7 @@
 						>
 							{#if slide.heading}
 								<h3
-									class="text-2xl/[1] lg:text-3xl/[1] text-center md:text-start"
+									class="text-center text-2xl/[1] md:text-start lg:text-3xl/[1]"
 									style={slide.headingColor && `color: ${slide.headingColor}`}
 								>
 									{slide.heading}
@@ -65,12 +65,7 @@
 								/>
 							{/if}
 							{#if slide.link}
-								<Button
-									href={slide.link}
-									target="_blank"
-									variant="secondary"
-									class="mt-6 h-9 rounded-full px-5 text-sm lg:h-10 lg:px-6 lg:text-base"
-								>
+								<Button href={slide.link} target="_blank" variant="secondary" class="mt-6">
 									Read more
 								</Button>
 							{/if}

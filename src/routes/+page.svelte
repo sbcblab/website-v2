@@ -1,16 +1,16 @@
 <script lang="ts">
 	import Section from '$components/section';
-	import { error } from '@sveltejs/kit';
+	import NotFound from './+error.svelte';
 
 	export let data;
-
-	if (!Object.keys(data.sections).includes('/')) {
-		error(404);
-	}
 
 	const sections = data.sections['/'];
 </script>
 
-{#each sections as section}
-	<Section {section} />
-{/each}
+{#if Array.isArray(sections)}
+	{#each sections as section}
+		<Section {section} />
+	{/each}
+{:else}
+	<NotFound />
+{/if}
