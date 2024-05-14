@@ -6,7 +6,7 @@
 	let visible: boolean = false;
 
 	function scrollToTop() {
-		window.scrollTo({ top: 0 });
+		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}
 
 	function updateVisibility() {
