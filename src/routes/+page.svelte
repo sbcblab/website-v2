@@ -1,6 +1,6 @@
 <script lang="ts">
+	import NotFound from '$components/not-found.svelte';
 	import Section from '$components/section';
-	import NotFound from './+error.svelte';
 
 	export let data;
 

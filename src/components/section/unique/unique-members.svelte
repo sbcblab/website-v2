@@ -9,8 +9,6 @@
 
 	export let component: Members;
 
-	const { members } = component;
-
 	const links: {
 		slug: 'googleScholar' | 'orcid' | 'researchGate' | 'lattes' | 'dblp';
 		icon: any;
@@ -26,7 +24,7 @@
 <div
 	class="container mt-12 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 sm:gap-y-16 sm:text-center md:grid-cols-3 lg:grid-cols-4"
 >
-	{#each members as member}
+	{#each component.members as member}
 		<div class="flex items-center gap-5 sm:flex-col sm:items-stretch">
 			<img
 				src={member.pictureUrl}

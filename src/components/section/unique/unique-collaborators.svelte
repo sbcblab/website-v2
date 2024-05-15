@@ -3,12 +3,10 @@
 	import { cn } from '$lib/utils';
 
 	export let component: Collaborators;
-
-	const { collaborators } = component;
 </script>
 
 <div class="container grid grid-cols-1 gap-x-4 gap-y-10 md:grid-cols-2">
-	{#each collaborators as collaborator}
+	{#each component.collaborators as collaborator}
 		<div class="flex items-center gap-3">
 			<img
 				class="w-14 rounded"

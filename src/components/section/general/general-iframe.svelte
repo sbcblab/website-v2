@@ -1,13 +1,13 @@
 <script lang="ts">
-	import type { Map } from '$lib/types';
+	import type { IFrame } from '$lib/types';
 
-	export let component: Map;
+	export let component: IFrame;
 </script>
 
-<div class="container mt-12">
+<div class="container mt-16">
 	<iframe
-		class="rounded-md bg-[#e5e3df] shadow-lg"
-		title="Google Maps"
+		class="h-96 w-full rounded-[2rem]"
+		title={component.title}
 		src={component.src}
 		style={component.styles.map((style) => `${style.key}: ${style.value};`).join(' ')}
 		allowfullscreen

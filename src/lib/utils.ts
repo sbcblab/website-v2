@@ -41,3 +41,7 @@ export function groupPublications(publications: Publication[]) {
 
 	return groupedPublications;
 }
+
+export function isExternalLink(url: string) {
+	return !url.startsWith('/') && !url.startsWith('#');
+}

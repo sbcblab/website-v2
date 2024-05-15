@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page as pageStore } from '$app/stores';
 	import type { NavLink } from '$lib/types';
-	import { cn } from '$lib/utils';
+	import { cn, isExternalLink } from '$lib/utils';
 
 	export let link: NavLink;
 
@@ -14,6 +14,7 @@
 	on:pointerenter
 	on:pointerleave
 	href={link.href}
+	target={isExternalLink(link.href) ? '_blank' : ''}
 	class={cn(
 		path === link.href
 			? 'bg-accent text-accent-foreground'

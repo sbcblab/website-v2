@@ -1,7 +1,7 @@
 import { env } from '$env/dynamic/public';
 import type { Section } from '$lib/types';
 
-export function processSectionContent(content: Section['content']): Promise<object[]> {
+export function processContent(content: Section['content']): Promise<object[]> {
 	return content.map((component: any) => {
 		switch (component.__component) {
 			case 'general.heading-1':
@@ -17,7 +17,8 @@ export function processSectionContent(content: Section['content']): Promise<obje
 			case 'general.heading-3':
 				return {
 					type: 'heading-3',
-					text: component.text
+					text: component.text,
+					anchorId: component.anchorId
 				};
 			case 'general.rich-text':
 				return {
@@ -31,6 +32,19 @@ export function processSectionContent(content: Section['content']): Promise<obje
 					height: component.height,
 					link: component.link,
 					border: component.border
+				};
+			case 'general.image-grid':
+				return {
+					type: 'image-grid',
+					cols: component.cols,
+					gap: component.gap,
+					maxWidth: component.maxWidth,
+					images: component.images.data.map((image: any) => {
+						return {
+							src: env.PUBLIC_STRAPI_URL + image.attributes.url,
+							alt: image.attributes.alternativeText
+						};
+					})
 				};
 			case 'general.image-row':
 				return {
@@ -50,14 +64,66 @@ export function processSectionContent(content: Section['content']): Promise<obje
 					type: 'html',
 					content: component.content
 				};
-			case 'general.map':
+			case 'general.i-frame':
 				return {
-					type: 'map',
+					type: 'iframe',
+					title: component.title,
 					src: component.src,
 					styles: component.styles.map((style: any) => {
 						return {
 							key: style.key,
 							value: style.value
+						};
+					})
+				};
+			case 'general.partnerships':
+				return {
+					type: 'partnerships',
+					partnerships: component.partnerships.data.map((partnership: any) => {
+						return {
+							name: partnership.attributes.name,
+							link: partnership.attributes.link,
+							imageUrl: env.PUBLIC_STRAPI_URL + partnership.attributes.image.data.attributes.url
+						};
+					})
+				};
+			case 'general.menu':
+				return {
+					type: 'menu',
+					items: component.items.map((item: any) => {
+						return {
+							label: item.label,
+							link: item.link
+						};
+					})
+				};
+			case 'general.publication-list':
+				return {
+					type: 'publication-list',
+					publications: component.publications.data.map((publication: any) => {
+						return {
+							title: publication.attributes.title,
+							year: publication.attributes.year,
+							publicationDate: publication.attributes.publicationDate,
+							type: publication.attributes.type,
+							doi: publication.attributes.doi,
+							authors: publication.attributes.authors.map((author: any) => author.name),
+							booktitle: publication.attributes.booktitle,
+							address: publication.attributes.address,
+							volume: publication.attributes.volume,
+							issue: publication.attributes.issue,
+							pages: publication.attributes.pages
+						};
+					}),
+					externalPublications: component.externalPublications.map((externalPublication: any) => {
+						return {
+							title: externalPublication.title,
+							publicationDate: externalPublication.publicationDate,
+							doi: externalPublication.doi,
+							authors: externalPublication.authors,
+							booktitle: externalPublication.booktitle,
+							volume: externalPublication.volume,
+							pages: externalPublication.pages
 						};
 					})
 				};
@@ -127,17 +193,6 @@ export function processSectionContent(content: Section['content']): Promise<obje
 						};
 					})
 				};
-			case 'unique.partnerships':
-				return {
-					type: 'partnerships',
-					partnerships: component.partnerships.data.map((partnership: any) => {
-						return {
-							name: partnership.attributes.name,
-							link: partnership.attributes.link,
-							imageUrl: env.PUBLIC_STRAPI_URL + partnership.attributes.image.data.attributes.url
-						};
-					})
-				};
 			case 'unique.publications':
 				return {
 					type: 'publications',
@@ -152,7 +207,6 @@ export function processSectionContent(content: Section['content']): Promise<obje
 						return {
 							title: project.attributes.title,
 							link: project.attributes.link,
-							newTab: project.attributes.newTab,
 							description: project.attributes.description,
 							imageUrl: env.PUBLIC_STRAPI_URL + project.attributes.image.data.attributes.url
 						};

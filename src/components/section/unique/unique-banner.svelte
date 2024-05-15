@@ -9,7 +9,6 @@
 	import ChevronRightIcon from '~icons/radix-icons/chevron-right';
 
 	export let component: Banner;
-	const { slides } = component;
 
 	let emblaApi: EmblaCarouselType;
 
@@ -30,7 +29,7 @@
 		class="overflow-hidden"
 	>
 		<div class="flex">
-			{#each slides as slide}
+			{#each component.slides as slide}
 				<div
 					class="w-0 shrink-0 grow-0 basis-full bg-cover bg-center"
 					style={`background-image: url(${slide.backgroundUrl || component.defaultBackgroundUrl})`}
@@ -52,7 +51,7 @@
 						>
 							{#if slide.heading}
 								<h3
-									class="text-center text-2xl/[1] md:text-start lg:text-3xl/[1]"
+									class="m-0 p-0 text-center text-2xl/[1] md:text-start lg:text-3xl/[1]"
 									style={slide.headingColor && `color: ${slide.headingColor}`}
 								>
 									{slide.heading}

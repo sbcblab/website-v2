@@ -5,7 +5,6 @@ import UniqueContact from './unique-contact.svelte';
 import UniqueGuests from './unique-guests.svelte';
 import UniqueHiring from './unique-hiring.svelte';
 import UniqueMembers from './unique-members.svelte';
-import UniquePartnerships from './unique-partnerships.svelte';
 import UniqueProjects from './unique-projects.svelte';
 import UniquePublications from './unique-publications.svelte';
 import UniqueSlogan from './unique-slogan.svelte';
@@ -19,7 +18,6 @@ export {
 	UniqueGuests as Guests,
 	UniqueHiring as Hiring,
 	UniqueMembers as Members,
-	UniquePartnerships as Partnerships,
 	UniqueProjects as Projects,
 	UniquePublications as Publications,
 	UniqueSlogan as Slogan,

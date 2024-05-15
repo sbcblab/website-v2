@@ -1,18 +1,21 @@
 <script lang="ts">
 	import { Button } from '$components/ui/button';
 	import type { Projects } from '$lib/types';
+	import { isExternalLink } from '$src/lib/utils';
 
 	export let component: Projects;
-
-	const { projects } = component;
 </script>
 
 <div class="container mt-24 flex flex-col gap-24 md:mt-12 md:gap-12">
-	{#each projects as project}
+	{#each component.projects as project}
 		<div
 			class="flex flex-col items-center gap-8 rounded-lg text-center transition-shadow duration-200 md:flex-row md:p-8 md:text-start md:hover:shadow-[0_0_25px_-7px_rgba(0,0,0,0.2)]"
 		>
-			<a href={project.link} target={project.newTab ? '_blank' : '_self'} class="shrink-0">
+			<a
+				href={project.link}
+				target={isExternalLink(project.link || '') ? '_blank' : ''}
+				class="shrink-0"
+			>
 				<img
 					src={project.imageUrl}
 					alt={project.title}
@@ -20,13 +23,15 @@
 				/>
 			</a>
 			<div class="flex flex-col items-center gap-8 md:items-start">
-				<a href={project.link} target={project.newTab ? '_blank' : '_self'}>
+				<a href={project.link} target={isExternalLink(project.link || '') ? '_blank' : ''}>
 					<span class="text-lg font-medium md:text-xl">{project.title}</span>
 				</a>
-				<span class="text-sm font-light text-foreground-paragraph md:text-base"
-					>{project.description}</span
-				>
-				<Button href={project.link} target={project.newTab ? '_blank' : '_self'}>Read more</Button>
+				<span class="text-sm font-light text-foreground-paragraph md:text-base">
+					{project.description}
+				</span>
+				<Button href={project.link} target={isExternalLink(project.link || '') ? '_blank' : ''}>
+					Read more
+				</Button>
 			</div>
 		</div>
 	{/each}

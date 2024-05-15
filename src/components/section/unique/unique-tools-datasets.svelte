@@ -1,10 +1,9 @@
 <script lang="ts">
 	import type { ToolsDatasets } from '$lib/types';
+	import { isExternalLink } from '$src/lib/utils';
 	import { onMount } from 'svelte';
 
 	export let component: ToolsDatasets;
-
-	const { tools, datasets } = component;
 
 	let cards: HTMLDivElement;
 
@@ -29,10 +28,10 @@
 	bind:this={cards}
 	class="container mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-4"
 >
-	{#each [...tools, ...datasets] as item}
+	{#each [...component.tools, ...component.datasets] as item}
 		<a
 			href={item.link}
-			target="_blank"
+			target={isExternalLink(item.link || '') ? '_blank' : ''}
 			class="flex items-center gap-8 rounded-3xl border p-8 shadow-sm transition-all hover:scale-[1.02] hover:shadow-lg md:flex-col md:justify-center md:text-center"
 		>
 			<img src={item.imageUrl} alt={item.title} class="w-20 md:h-28 md:w-auto" />

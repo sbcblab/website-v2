@@ -1,26 +1,41 @@
 import { env as privateEnv } from '$env/dynamic/private';
 import { env, env as publicEnv } from '$env/dynamic/public';
-import { processSectionContent } from '$lib/content';
-import urlParamsObject from '$lib/json/sections-url-params.json';
-import type { Contact, Global, ProjectPage, Publication, Sections, Socials } from '$lib/types';
+import { processContent } from '$lib/content';
+import type {
+	Contact,
+	Global,
+	ProjectPage,
+	Publication,
+	Sections,
+	Socials,
+	ToolDatasetPage
+} from '$lib/types';
 import qs from 'qs';
 
+const POPULATE_GENERAL =
+	'images.image, publications.authors, styles, items.icon, partnerships.image, externalPublications';
+const POPULATE_UNIQUE =
+	'defaultBackground, slides.image, slides.background, image, requirements.icon, benefits.icon, ppgcIcon, ppgbcmIcon, tools.image, datasets.image, projects.image, members.picture, members.areas, guests.country, collaborators.country.flag';
+
 async function fetchData(endpoint: string, urlParamsObject?: object) {
-	const queryString = decodeURI(qs.stringify(urlParamsObject));
-	return await fetch(
-		`${publicEnv.PUBLIC_STRAPI_URL}/api/${endpoint}${queryString ? `?${queryString}` : ''}`,
-		{
-			headers: {
-				Authorization: `Bearer ${privateEnv.STRAPI_API_TOKEN}`
-			}
+	const queryString = urlParamsObject ? decodeURI(qs.stringify(urlParamsObject)) : '';
+	return await fetch(`${publicEnv.PUBLIC_STRAPI_URL}/api/${endpoint}${`?${queryString}`}`, {
+		headers: {
+			Authorization: `Bearer ${privateEnv.STRAPI_API_TOKEN}`
 		}
-	)
+	})
 		.then((response) => response.json())
 		.then((data) => data.data);
 }
 
 export async function getSections(): Promise<Sections> {
-	const pages = await fetchData('pages', urlParamsObject);
+	const pages = await fetchData('pages', {
+		populate: {
+			sections: {
+				populate: { content: { populate: [POPULATE_GENERAL, POPULATE_UNIQUE].join(',') } }
+			}
+		}
+	});
 
 	const processedSections: Sections = {};
 
@@ -28,7 +43,7 @@ export async function getSections(): Promise<Sections> {
 		const sections = page.attributes.sections.data.map((section: any) => {
 			return {
 				slug: section.attributes.slug,
-				content: processSectionContent(section.attributes.content)
+				content: processContent(section.attributes.content)
 			};
 		});
 
@@ -86,6 +101,31 @@ export async function getPublications(): Promise<Publication[]> {
 			volume: publication.attributes.volume,
 			issue: publication.attributes.issue,
 			pages: publication.attributes.pages
+		};
+	});
+}
+
+export async function getToolDatasetPages(): Promise<ToolDatasetPage[]> {
+	const data = await fetchData('tool-dataset-pages', {
+		populate: { content: { populate: [POPULATE_GENERAL, 'image'].join(',') }, image: '*' }
+	});
+
+	return data.map((toolDatasetPage: any) => {
+		return {
+			slug: toolDatasetPage.attributes.slug,
+			heading: toolDatasetPage.attributes.heading,
+			image: toolDatasetPage.attributes.image.data
+				? {
+						src: env.PUBLIC_STRAPI_URL + toolDatasetPage.attributes.image.data.attributes.url,
+						alt:
+							toolDatasetPage.attributes.image.data.attributes.alternativeText ||
+							toolDatasetPage.attributes.heading
+					}
+				: undefined,
+			title: toolDatasetPage.attributes.title,
+			lead: toolDatasetPage.attributes.lead,
+			updateDate: toolDatasetPage.attributes.updateDate,
+			content: processContent(toolDatasetPage.attributes.content)
 		};
 	});
 }

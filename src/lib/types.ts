@@ -68,7 +68,6 @@ export interface Page {
 export interface Project {
 	title: string;
 	link?: string;
-	newTab: boolean;
 	description?: string;
 	imageUrl?: string;
 }
@@ -98,8 +97,8 @@ export interface Publication {
 	year: number;
 	publicationDate: string;
 	type: string;
-	doi?: string;
-	authors?: string[];
+	doi: string;
+	authors: string[];
 	booktitle?: string;
 	address?: string;
 	volume?: number;
@@ -119,6 +118,16 @@ export interface Tool {
 	link?: string;
 	description?: string;
 	imageUrl?: string;
+}
+
+export interface ToolDatasetPage {
+	slug: string;
+	heading: string;
+	image: { src: string; alt: string };
+	title: string;
+	lead?: string;
+	updateDate?: string;
+	content?: any;
 }
 
 //=============================================================================
@@ -151,10 +160,17 @@ export interface Socials {
 
 export interface Heading {
 	text: string;
+	anchorId?: string;
 }
 
 export interface HTML {
 	content: string;
+}
+
+export interface IFrame {
+	title: string;
+	src: string;
+	styles: Style[];
 }
 
 export interface Image {
@@ -172,9 +188,20 @@ export interface ImageRow {
 	imagesHeight?: number;
 }
 
-export interface Map {
-	src: string;
-	styles: Style[];
+export interface ImageGrid {
+	images: { src: string; alt: string }[];
+	cols: number;
+	gap: number;
+	maxWidth: number;
+}
+
+export interface Menu {
+	items: MenuItem[];
+}
+
+export interface PublicationList {
+	publications: Publication[];
+	externalPublications: ExternalPublication[];
 }
 
 export interface RichText {
@@ -200,10 +227,25 @@ export interface HiringItem {
 	iconUrl: string;
 }
 
+export interface MenuItem {
+	label: string;
+	link: string;
+}
+
 export interface Partnership {
 	name?: string;
 	link?: string;
 	imageUrl: string;
+}
+
+export interface ExternalPublication {
+	title: string;
+	publicationDate: string;
+	doi: string;
+	authors: string;
+	booktitle?: string;
+	volume?: number;
+	pages?: string;
 }
 
 export interface Researcher {

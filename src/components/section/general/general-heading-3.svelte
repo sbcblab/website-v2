@@ -4,6 +4,4 @@
 	export let component: Heading;
 </script>
 
-<div class="container mb-5 mt-8">
-	<h3 class="text-2xl">{component.text}</h3>
-</div>
+<h3 id={component.anchorId}>{component.text}</h3>

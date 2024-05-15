@@ -3,7 +3,7 @@
 	import { onMount } from 'svelte';
 
 	export let src: string;
-	export let overrideFill: boolean | undefined = false;
+	export let overrideFill: boolean | undefined = true;
 
 	let container: HTMLElement;
 
@@ -37,4 +37,4 @@
 	});
 </script>
 
-<div bind:this={container} class={$$restProps.class}></div>
+<div bind:this={container} {...$$restProps}></div>

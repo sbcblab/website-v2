@@ -1,6 +1,9 @@
 <script lang="ts">
-	import PublicationList from '$components/publications.svelte';
-	import { Heading1, Heading2 } from '$components/section/general';
+	import {
+		Heading1,
+		Heading2,
+		PublicationList as PublicationList1
+	} from '$components/section/general';
 	import type { Publication, Publications } from '$lib/types';
 	import { cn, groupPublications } from '$lib/utils';
 	import { getContext } from 'svelte';
@@ -51,9 +54,12 @@
 	{#each groupedPublications[selectedTypeKey] as { year, publications: yearPublications }}
 		<div class="flex flex-col gap-5">
 			<div class="container">
-				<h4 class="m-0 border-b pb-1 text-lg font-bold text-primary">{year}</h4>
+				<h4 class="m-0 border-b pb-1 text-start text-lg font-bold text-primary">{year}</h4>
 			</div>
-			<PublicationList list={yearPublications} />
+			<PublicationList1
+				component={{ publications: yearPublications, externalPublications: [] }}
+				class="my-0"
+			/>
 		</div>
 	{/each}
 </div>

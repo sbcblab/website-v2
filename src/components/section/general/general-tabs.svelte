@@ -5,7 +5,6 @@
 	import { cn } from '$lib/utils';
 
 	export let component: Tabs;
-	const { items } = component;
 
 	let selectedIndex = 0;
 </script>
@@ -14,7 +13,7 @@
 	<div
 		class="flex h-fit justify-center overflow-hidden rounded-t-[2rem] bg-gray-500/5 px-3 pt-3 md:flex-col md:rounded-bl-[2rem] md:rounded-tr-none md:pb-3 md:pr-0"
 	>
-		{#each items as item, itemIndex}
+		{#each component.items as item, itemIndex}
 			<button
 				on:click={() => (selectedIndex = itemIndex)}
 				class={cn(
@@ -33,15 +32,18 @@
 	<div
 		class="shadow-center grow rounded-[2rem] rounded-t-none p-8 text-center md:w-min md:rounded-tr-[2rem] md:text-start"
 	>
-		{#if items[selectedIndex].fullTitle}
-			<h4 class="mb-8">{items[selectedIndex].fullTitle}</h4>
+		{#if component.items[selectedIndex].fullTitle}
+			<h4 class="mb-8">{component.items[selectedIndex].fullTitle}</h4>
 		{/if}
-		<Markdown content={items[selectedIndex].content} class="font-size-unset *:md:text-start" />
-		{#if items[selectedIndex].keywords}
+		<Markdown
+			content={component.items[selectedIndex].content}
+			class="font-size-unset *:md:text-start"
+		/>
+		{#if component.items[selectedIndex].keywords}
 			<div
 				class="mt-12 flex flex-wrap justify-center gap-x-5 gap-y-1.5 text-xs font-light text-foreground-paragraph/60 md:justify-start"
 			>
-				{#each items[selectedIndex].keywords || [] as keyword}
+				{#each component.items[selectedIndex].keywords || [] as keyword}
 					<span>{keyword}</span>
 				{/each}
 			</div>

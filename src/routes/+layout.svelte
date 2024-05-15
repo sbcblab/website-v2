@@ -9,11 +9,12 @@
 
 	export let data;
 
-	const { socials, contact, nav, publications, projectPages } = data;
+	const { socials, contact, nav, publications, projectPages, toolDatasetPages } = data;
 
 	setContext('contact', contact);
 	setContext('publications', publications);
 	setContext('project-pages', projectPages);
+	setContext('tool-dataset-pages', toolDatasetPages);
 </script>
 
 <svelte:head>
@@ -23,7 +24,7 @@
 <div class="flex h-fit min-h-screen flex-col">
 	<BackToTop />
 	<Header {socials} {contact} {nav} />
-	<main class="relative mb-32 min-h-[30rem] grow space-y-48">
+	<main class="mb-32 flex grow flex-col space-y-48">
 		<slot />
 	</main>
 	<Footer {socials} {contact} />
