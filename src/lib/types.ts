@@ -80,7 +80,7 @@ export interface ProjectPage {
 	lead?: string;
 	startDate?: string;
 	endDate?: string;
-	imageUrls: string[];
+	images: { url: string; alt: string }[];
 	services: TabItem[];
 	description?: string;
 	researchers: Researcher[];

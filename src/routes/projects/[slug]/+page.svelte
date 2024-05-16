@@ -55,11 +55,11 @@
 					{/if}
 				</div>
 			{/if}
-			{#if project.imageUrls.length > 0}
+			{#if project.images.length > 0}
 				<div class="container mt-8 flex h-52 gap-3">
-					{#each project.imageUrls as imageUrl}
+					{#each project.images as image}
 						<div class="w-full">
-							<img src={imageUrl} alt="" class="h-full w-full rounded-lg object-cover" />
+							<img src={image.url} alt="" class="h-full w-full rounded-lg object-cover" />
 						</div>
 					{/each}
 				</div>

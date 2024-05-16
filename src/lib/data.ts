@@ -145,9 +145,14 @@ export async function getProjectPages(): Promise<ProjectPage[]> {
 			lead: projectPage.attributes.lead,
 			startDate: projectPage.attributes.startDate,
 			endDate: projectPage.attributes.endDate,
-			imageUrls: projectPage.attributes.images.data.map(
-				(image: any) => env.PUBLIC_STRAPI_URL + image.attributes.url
-			),
+			images: projectPage.attributes.images.data
+				? projectPage.attributes.images.data.map((image: any) => {
+						return {
+							url: env.PUBLIC_STRAPI_URL + image.attributes.url,
+							alt: image.attributes.alternativeText
+						};
+					})
+				: [],
 			services: projectPage.attributes.services.map((service: any) => {
 				return {
 					title: service.title,
