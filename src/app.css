@@ -58,7 +58,7 @@ h6 {
 
 h1 {
 	@apply mb-12 bg-card py-6 text-center text-4xl font-light text-card-foreground md:text-start;
-	--padding-x: max(1rem, calc(((100% - 1200px) / 2) + 1rem));
+	--padding-x: max(1rem, calc(((100% - 1060px) / 2) + 1rem));
 	padding-left: var(--padding-x);
 	padding-right: var(--padding-x);
 }
@@ -77,11 +77,11 @@ h3 {
 }
 
 h4 {
-	@apply text-lg text-center md:text-start;
+	@apply text-center text-lg md:text-start;
 }
 
 p {
-	@apply text-center text-base/[1.5] text-foreground-paragraph md:text-start md:text-lg/[1.5] my-6;
+	@apply my-6 text-center text-base/[1.5] text-foreground-paragraph md:text-start md:text-lg/[1.5];
 }
 
 ul,
@@ -137,7 +137,7 @@ thead {
 	@apply border-b border-gray-200;
 }
 
-tbody tr:nth-child(even) {
+tbody tr:nth-child(odd) {
 	@apply rounded-lg bg-gray-50;
 }
 
