@@ -72,16 +72,18 @@
 		{/if}
 
 		<!-- Navigation -->
-		<div class="container flex flex-wrap justify-center gap-4">
-			{#each sections as { label, id }}
-				<a
-					href={`#${id}`}
-					class="rounded-full bg-primary px-6 py-2.5 font-medium text-primary-foreground transition-opacity hover:opacity-70"
-				>
-					{label}
-				</a>
-			{/each}
-		</div>
+		{#if sections.length > 0}
+			<div class="container flex flex-wrap justify-center gap-4">
+				{#each sections as { label, id }}
+					<a
+						href={`#${id}`}
+						class="rounded-full bg-primary px-6 py-2.5 font-medium text-primary-foreground transition-opacity hover:opacity-70"
+					>
+						{label}
+					</a>
+				{/each}
+			</div>
+		{/if}
 
 		<!-- Description -->
 		{#if project.description}
