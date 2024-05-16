@@ -29,9 +29,11 @@
 				<span class="text-sm font-light text-foreground-paragraph md:text-base">
 					{project.description}
 				</span>
-				<Button href={project.link} target={isExternalLink(project.link || '') ? '_blank' : ''}>
-					Read more
-				</Button>
+				{#if project.link}
+					<Button href={project.link} target={isExternalLink(project.link || '') ? '_blank' : ''}>
+						Read more
+					</Button>
+				{/if}
 			</div>
 		</div>
 	{/each}
