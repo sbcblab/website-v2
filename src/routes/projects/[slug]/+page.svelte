@@ -32,16 +32,16 @@
 
 	<div class="!mt-0 flex flex-col gap-20">
 		<!-- Header -->
-		<div class="container flex flex-col items-center gap-4 text-center">
+		<div class="container flex flex-col items-center text-center">
 			{#if project.subHeading}
-				<span class="font-semibold text-primary">{project.subHeading}</span>
+				<span class="font-semibold mb-2 text-primary">{project.subHeading}</span>
 			{/if}
 			<h2 class="my-0">{project.title}</h2>
 			{#if project.lead}
-				<span class="max-w-[38rem] text-foreground-paragraph md:text-lg">{project.lead}</span>
+				<span class="max-w-[48rem] mt-4 text-foreground-paragraph md:text-lg">{project.lead}</span>
 			{/if}
 			{#if project.startDate || project.endDate}
-				<div class="mt-4 text-sm font-light text-foreground-paragraph/70">
+				<div class="mt-8 text-sm font-light text-foreground-paragraph/70">
 					{#if project.startDate}
 						{@const startDate = new Date(project.startDate + 'T00:00')}
 						<span>{startDate.toLocaleString('en-US', { month: 'long', year: 'numeric' })}</span>
