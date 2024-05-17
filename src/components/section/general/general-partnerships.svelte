@@ -10,9 +10,9 @@
 		<a
 			href={partnership.link}
 			target="_blank"
-			class="flex items-center justify-center p-10 transition-transform hover:scale-105"
+			class="flex max-w-64 items-center justify-center p-8 transition-transform hover:scale-105"
 		>
-			<Svg src={partnership.imageUrl} class="h-24" overrideFill />
+			<Svg src={partnership.imageUrl} class="aspect-[5/3]" overrideFill />
 		</a>
 	{/each}
 </div>
