@@ -1,3 +1,4 @@
+import GeneralHeader from './general-header.svelte';
 import GeneralHeading1 from './general-heading-1.svelte';
 import GeneralHeading2 from './general-heading-2.svelte';
 import GeneralHeading3 from './general-heading-3.svelte';
@@ -9,10 +10,12 @@ import GeneralImage from './general-image.svelte';
 import GeneralMenu from './general-menu.svelte';
 import GeneralPartnerships from './general-partnerships.svelte';
 import GeneralPublicationList from './general-publication-list.svelte';
+import GeneralResearcherList from './general-researcher-list.svelte';
 import GeneralRichText from './general-rich-text.svelte';
 import GeneralTabs from './general-tabs.svelte';
 
 export {
+	GeneralHeader as Header,
 	GeneralHeading1 as Heading1,
 	GeneralHeading2 as Heading2,
 	GeneralHeading3 as Heading3,
@@ -24,6 +27,7 @@ export {
 	GeneralMenu as Menu,
 	GeneralPartnerships as Partnerships,
 	GeneralPublicationList as PublicationList,
+	GeneralResearcherList as ResearcherList,
 	GeneralRichText as RichText,
 	GeneralTabs as Tabs
 };

@@ -1,9 +1,16 @@
 import { env } from '$env/dynamic/public';
 import type { Section } from '$lib/types';
 
-export function processContent(content: Section['content']): Promise<object[]> {
+export function processContent(content: any[]): Section['content'] {
 	return content.map((component: any) => {
 		switch (component.__component) {
+			case 'general.header':
+				return {
+					type: 'header',
+					eyebrow: component.eyebrow,
+					title: component.title,
+					lead: component.lead
+				};
 			case 'general.heading-1':
 				return {
 					type: 'heading-1',
@@ -124,6 +131,28 @@ export function processContent(content: Section['content']): Promise<object[]> {
 							booktitle: externalPublication.booktitle,
 							volume: externalPublication.volume,
 							pages: externalPublication.pages
+						};
+					})
+				};
+			case 'general.researcher-list':
+				return {
+					type: 'researcher-list',
+					researchers: component.researchers.map((researcher: any) => {
+						return {
+							name: researcher.name,
+							role: researcher.role,
+							link: researcher.link,
+							program: researcher.program,
+							institute: researcher.institute,
+							university: researcher.university,
+							country: researcher.country.data
+								? {
+										name: researcher.country.data.attributes.name,
+										flagUrl:
+											env.PUBLIC_STRAPI_URL +
+											researcher.country.data.attributes.flag.data.attributes.url
+									}
+								: undefined
 						};
 					})
 				};

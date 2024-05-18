@@ -1,14 +1,18 @@
 <script lang="ts">
-	import type { Researcher } from '$lib/types';
+	import type { ResearcherList } from '$lib/types';
 	import { cn } from '$lib/utils';
 
-	export let list: Researcher[];
+	export let component: ResearcherList;
 </script>
 
 <ul class="container my-0 grid list-none grid-cols-1 gap-8 md:grid-cols-2">
-	{#each list as researcher}
+	{#each component.researchers as researcher}
 		<li class="mt-0 flex h-16 items-center gap-3">
-			<img src={researcher.country.flagUrl} alt={researcher.country.name} class="w-14 rounded" />
+			{#if researcher.country}
+				<img src={researcher.country.flagUrl} alt={researcher.country.name} class="w-14 rounded" />
+			{:else}
+				<div class="h-10 w-14 rounded" />
+			{/if}
 			<div class="flex flex-col gap-2">
 				<a
 					href={researcher.link}

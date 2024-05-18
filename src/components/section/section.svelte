@@ -5,6 +5,7 @@
 	export let section: SectionType;
 
 	const components: { [key: string]: any } = {
+		header: Section.General.Header,
 		'heading-1': Section.General.Heading1,
 		'heading-2': Section.General.Heading2,
 		'heading-3': Section.General.Heading3,
@@ -16,6 +17,7 @@
 		menu: Section.General.Menu,
 		partnerships: Section.General.Partnerships,
 		'publication-list': Section.General.PublicationList,
+		'researcher-list': Section.General.ResearcherList,
 		'rich-text': Section.General.RichText,
 		tabs: Section.General.Tabs,
 		about: Section.Unique.About,

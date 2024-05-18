@@ -35,9 +35,7 @@
 			{/if}
 		</div>
 
-		<Section
-			section={{ name: toolDataset.title, slug: toolDataset.slug, content: toolDataset.content }}
-		/>
+		<Section section={{ slug: toolDataset.slug, content: toolDataset.content }} />
 	</div>
 {:else}
 	<NotFound />

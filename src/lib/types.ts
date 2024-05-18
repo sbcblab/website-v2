@@ -75,21 +75,11 @@ export interface Project {
 export interface ProjectPage {
 	slug: string;
 	heading: string;
-	subHeading?: string;
-	title: string;
-	lead?: string;
+	header: Header;
 	startDate?: string;
 	endDate?: string;
 	images: { url: string; alt: string }[];
-	services: TabItem[];
-	description?: string;
-	researchers: Researcher[];
-	students: Researcher[];
-	scholarshipStudents: Researcher[];
-	tools: Tool[];
-	datasets: Dataset[];
-	publications: Publication[];
-	partners: Partnership[];
+	content: any[];
 }
 
 export interface Publication {
@@ -107,10 +97,8 @@ export interface Publication {
 }
 
 export interface Section {
-	name: string;
 	slug: string;
-	pages?: Page[];
-	content?: any;
+	content: any[];
 }
 
 export interface Tool {
@@ -127,7 +115,7 @@ export interface ToolDatasetPage {
 	title: string;
 	lead?: string;
 	updateDate?: string;
-	content?: any;
+	content: any[];
 }
 
 //=============================================================================
@@ -157,6 +145,12 @@ export interface Socials {
 //=============================================================================
 
 // General --------------------------------------------------------------------
+
+export interface Header {
+	eyebrow?: string;
+	title: string;
+	lead?: string;
+}
 
 export interface Heading {
 	text: string;
@@ -202,6 +196,10 @@ export interface Menu {
 export interface PublicationList {
 	publications: Publication[];
 	externalPublications: ExternalPublication[];
+}
+
+export interface ResearcherList {
+	researchers: Researcher[];
 }
 
 export interface RichText {
@@ -255,7 +253,7 @@ export interface Researcher {
 	program?: string;
 	institute?: string;
 	university?: string;
-	country: Country;
+	country?: Country;
 }
 
 export interface Slide {

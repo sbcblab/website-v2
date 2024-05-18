@@ -9,7 +9,7 @@
 	let selectedIndex = 0;
 </script>
 
-<div class="container flex w-full flex-col md:flex-row">
+<div class="container my-16 flex w-full flex-col md:flex-row">
 	<div
 		class="flex h-fit justify-center overflow-hidden rounded-t-[2rem] bg-gray-500/5 px-3 pt-3 md:flex-col md:rounded-bl-[2rem] md:rounded-tr-none md:pb-3 md:pr-0"
 	>

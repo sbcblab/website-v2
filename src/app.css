@@ -53,7 +53,7 @@ h3,
 h4,
 h5,
 h6 {
-	@apply mb-[0.75em] mt-[1.25em] font-bold leading-5 tracking-tight first:mt-0;
+	@apply mb-[1em] mt-[2.25em] font-bold tracking-tight first:mt-0;
 }
 
 h1 {

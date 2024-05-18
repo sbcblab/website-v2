@@ -1,47 +1,24 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import Markdown from '$components/markdown.svelte';
 	import NotFound from '$components/not-found.svelte';
-	import Researchers from '$components/researchers.svelte';
-	import { Partnerships, PublicationList, Tabs } from '$components/section/general';
-	import { ToolsDatasets } from '$components/section/unique';
+	import Section from '$components/section';
+	import { Header } from '$components/section/general';
 	import type { ProjectPage } from '$lib/types';
 	import { getContext } from 'svelte';
 
 	const projectPages: ProjectPage[] = getContext('project-pages');
 	const project = projectPages.find((item) => item.slug === $page.params.slug);
-
-	const sections: { label: string; id: string }[] = project
-		? [
-				...(project.researchers.length > 0 ? [{ label: 'Researchers', id: 'researchers' }] : []),
-				...(project.students.length > 0 ? [{ label: 'Students', id: 'students' }] : []),
-				...(project.scholarshipStudents.length > 0
-					? [{ label: 'Scholarship Students', id: 'scholarship-students' }]
-					: []),
-				...(project.tools.length > 0 || project.datasets.length > 0
-					? [{ label: 'Tools & Datasets', id: 'tools-datasets' }]
-					: []),
-				...(project.publications.length > 0 ? [{ label: 'Publications', id: 'publications' }] : []),
-				...(project.partners.length > 0 ? [{ label: 'Partners', id: 'partners' }] : [])
-			]
-		: [];
 </script>
 
 {#if project}
-	<h1 class="mb-16">{project.heading}</h1>
+	<div>
+		<h1 class="mb-16">{project.heading}</h1>
 
-	<div class="!mt-0 flex flex-col gap-20">
-		<!-- Header -->
-		<div class="container flex flex-col items-center text-center">
-			{#if project.subHeading}
-				<span class="font-semibold mb-2 text-primary">{project.subHeading}</span>
-			{/if}
-			<h2 class="my-0">{project.title}</h2>
-			{#if project.lead}
-				<span class="max-w-[48rem] mt-4 text-foreground-paragraph md:text-lg">{project.lead}</span>
-			{/if}
+		<div class="container flex flex-col gap-12">
+			<Header component={project.header} />
+
 			{#if project.startDate || project.endDate}
-				<div class="mt-8 text-sm font-light text-foreground-paragraph/70">
+				<div class="-mt-4 text-center text-sm font-light text-foreground-paragraph/70">
 					{#if project.startDate}
 						{@const startDate = new Date(project.startDate + 'T00:00')}
 						<span>{startDate.toLocaleString('en-US', { month: 'long', year: 'numeric' })}</span>
@@ -55,8 +32,9 @@
 					{/if}
 				</div>
 			{/if}
+
 			{#if project.images.length > 0}
-				<div class="container mt-8 flex h-52 gap-3">
+				<div class="container flex h-52 gap-3">
 					{#each project.images as image}
 						<div class="w-full">
 							<img src={image.url} alt="" class="h-full w-full rounded-lg object-cover" />
@@ -66,80 +44,7 @@
 			{/if}
 		</div>
 
-		<!-- Services -->
-		{#if project.services.length > 0}
-			<Tabs component={{ items: project.services }} />
-		{/if}
-
-		<!-- Navigation -->
-		{#if sections.length > 0}
-			<div class="container flex flex-wrap justify-center gap-4">
-				{#each sections as { label, id }}
-					<a
-						href={`#${id}`}
-						class="rounded-full bg-primary px-6 py-2.5 font-medium text-primary-foreground transition-opacity hover:opacity-70"
-					>
-						{label}
-					</a>
-				{/each}
-			</div>
-		{/if}
-
-		<!-- Description -->
-		{#if project.description}
-			<Markdown class="container *:my-0" content={project.description} />
-		{/if}
-
-		<!-- Researchers -->
-		{#if project.researchers.length > 0}
-			<section id="researchers" class="space-y-8">
-				<h3 class="container text-center md:text-start">Researchers</h3>
-				<Researchers list={project.researchers} />
-			</section>
-		{/if}
-
-		<!-- Students -->
-		{#if project.students.length > 0}
-			<section id="students" class="space-y-8">
-				<h3 class="container text-center md:text-start">Graduate Students/Collaborators</h3>
-				<Researchers list={project.students} />
-			</section>
-		{/if}
-
-		<!-- Scholarship Students -->
-		{#if project.scholarshipStudents.length > 0}
-			<section id="scholarship-students" class="space-y-8">
-				<h3 class="container text-center md:text-start">Scholarship Students</h3>
-				<Researchers list={project.scholarshipStudents} />
-			</section>
-		{/if}
-
-		<!-- Tools & Datasets -->
-		{#if project.tools.length > 0 || project.datasets.length > 0}
-			<section id="tools-datasets" class="space-y-8">
-				<h3 class="container text-center md:text-start">Tools & Datasets</h3>
-				<ToolsDatasets component={{ tools: project.tools, datasets: project.datasets }} />
-			</section>
-		{/if}
-
-		<!-- Publications -->
-		{#if project.publications.length > 0}
-			<section id="publications" class="space-y-8">
-				<h3 class="container text-center md:text-start">Publications</h3>
-				<PublicationList
-					component={{ publications: project.publications, externalPublications: [] }}
-					class="my-0"
-				/>
-			</section>
-		{/if}
-
-		<!-- Partners -->
-		{#if project.partners.length > 0}
-			<section id="partners" class="space-y-8">
-				<h3 class="container text-center md:text-start">Institutions/Finantial Support</h3>
-				<Partnerships component={{ partnerships: project.partners }} />
-			</section>
-		{/if}
+		<Section section={{ slug: project.slug, content: project.content }} />
 	</div>
 {:else}
 	<NotFound />
