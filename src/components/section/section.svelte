@@ -20,6 +20,7 @@
 		'researcher-list': Section.General.ResearcherList,
 		'rich-text': Section.General.RichText,
 		tabs: Section.General.Tabs,
+		'tools-datasets': Section.General.ToolsDatasets,
 		about: Section.Unique.About,
 		banner: Section.Unique.Banner,
 		collaborators: Section.Unique.Collaborators,
@@ -29,8 +30,7 @@
 		members: Section.Unique.Members,
 		projects: Section.Unique.Projects,
 		publications: Section.Unique.Publications,
-		slogan: Section.Unique.Slogan,
-		'tools-datasets': Section.Unique.ToolsDatasets
+		slogan: Section.Unique.Slogan
 	};
 </script>
 

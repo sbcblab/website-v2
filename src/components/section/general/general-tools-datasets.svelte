@@ -1,14 +1,17 @@
 <script lang="ts">
 	import type { ToolsDatasets } from '$lib/types';
 	import { isExternalLink } from '$src/lib/utils';
+	import debounce from 'lodash.debounce';
 	import { onMount } from 'svelte';
 
 	export let component: ToolsDatasets;
 
-	let cards: HTMLDivElement;
+	let cardsWrapper: HTMLDivElement | undefined;
 
 	function normalizeHeight() {
-		const cardsArray = Array.from(cards.children) as HTMLDivElement[];
+		if (!cardsWrapper) return;
+
+		const cardsArray = Array.from(cardsWrapper.children) as HTMLDivElement[];
 
 		cardsArray.forEach((card) => (card.style.height = 'auto'));
 
@@ -20,12 +23,14 @@
 
 	onMount(() => {
 		normalizeHeight();
-		window.addEventListener('resize', normalizeHeight);
+		window.onresize = debounce(() => {
+			normalizeHeight();
+		}, 100);
 	});
 </script>
 
 <div
-	bind:this={cards}
+	bind:this={cardsWrapper}
 	class="container mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-4"
 >
 	{#each [...component.tools, ...component.datasets] as item}

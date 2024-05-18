@@ -13,9 +13,9 @@ import type {
 import qs from 'qs';
 
 const POPULATE_GENERAL =
-	'images.image, publications.authors, styles, items.icon, partnerships.image, externalPublications, image, researchers.country.flag, researchers.country';
+	'images.image, publications.authors, styles, items.icon, partnerships.image, externalPublications, image, researchers.country.flag, researchers.country, tools.image, datasets.image';
 const POPULATE_UNIQUE =
-	'defaultBackground, slides.image, slides.background, image, requirements.icon, benefits.icon, ppgcIcon, ppgbcmIcon, tools.image, datasets.image, projects.image, members.picture, members.areas, guests.country, collaborators.country.flag';
+	'defaultBackground, slides.image, slides.background, image, requirements.icon, benefits.icon, ppgcIcon, ppgbcmIcon, projects.image, members.picture, members.areas, guests.country, collaborators.country.flag';
 
 async function fetchData(endpoint: string, urlParamsObject?: object) {
 	const queryString = urlParamsObject ? decodeURI(qs.stringify(urlParamsObject)) : '';

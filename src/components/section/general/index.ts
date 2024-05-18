@@ -13,6 +13,7 @@ import GeneralPublicationList from './general-publication-list.svelte';
 import GeneralResearcherList from './general-researcher-list.svelte';
 import GeneralRichText from './general-rich-text.svelte';
 import GeneralTabs from './general-tabs.svelte';
+import GeneralToolsDatasets from './general-tools-datasets.svelte';
 
 export {
 	GeneralHeader as Header,
@@ -29,5 +30,6 @@ export {
 	GeneralPublicationList as PublicationList,
 	GeneralResearcherList as ResearcherList,
 	GeneralRichText as RichText,
-	GeneralTabs as Tabs
+	GeneralTabs as Tabs,
+	GeneralToolsDatasets as ToolsDatasets
 };

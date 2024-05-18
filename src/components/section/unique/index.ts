@@ -8,7 +8,6 @@ import UniqueMembers from './unique-members.svelte';
 import UniqueProjects from './unique-projects.svelte';
 import UniquePublications from './unique-publications.svelte';
 import UniqueSlogan from './unique-slogan.svelte';
-import UniqueToolsDatasets from './unique-tools-datasets.svelte';
 
 export {
 	UniqueAbout as About,
@@ -20,6 +19,5 @@ export {
 	UniqueMembers as Members,
 	UniqueProjects as Projects,
 	UniquePublications as Publications,
-	UniqueSlogan as Slogan,
-	UniqueToolsDatasets as ToolsDatasets
+	UniqueSlogan as Slogan
 };

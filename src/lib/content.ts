@@ -169,6 +169,26 @@ export function processContent(content: any[]): Section['content'] {
 						};
 					})
 				};
+			case 'general.tools-and-datasets':
+				return {
+					type: 'tools-datasets',
+					tools: component.tools.data.map((tool: any) => {
+						return {
+							title: tool.attributes.title,
+							description: tool.attributes.description,
+							link: tool.attributes.link,
+							imageUrl: env.PUBLIC_STRAPI_URL + tool.attributes.image.data.attributes.url
+						};
+					}),
+					datasets: component.datasets.data.map((dataset: any) => {
+						return {
+							title: dataset.attributes.title,
+							description: dataset.attributes.description,
+							link: dataset.attributes.link,
+							imageUrl: env.PUBLIC_STRAPI_URL + dataset.attributes.image.data.attributes.url
+						};
+					})
+				};
 			case 'unique.about-us':
 				return {
 					type: 'about',
@@ -201,26 +221,6 @@ export function processContent(content: any[]): Section['content'] {
 				return {
 					type: 'slogan',
 					text: component.text
-				};
-			case 'unique.tools-and-datasets':
-				return {
-					type: 'tools-datasets',
-					tools: component.tools.data.map((tool: any) => {
-						return {
-							title: tool.attributes.title,
-							description: tool.attributes.description,
-							link: tool.attributes.link,
-							imageUrl: env.PUBLIC_STRAPI_URL + tool.attributes.image.data.attributes.url
-						};
-					}),
-					datasets: component.datasets.data.map((dataset: any) => {
-						return {
-							title: dataset.attributes.title,
-							description: dataset.attributes.description,
-							link: dataset.attributes.link,
-							imageUrl: env.PUBLIC_STRAPI_URL + dataset.attributes.image.data.attributes.url
-						};
-					})
 				};
 			case 'unique.publications':
 				return {

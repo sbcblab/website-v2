@@ -14,7 +14,7 @@
 	<div>
 		<h1 class="mb-16">{project.heading}</h1>
 
-		<div class="container flex flex-col gap-12">
+		<div class="container mb-16 flex flex-col gap-12">
 			<Header component={project.header} />
 
 			{#if project.startDate || project.endDate}
