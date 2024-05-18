@@ -146,7 +146,7 @@ export async function getProjectPages(): Promise<ProjectPage[]> {
 			},
 			startDate: projectPage.attributes.startDate,
 			endDate: projectPage.attributes.endDate,
-			images: projectPage.attributes.images
+			images: projectPage.attributes.images.data
 				? projectPage.attributes.images.data.map((image: any) => {
 						return {
 							url: env.PUBLIC_STRAPI_URL + image.attributes.url,
