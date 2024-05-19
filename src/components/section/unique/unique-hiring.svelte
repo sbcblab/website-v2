@@ -55,13 +55,13 @@
 		<ul class="m-0 flex flex-col gap-6 p-0 text-start">
 			<strong>Programs</strong>
 			{#each programs as program}
-				<li class="flex items-center gap-4">
-					<Svg src={program.iconUrl} class="size-10 shrink-0" style={`color: ${program.color}`} />
-					<div class="flex flex-col gap-1 text-base text-foreground-paragraph">
+				<li class="flex items-center gap-4" style={`color: ${program.color}`}>
+					<Svg src={program.iconUrl} class="size-10 shrink-0" />
+					<div class="flex flex-col gap-1 text-base">
 						<a
 							href={program.link}
 							target="_blank"
-							class="text-sm font-medium transition-colors hover:text-primary-blue md:text-base"
+							class="text-sm font-medium transition-colors md:text-base [&:not(:hover)]:text-foreground-paragraph"
 						>
 							{program.name}
 						</a>
@@ -82,7 +82,7 @@
 	{#if component.apply.text}
 		<Markdown
 			content={component.apply.text}
-			class="apply-text max-w-[32rem] text-sm text-foreground-paragraph/60"
+			class="apply-text max-w-[32rem] text-xs text-foreground-paragraph/50 md:text-sm"
 		/>
 	{/if}
 </div>

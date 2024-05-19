@@ -23,8 +23,8 @@
 		--accent-foreground: var(--foreground);
 		--destructive: 0 72.22% 50.59%;
 		--destructive-foreground: 0 0% 98%;
-		--border: 0 0% 91%;
-		--input: var(--border);
+		--border: 204 10% 90%;
+		--input: var(--background);
 		--ring: var(--primary);
 		--radius: 1rem;
 	}
@@ -42,6 +42,7 @@
 	body {
 		@apply bg-background text-foreground;
 		@apply selection:bg-primary selection:text-primary-foreground;
+		text-wrap: pretty;
 	}
 }
 
@@ -67,9 +68,11 @@ h2 {
 	@apply container text-center text-4xl;
 }
 
-#guests h2,
-#collaborators h2 {
-	@apply md:text-start;
+#guests,
+#collaborators {
+	h2 {
+		@apply md:text-start;
+	}
 }
 
 h3 {
@@ -82,6 +85,10 @@ h4 {
 
 p {
 	@apply my-6 text-center text-base/[1.5] text-foreground-paragraph md:text-start md:text-lg/[1.5];
+
+	a {
+		@apply text-primary hover:opacity-70;
+	}
 }
 
 ul,
@@ -91,6 +98,14 @@ ol {
 
 ol {
 	@apply list-decimal;
+
+	> li {
+		@apply pl-1;
+	}
+
+	li::marker {
+		@apply font-bold;
+	}
 }
 
 ul {
@@ -99,22 +114,14 @@ ul {
 
 li {
 	@apply text-base/[1.5] text-foreground-paragraph md:text-lg/[1.5] [&:not(:last-child)]:mb-3;
-}
 
-li p {
-	@apply !mb-[0.75em] !mt-0 text-start;
-}
+	p {
+		@apply !mb-[0.75em] !mt-0 text-start;
+	}
 
-ol > li {
-	@apply pl-1;
-}
-
-li::marker {
-	@apply font-bold text-primary;
-}
-
-p a {
-	@apply text-primary hover:opacity-70;
+	&::marker {
+		@apply text-primary;
+	}
 }
 
 pre:has(code) {
@@ -162,6 +169,32 @@ img {
 	@apply inline-block h-[revert-layer] rounded-lg object-contain;
 }
 
+form {
+	@apply flex flex-col gap-8;
+}
+
+input,
+textarea,
+select {
+	@apply w-full rounded-xl border bg-transparent px-4 py-2.5 text-base text-foreground-paragraph outline-primary;
+}
+
+textarea {
+	@apply min-h-20;
+}
+
+label {
+	@apply text-sm font-medium;
+}
+
+fieldset:has(input[type='checkbox']) {
+	@apply flex-col gap-4;
+}
+
+input[type='checkbox'] {
+	@apply size-5 appearance-none rounded-[6px] p-0;
+}
+
 /* Utilities */
 
 .bottom-fade {
@@ -172,22 +205,23 @@ img {
 .strong-underline strong {
 	font-weight: inherit;
 	position: relative;
-}
-.strong-underline strong::after {
-	background-image: var(--underline);
-	background-repeat: no-repeat;
-	background-size: 100% 100%;
-	content: '';
-	display: block;
-	height: 0.3em;
-	left: -0.2em;
-	position: absolute;
-	top: calc(100% - 0.15em);
-	width: calc(100% + 0.4em);
+
+	&::after {
+		background-image: var(--underline);
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+		content: '';
+		display: block;
+		height: 0.3em;
+		left: -0.2em;
+		position: absolute;
+		top: calc(100% - 0.15em);
+		width: calc(100% + 0.4em);
+	}
 }
 
 .apply-text a {
-	@apply text-foreground-paragraph/50 transition-opacity hover:opacity-70;
+	@apply text-inherit hover:opacity-70;
 }
 
 .slogan p,
@@ -210,19 +244,19 @@ img {
 
 .rounded-tab {
 	@apply relative;
-}
 
-.rounded-tab::before,
-.rounded-tab::after {
-	@apply absolute h-2 w-2 content-[''];
-}
+	&::after,
+	&::before {
+		@apply absolute h-2 w-2 content-[''];
+	}
 
-.rounded-tab::before {
-	@apply bottom-0 left-0 -translate-x-full rounded-br-full shadow-[5px_5px_0_5px_white] md:left-auto md:right-0 md:top-0 md:-translate-y-full md:translate-x-0;
-}
+	&::before {
+		@apply bottom-0 left-0 -translate-x-full rounded-br-full shadow-[5px_5px_0_5px_white] md:left-auto md:right-0 md:top-0 md:-translate-y-full md:translate-x-0;
+	}
 
-.rounded-tab::after {
-	@apply bottom-0 right-0 translate-x-full rounded-bl-full shadow-[-5px_5px_0_5px_white] md:translate-x-0 md:translate-y-full md:rounded-tr-full md:shadow-[5px_-5px_0_5px_white];
+	&::after {
+		@apply bottom-0 right-0 translate-x-full rounded-bl-full shadow-[-5px_5px_0_5px_white] md:translate-x-0 md:translate-y-full md:rounded-tr-full md:shadow-[5px_-5px_0_5px_white];
+	}
 }
 
 .font-size-unset p {

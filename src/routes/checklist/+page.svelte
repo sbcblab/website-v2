@@ -1,6 +1,6 @@
 <script lang="ts">
-	import checklist from '$lib/json/checklist.json';
 	import { cn } from '$lib/utils';
+	import checklist from '$src/routes/checklist/checklist.json';
 	import FluentSpinnerIos16Regular from '~icons/fluent/spinner-ios-16-regular';
 	import CheckIcon from '~icons/lucide/check';
 	import DotIcon from '~icons/mdi/dot';

@@ -21,7 +21,6 @@
 		{#if component.imageLink}
 			<a
 				href={component.imageLink}
-				target="_blank"
 				class="w-full max-w-[32rem] shrink-0 transition-transform hover:scale-[1.01] lg:w-[32rem] lg:max-w-[50%]"
 			>
 				<img src={component.imageUrl} alt="About Us" />
