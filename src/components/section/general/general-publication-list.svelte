@@ -11,7 +11,8 @@
 			{@const details = [
 				publication.booktitle,
 				publication.volume && `v. ${publication.volume}`,
-				publication.pages && `p. ${publication.pages}`
+				publication.pages && `p. ${publication.pages}`,
+				publication.year
 			].filter(Boolean)}
 
 			<li class="!m-0">
@@ -27,7 +28,7 @@
 								? publication.authors.join('; ')
 								: publication.authors}
 						</span>
-						<span>{details.join(', ')}</span>
+						<span>{details.join(', ')}.</span>
 					</span>
 				</a>
 			</li>

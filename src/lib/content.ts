@@ -125,6 +125,7 @@ export function processContent(content: any[]): Section['content'] {
 					externalPublications: component.externalPublications.map((externalPublication: any) => {
 						return {
 							title: externalPublication.title,
+							year: externalPublication.year,
 							publicationDate: externalPublication.publicationDate,
 							doi: externalPublication.doi,
 							authors: externalPublication.authors,

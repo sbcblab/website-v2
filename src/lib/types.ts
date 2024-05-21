@@ -238,6 +238,7 @@ export interface Partnership {
 
 export interface ExternalPublication {
 	title: string;
+	year: number;
 	publicationDate: string;
 	doi: string;
 	authors: string;
