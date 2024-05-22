@@ -36,6 +36,8 @@
 
 <section id={section.slug}>
 	{#each section.content as component}
-		<svelte:component this={components[component.type]} {component} />
+		{#if component}
+			<svelte:component this={components[component.type]} {component} />
+		{/if}
 	{/each}
 </section>
