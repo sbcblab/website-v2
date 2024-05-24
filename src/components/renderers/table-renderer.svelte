@@ -20,9 +20,10 @@
 	});
 
 	$: if (splitTable) {
-		window.onresize = debounce(() => {
-			containerWidth = container?.clientWidth;
-		}, 100);
+		window.addEventListener(
+			'resize',
+			debounce(() => (containerWidth = container?.clientWidth), 100)
+		);
 	}
 
 	function createSplitTable() {
@@ -58,7 +59,6 @@
 </script>
 
 {#if splitTable && containerWidth && splitTableWidth && containerWidth > splitTableWidth}
-	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 	{@html DOMPurify.sanitize(splitTable)}
 {:else}
 	<table bind:this={table}>

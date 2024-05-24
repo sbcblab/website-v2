@@ -146,6 +146,13 @@ export interface Socials {
 
 // General --------------------------------------------------------------------
 
+export interface Form {
+	name: string;
+	target?: string;
+	submitButton: string;
+	fields: any[];
+}
+
 export interface Header {
 	eyebrow?: string;
 	title: string;
@@ -214,6 +221,11 @@ export interface Tabs {
 
 export interface Area {
 	name: string;
+}
+
+export interface Attribute {
+	name: string;
+	value: string;
 }
 
 export interface Author {

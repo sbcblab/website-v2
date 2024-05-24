@@ -4,6 +4,14 @@ import type { Section } from '$lib/types';
 export function processContent(content: any[]): Section['content'] {
 	return content.map((component: any) => {
 		switch (component.__component) {
+			case 'general.form':
+				return {
+					type: 'form',
+					name: component.form.data.attributes.name,
+					target: component.form.data.attributes.target,
+					submitButton: component.form.data.attributes.submitButton,
+					fields: component.form.data.attributes.fields
+				};
 			case 'general.header':
 				return {
 					type: 'header',

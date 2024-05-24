@@ -20,10 +20,11 @@
 		["feat: add publication types", 1],
 		["feat: add copy to clipboard feature to all contact sections", 1],
 		["feat: add tools and datasets pages", 1],
+		["feat: add form component and tools requests", 1],
+		["feat: add dataset component", 2],
 		["feat: add image gallery component", 0],
-		["feat: add dataset component", 0],
 		["fix: adjust mobile tabs style to prevent overflow", 0],
 		["fix: mysterious first load time", 0],
-		["style: redesign facilities section"]
+		["style: redesign facilities section", 0]
 	]
 }
