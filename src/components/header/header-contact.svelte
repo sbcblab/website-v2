@@ -16,11 +16,11 @@
 
 <div class="hidden gap-10 md:flex">
 	{#each items as item}
-		<div class="flex items-center gap-3">
-			<svelte:component this={item.icon} class="size-4 text-card-foreground/50" />
+		<div class="flex items-center gap-3 text-zinc-400">
+			<svelte:component this={item.icon} class="size-4" />
 			<CopyToClipboard text={item.text} offset={22} class="flex items-center gap-3">
-				<span class="text-sm/[1] font-medium text-card-foreground/50">{item.text}</span>
-				<CopyIcon class="size-3 text-card-foreground/25" />
+				<span class="text-sm/[1]">{item.text}</span>
+				<CopyIcon class="size-3 text-zinc-600" />
 			</CopyToClipboard>
 		</div>
 	{/each}

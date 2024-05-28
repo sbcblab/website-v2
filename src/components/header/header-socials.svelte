@@ -21,7 +21,7 @@
 		<a
 			href={item.href}
 			target="_blank"
-			class="text-card-foreground/50 transition-colors hover:text-card-foreground/75"
+			class="text-zinc-400 transition-[filter] hover:brightness-150"
 		>
 			<svelte:component this={item.icon} class="h-5 w-5" />
 		</a>
