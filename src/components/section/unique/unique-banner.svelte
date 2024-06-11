@@ -22,7 +22,7 @@
 	};
 </script>
 
-<div class="relative shadow-xl">
+<div class="relative">
 	<div
 		use:emblaCarouselSvelte={{ options, plugins }}
 		on:emblaInit={(e) => (emblaApi = e.detail)}

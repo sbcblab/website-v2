@@ -5,7 +5,6 @@ export function processContent(content: any[]): Section['content'] {
 	return content.map((component: any) => {
 		switch (component.__component) {
 			case 'general.button':
-				console.log('component', component);
 				return {
 					type: 'button',
 					label: component.label,
