@@ -146,6 +146,12 @@ export interface Socials {
 
 // General --------------------------------------------------------------------
 
+export interface Button {
+	label: string;
+	iconUrl?: string;
+	link?: string;
+}
+
 export interface Form {
 	name: string;
 	target?: string;

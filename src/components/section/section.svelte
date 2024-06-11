@@ -5,6 +5,7 @@
 	export let section: SectionType;
 
 	const components: { [key: string]: any } = {
+		button: Section.General.Button,
 		form: Section.General.Form,
 		header: Section.General.Header,
 		'heading-1': Section.General.Heading1,

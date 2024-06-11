@@ -4,6 +4,16 @@ import type { Section } from '$lib/types';
 export function processContent(content: any[]): Section['content'] {
 	return content.map((component: any) => {
 		switch (component.__component) {
+			case 'general.button':
+				console.log('component', component);
+				return {
+					type: 'button',
+					label: component.label,
+					iconUrl: component.icon.data
+						? env.PUBLIC_STRAPI_URL + component.icon.data.attributes.url
+						: undefined,
+					link: component.link
+				};
 			case 'general.form':
 				return {
 					type: 'form',
