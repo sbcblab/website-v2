@@ -10,8 +10,8 @@ const config = {
 			sans: fontFamily.sans,
 			serif: fontFamily.serif,
 			mono: fontFamily.mono,
-			display: ["'Inter Variable'", ...fontFamily.sans],
-			body: ["'Inter Variable'", ...fontFamily.sans]
+			display: ["'Ubuntu Sans Variable'", ...fontFamily.sans],
+			body: ["'Ubuntu Sans Variable'", ...fontFamily.sans]
 		},
 		container: {
 			center: true,

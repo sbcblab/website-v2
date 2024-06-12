@@ -1,6 +1,6 @@
 <script>
 	import '$src/app.css';
-	import '@fontsource-variable/inter';
+	import '@fontsource-variable/ubuntu-sans';
 
 	import BackToTop from '$components/back-to-top.svelte';
 	import { Footer } from '$components/footer';
