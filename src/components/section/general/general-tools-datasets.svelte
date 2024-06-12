@@ -31,7 +31,7 @@
 
 <div
 	bind:this={cardsWrapper}
-	class="container mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-4"
+	class="container grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-4"
 >
 	{#each [...component.tools, ...component.datasets] as item}
 		<a

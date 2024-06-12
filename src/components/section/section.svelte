@@ -17,6 +17,7 @@
 		'image-grid': Section.General.ImageGrid,
 		image: Section.General.Image,
 		menu: Section.General.Menu,
+		missions: Section.General.Missions,
 		partnerships: Section.General.Partnerships,
 		'publication-list': Section.General.PublicationList,
 		'researcher-list': Section.General.ResearcherList,

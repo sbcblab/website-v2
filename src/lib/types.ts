@@ -60,6 +60,25 @@ export interface MemberArea {
 	name: string;
 }
 
+export interface Mission {
+	origin: {
+		institute?: string;
+		university?: string;
+		country: Country;
+	};
+	destination: {
+		institute?: string;
+		university?: string;
+		country: Country;
+	};
+	members: {
+		name: string;
+		link?: string;
+		fromDate?: string;
+		toDate?: string;
+	}[];
+}
+
 export interface Page {
 	path: string;
 	sections: Section[];
@@ -204,6 +223,10 @@ export interface ImageGrid {
 
 export interface Menu {
 	items: MenuItem[];
+}
+
+export interface Missions {
+	missions: Mission[];
 }
 
 export interface PublicationList {

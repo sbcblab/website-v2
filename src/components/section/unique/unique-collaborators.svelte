@@ -7,19 +7,19 @@
 
 <div class="container grid grid-cols-1 gap-x-4 gap-y-10 md:grid-cols-2">
 	{#each component.collaborators as collaborator}
-		<div class="flex items-center gap-3">
+		<div class="flex items-center gap-4">
 			<img
 				class="w-14 rounded"
 				src={collaborator.country.flagUrl}
 				alt={collaborator.country.name}
 			/>
-			<div class="flex flex-col">
+			<div class="flex flex-col gap-0.5">
 				<a
 					href={collaborator.link}
 					target="_blank"
 					class={cn(
 						!collaborator.link ? 'cursor-default' : 'transition-opacity hover:opacity-70',
-						'font-medium text-primary'
+						'text-base font-medium text-primary'
 					)}
 				>
 					{collaborator.name}

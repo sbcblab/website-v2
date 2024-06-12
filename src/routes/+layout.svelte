@@ -24,7 +24,7 @@
 <div class="flex h-fit min-h-screen flex-col">
 	<BackToTop />
 	<Header {socials} {contact} {nav} />
-	<main class="mb-56 flex grow flex-col space-y-56">
+	<main class="mb-28 flex grow flex-col space-y-56">
 		<slot />
 	</main>
 	<Footer {socials} {contact} />

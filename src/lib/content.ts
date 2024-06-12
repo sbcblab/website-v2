@@ -121,6 +121,35 @@ export function processContent(content: any[]): Section['content'] {
 						};
 					})
 				};
+			case 'general.missions':
+				return {
+					type: 'missions',
+					missions: component.missions.map((mission: any) => {
+						return {
+							origin: {
+								institute: mission.originInstitute,
+								university: mission.originUniversity,
+								country: {
+									name: mission.originCountry.data.attributes.name,
+									flagUrl:
+										env.PUBLIC_STRAPI_URL +
+										mission.originCountry.data.attributes.flag.data.attributes.url
+								}
+							},
+							destination: {
+								institute: mission.destinationInstitute,
+								university: mission.destinationUniversity,
+								country: {
+									name: mission.destinationCountry.data.attributes.name,
+									flagUrl:
+										env.PUBLIC_STRAPI_URL +
+										mission.destinationCountry.data.attributes.flag.data.attributes.url
+								}
+							},
+							members: mission.members
+						};
+					})
+				};
 			case 'general.publication-list':
 				return {
 					type: 'publication-list',
@@ -284,7 +313,7 @@ export function processContent(content: any[]): Section['content'] {
 							name: guest.attributes.name,
 							university: guest.attributes.university,
 							country: guest.attributes.country.data.attributes.name,
-							url: guest.attributes.url,
+							link: guest.attributes.link,
 							year: guest.attributes.year
 						};
 					})

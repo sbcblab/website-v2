@@ -10,6 +10,7 @@ import GeneralImageGrid from './general-image-grid.svelte';
 import GeneralImageRow from './general-image-row.svelte';
 import GeneralImage from './general-image.svelte';
 import GeneralMenu from './general-menu.svelte';
+import GeneralMissions from './general-missions.svelte';
 import GeneralPartnerships from './general-partnerships.svelte';
 import GeneralPublicationList from './general-publication-list.svelte';
 import GeneralResearcherList from './general-researcher-list.svelte';
@@ -30,6 +31,7 @@ export {
 	GeneralImageGrid as ImageGrid,
 	GeneralImageRow as ImageRow,
 	GeneralMenu as Menu,
+	GeneralMissions as Missions,
 	GeneralPartnerships as Partnerships,
 	GeneralPublicationList as PublicationList,
 	GeneralResearcherList as ResearcherList,

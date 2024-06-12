@@ -34,7 +34,7 @@
 			<div class="flex flex-col gap-5 sm:h-full">
 				<div class="flex flex-col gap-0.5">
 					<span class="text-lg/[1.2] font-medium sm:text-xl">{member.name}</span>
-					<span class="text-xs font-medium text-primary">{member.role}</span>
+					<span class="text-xs font-medium text-primary sm:text-sm">{member.role}</span>
 				</div>
 				<span class="text-xs font-light text-foreground-paragraph sm:grow sm:text-sm"
 					>{member.areas.join(', ')}</span
