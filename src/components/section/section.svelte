@@ -16,6 +16,7 @@
 		'image-row': Section.General.ImageRow,
 		'image-grid': Section.General.ImageGrid,
 		image: Section.General.Image,
+		meetings: Section.General.Meetings,
 		menu: Section.General.Menu,
 		missions: Section.General.Missions,
 		partnerships: Section.General.Partnerships,

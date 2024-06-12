@@ -1,5 +1,6 @@
 import { env } from '$env/dynamic/public';
 import type { Section } from '$lib/types';
+import { formatDatetime } from '$lib/utils';
 
 export function processContent(content: any[]): Section['content'] {
 	return content.map((component: any) => {
@@ -108,6 +109,19 @@ export function processContent(content: any[]): Section['content'] {
 							name: partnership.attributes.name,
 							link: partnership.attributes.link,
 							imageUrl: env.PUBLIC_STRAPI_URL + partnership.attributes.image.data.attributes.url
+						};
+					})
+				};
+			case 'general.meetings':
+				return {
+					type: 'meetings',
+					meetings: component.meetings.map((meeting: any) => {
+						return {
+							title: meeting.title,
+							objective: meeting.objective,
+							datetime: formatDatetime(meeting.datetime),
+							location: meeting.location,
+							participants: meeting.participants
 						};
 					})
 				};

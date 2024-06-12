@@ -45,3 +45,15 @@ export function groupPublications(publications: Publication[]) {
 export function isExternalLink(url: string) {
 	return !url.startsWith('/') && !url.startsWith('#');
 }
+
+export function formatDatetime(datetime: string) {
+	const inputDate = new Date(datetime);
+
+	const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' } as const;
+	const formattedDate = new Intl.DateTimeFormat('en-US', dateOptions).format(inputDate);
+
+	const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false } as const;
+	const formattedTime = new Intl.DateTimeFormat('en-US', timeOptions).format(inputDate);
+
+	return `${formattedDate} - ${formattedTime} (BRT)`;
+}

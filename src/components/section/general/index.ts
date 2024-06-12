@@ -9,6 +9,7 @@ import GeneralIFrame from './general-iframe.svelte';
 import GeneralImageGrid from './general-image-grid.svelte';
 import GeneralImageRow from './general-image-row.svelte';
 import GeneralImage from './general-image.svelte';
+import GeneralMeetings from './general-meetings.svelte';
 import GeneralMenu from './general-menu.svelte';
 import GeneralMissions from './general-missions.svelte';
 import GeneralPartnerships from './general-partnerships.svelte';
@@ -30,6 +31,7 @@ export {
 	GeneralImage as Image,
 	GeneralImageGrid as ImageGrid,
 	GeneralImageRow as ImageRow,
+	GeneralMeetings as Meetings,
 	GeneralMenu as Menu,
 	GeneralMissions as Missions,
 	GeneralPartnerships as Partnerships,

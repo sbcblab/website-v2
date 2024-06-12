@@ -80,7 +80,7 @@ h3 {
 }
 
 h4 {
-	@apply text-center text-lg md:text-start;
+	@apply text-lg md:text-start;
 }
 
 p {

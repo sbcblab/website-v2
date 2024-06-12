@@ -60,25 +60,6 @@ export interface MemberArea {
 	name: string;
 }
 
-export interface Mission {
-	origin: {
-		institute?: string;
-		university?: string;
-		country: Country;
-	};
-	destination: {
-		institute?: string;
-		university?: string;
-		country: Country;
-	};
-	members: {
-		name: string;
-		link?: string;
-		fromDate?: string;
-		toDate?: string;
-	}[];
-}
-
 export interface Page {
 	path: string;
 	sections: Section[];
@@ -221,6 +202,10 @@ export interface ImageGrid {
 	maxWidth: number;
 }
 
+export interface Meetings {
+	meetings: Meeting[];
+}
+
 export interface Menu {
 	items: MenuItem[];
 }
@@ -266,9 +251,36 @@ export interface HiringItem {
 	iconUrl: string;
 }
 
+export interface Meeting {
+	title: string;
+	objective?: string;
+	participants?: string;
+	location?: string;
+	datetime?: string;
+}
+
 export interface MenuItem {
 	label: string;
 	link: string;
+}
+
+export interface Mission {
+	origin: {
+		institute?: string;
+		university?: string;
+		country: Country;
+	};
+	destination: {
+		institute?: string;
+		university?: string;
+		country: Country;
+	};
+	members: {
+		name: string;
+		link?: string;
+		fromDate?: string;
+		toDate?: string;
+	}[];
 }
 
 export interface Partnership {
