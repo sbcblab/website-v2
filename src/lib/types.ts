@@ -153,7 +153,7 @@ export interface Button {
 }
 
 export interface Datasets {
-	data: any;
+	data: any[];
 	filterPropJsonName?: string;
 	filterPropLabel?: string;
 	filterOptions?: string[];

@@ -1,9 +1,18 @@
 <script lang="ts">
 	import type { Datasets } from '$lib/types';
 	import DownloadIcon from '~icons/lucide/download';
+	import SearchIcon from '~icons/lucide/search';
 
 	export let component: Datasets;
 
+	let filteredDatasets = component.data;
+	let search = '';
+	let filter = null;
+	let sort = null;
+
+	$: filteredDatasets = component.data.filter((dataset: any) =>
+		dataset.gse.toLowerCase().includes(search.trim().toLowerCase())
+	);
 	function handleMouseEnter(e: any) {
 		e.target.nextElementSibling.setAttribute('data-open', 'true');
 	}
@@ -14,7 +23,19 @@
 </script>
 
 <div class="container flex flex-col gap-4">
-	{#each component.data as dataset}
+	<div class="flex max-w-64 items-center gap-3 rounded-sm bg-gray-100 pl-4">
+		<SearchIcon class="size-4 text-gray-400" />
+		<input
+			type="text"
+			bind:value={search}
+			placeholder="Search GSE..."
+			class="grow bg-transparent py-2 pr-4 outline-none"
+		/>
+	</div>
+	{#if filteredDatasets.length === 0}
+		<p class="text-gray-500">No matching datasets.</p>
+	{/if}
+	{#each filteredDatasets as dataset}
 		<div class="flex items-center gap-14 rounded-2xl bg-gray-100 px-14 py-10">
 			<div class="grow">
 				<div class="flex justify-between gap-10 border-b pb-4">
