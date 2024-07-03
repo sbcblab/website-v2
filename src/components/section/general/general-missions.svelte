@@ -22,7 +22,7 @@
 							.join(', ')}
 					</span>
 				</div>
-				<PlaneIcon class="size-6 shrink-0 text-gray-300" />
+				<PlaneIcon class="size-6 shrink-0 text-zinc-300" />
 				<div class="flex flex-col items-center gap-3.5">
 					<img
 						src={mission.destination.country.flagUrl}
@@ -53,7 +53,7 @@
 						>
 							{member.name}
 						</a>
-						<span class="text-gray-500">
+						<span class="text-zinc-500">
 							{[member.fromDate, member.toDate].filter(Boolean).join(' - ')}
 						</span>
 					</div>

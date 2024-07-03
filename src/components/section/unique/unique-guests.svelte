@@ -10,9 +10,9 @@
 	{#each component.guests as guest}
 		<div class="flex flex-col gap-0.5">
 			<div class="flex items-center gap-2.5">
-				<div class="flex items-center gap-1.5 rounded bg-gray-100 p-1.5">
-					<FaCalendar class="-translate-y-0.5 text-[0.625rem] text-gray-500" />
-					<span class="text-sm font-medium leading-none text-gray-500">{guest.year}</span>
+				<div class="flex items-center gap-1.5 rounded bg-zinc-100 p-1.5">
+					<FaCalendar class="-translate-y-0.5 text-[0.625rem] text-zinc-500" />
+					<span class="text-sm font-medium leading-none text-zinc-500">{guest.year}</span>
 				</div>
 				<a
 					href={guest.link}

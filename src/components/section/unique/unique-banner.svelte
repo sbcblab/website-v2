@@ -31,11 +31,11 @@
 		<div class="flex">
 			{#each component.slides as slide}
 				<div
-					class="w-0 shrink-0 grow-0 basis-full bg-cover bg-center"
+					class="w-0 shrink-0 grow-0 basis-full bg-cover bg-center shadow-inner"
 					style={`background-image: url(${slide.backgroundUrl || component.defaultBackgroundUrl})`}
 				>
 					<div
-						class="container flex h-full flex-col items-center justify-center gap-12 px-8 py-16 drop-shadow-xl md:flex-row-reverse md:justify-between md:px-24"
+						class="container flex h-full flex-col items-center justify-center gap-12 px-8 py-16 md:flex-row-reverse md:justify-between md:px-24"
 					>
 						{#if slide.imageUrl}
 							<div class="flex justify-center px-6 md:px-0">
@@ -47,7 +47,7 @@
 							</div>
 						{/if}
 						<div
-							class="flex max-w-96 flex-col items-center gap-4 text-card-foreground md:w-full md:items-start lg:max-w-[30rem] lg:gap-6"
+							class="flex max-w-96 flex-col items-center gap-4 text-white md:w-full md:items-start lg:max-w-[30rem] lg:gap-6"
 						>
 							{#if slide.heading}
 								<h3
@@ -60,11 +60,15 @@
 							{#if slide.description}
 								<Markdown
 									content={slide.description}
-									class="*:m-0 *:text-center *:text-base *:font-light *:text-secondary/85 *:md:text-start *:lg:text-xl"
+									class="*:m-0 *:text-center *:text-base *:text-white/75 *:md:text-start *:lg:text-xl"
 								/>
 							{/if}
 							{#if slide.link}
-								<Button href={slide.link} target="_blank" variant="secondary" class="mt-6">
+								<Button
+									href={slide.link}
+									target="_blank"
+									class="mt-6 bg-white text-foreground hover:bg-white/85"
+								>
 									Read more
 								</Button>
 							{/if}

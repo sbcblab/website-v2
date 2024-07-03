@@ -26,7 +26,7 @@
 					<span class="text-sm/[1]">{researcher.role}</span>
 				{/if}
 				{#if researcher.program || researcher.institute || researcher.university}
-					<span class="text-sm/[1] text-gray-400">
+					<span class="text-sm/[1] text-zinc-400">
 						{[researcher.program, researcher.institute, researcher.university]
 							.filter(Boolean)
 							.join('/')}

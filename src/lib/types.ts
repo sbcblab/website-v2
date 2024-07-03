@@ -152,6 +152,16 @@ export interface Button {
 	link?: string;
 }
 
+export interface Datasets {
+	data: any;
+	filterPropJsonName?: string;
+	filterPropLabel?: string;
+	filterOptions?: string[];
+	displayedInfo: { jsonPropName: string; label: string }[];
+	sortOptions?: { jsonPropName: string; label: string }[];
+	downloadOptions?: { jsonPropName: string; label: string }[];
+}
+
 export interface Form {
 	name: string;
 	target?: string;

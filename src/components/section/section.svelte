@@ -6,6 +6,7 @@
 
 	const components: { [key: string]: any } = {
 		button: Section.General.Button,
+		datasets: Section.General.Datasets,
 		form: Section.General.Form,
 		header: Section.General.Header,
 		'heading-1': Section.General.Heading1,

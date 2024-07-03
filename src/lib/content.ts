@@ -14,6 +14,23 @@ export function processContent(content: any[]): Section['content'] {
 						: undefined,
 					link: component.link
 				};
+			case 'general.datasets':
+				return {
+					type: 'datasets',
+					data: component.data,
+					filterPropJsonName: component.filterPropJsonName,
+					filterPropLabel: component.filterPropLabel,
+					filterOptions: component.filterOptions.map((option: any) => option.name),
+					displayedInfo: component.displayedInfo.map((info: any) => {
+						return { jsonPropName: info.jsonPropName, label: info.label };
+					}),
+					sortOptions: component.sortOptions.map((option: any) => {
+						return { jsonPropName: option.jsonPropName, label: option.label };
+					}),
+					downloadOptions: component.downloadOptions.map((option: any) => {
+						return { jsonPropName: option.jsonPropName, label: option.label };
+					})
+				};
 			case 'general.form':
 				return {
 					type: 'form',

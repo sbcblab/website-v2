@@ -1,4 +1,5 @@
 import GeneralButton from './general-button.svelte';
+import GeneralDatasets from './general-datasets.svelte';
 import GeneralForm from './general-form.svelte';
 import GeneralHeader from './general-header.svelte';
 import GeneralHeading1 from './general-heading-1.svelte';
@@ -21,6 +22,7 @@ import GeneralToolsDatasets from './general-tools-datasets.svelte';
 
 export {
 	GeneralButton as Button,
+	GeneralDatasets as Datasets,
 	GeneralForm as Form,
 	GeneralHeader as Header,
 	GeneralHeading1 as Heading1,
