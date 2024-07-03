@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { HeaderNavItem } from '$components/header';
-	import * as Dropdown from '$components/ui/dropdown';
+	import * as Dropdown from '$src/components/ui/nav-dropdown';
 	import type { NavLink } from '$lib/types';
 
 	export let link: NavLink;

@@ -3,6 +3,14 @@
 	import DownloadIcon from '~icons/lucide/download';
 
 	export let component: Datasets;
+
+	function handleMouseEnter(e: any) {
+		e.target.nextElementSibling.setAttribute('data-open', 'true');
+	}
+
+	function handleMouseLeave(e: any) {
+		e.target.children.item(1).setAttribute('data-open', 'false');
+	}
 </script>
 
 <div class="container flex flex-col gap-4">
@@ -28,11 +36,33 @@
 					{/each}
 				</div>
 			</div>
-			<button
-				class="rounded-md bg-gray-200 p-3 text-gray-400 transition-colors hover:bg-gray-300 hover:text-gray-500"
-			>
-				<DownloadIcon class="size-5" />
-			</button>
+			{#if component.downloadOptions}
+				<div class="group relative" on:pointerleave={handleMouseLeave}>
+					<button
+						on:mouseenter={handleMouseEnter}
+						class="rounded-md bg-gray-200 p-3 text-gray-400 transition-colors group-hover:bg-gray-300 group-hover:text-gray-500"
+					>
+						<DownloadIcon class="size-5" />
+					</button>
+					<div
+						data-open="false"
+						class="absolute left-1/2 top-full z-10 flex w-32 -translate-x-1/2 flex-col rounded-sm bg-background py-2 shadow-lg data-[open=false]:pointer-events-none data-[open=false]:opacity-0"
+					>
+						{#each component.downloadOptions as option}
+							<a
+								href={`https://sbcb.inf.ufrgs.br${
+									dataset[option.jsonPropName] ||
+									dataset.downloads[option.jsonPropName] ||
+									dataset.images[option.jsonPropName]
+								}`}
+								target="_blank"
+								class="px-3 py-2 text-sm font-medium hover:bg-gray-100"
+								>{option.label}
+							</a>
+						{/each}
+					</div>
+				</div>
+			{/if}
 		</div>
 	{/each}
 </div>
