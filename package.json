@@ -42,7 +42,7 @@
 	"type": "module",
 	"dependencies": {
 		"@fontsource-variable/ubuntu-sans": "^5.0.1",
-		"bits-ui": "^0.21.8",
+		"bits-ui": "^0.21.11",
 		"clsx": "^2.1.1",
 		"embla-carousel": "^8.1.1",
 		"embla-carousel-autoplay": "^8.1.1",

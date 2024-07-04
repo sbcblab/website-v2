@@ -24,7 +24,7 @@
 		--destructive: 0 84% 60%;
 		--destructive-foreground: 0 0% 100%;
 		--border: 220 13% 91%;
-		--input: var(--background);
+		--input: 220 14% 96%;
 		--ring: var(--primary);
 		--radius: 1rem;
 	}
