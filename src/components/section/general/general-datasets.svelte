@@ -46,6 +46,8 @@
 	}
 
 	function sortDatasets(datasets: any[]) {
+		if (datasets.length === 0) return [];
+
 		const sortProp = $sort.value;
 		let sortedDatasets;
 		if (typeof datasets[0][sortProp] === 'number') {
@@ -144,20 +146,34 @@
 			<div class="grow">
 				<div class="flex flex-wrap justify-between gap-8 border-b pb-4">
 					{#each component.displayedInfo as info}
-						<div class="flex flex-col gap-1">
+						{@const href = dataset[`${info.jsonPropName}_url`] || null}
+						<a {href} target="_blank" class="group flex flex-col gap-1">
 							<span class="text-xs font-bold uppercase text-gray-400">
 								{info.label}
 							</span>
-							<span class="text-lg font-semibold text-gray-700">{dataset[info.jsonPropName]}</span>
-						</div>
+							<span
+								class="text-lg font-semibold text-gray-700
+								{href && 'transition-colors group-hover:text-gray-400'}"
+							>
+								{dataset[info.jsonPropName]}
+							</span>
+						</a>
 					{/each}
 				</div>
 				<div class="flex flex-wrap justify-between gap-8 pt-4">
 					{#each Object.entries(dataset.scores) as [key, value]}
-						<div class="flex flex-col gap-1">
+						{@const href = dataset.scores_url
+							? `https://sbcb.inf.ufrgs.br${dataset.scores_url[key]}`
+							: null}
+						<a {href} target="_blank" class="group flex flex-col gap-1">
 							<span class="text-xs font-bold uppercase text-gray-400">{key}</span>
-							<span class="text-lg font-semibold text-gray-700">{value}</span>
-						</div>
+							<span
+								class="text-lg font-semibold text-gray-700
+								{href && 'transition-colors group-hover:text-gray-400'}"
+							>
+								{value}
+							</span>
+						</a>
 					{/each}
 				</div>
 			</div>
