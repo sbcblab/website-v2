@@ -30,10 +30,11 @@
 
 	function filterDatasets(datasets: any[]) {
 		const typeFilterValue = $typeFilter.value;
+		const filterPropJsonName = component.filterPropJsonName;
 		let filteredDatasets = component.data;
 		if (typeFilterValue) {
 			filteredDatasets = filteredDatasets.filter(
-				(dataset: any) => dataset.type === typeFilterValue
+				(dataset: any) => dataset[filterPropJsonName] === typeFilterValue
 			);
 		}
 		if ($gseFilter) {
@@ -71,7 +72,7 @@
 		<div class="flex flex-col gap-3 max-md:w-full md:flex-row md:items-end md:gap-4">
 			<div class="flex items-end gap-2">
 				<div class="flex w-full flex-col gap-1 md:w-56">
-					<span class="text-sm font-medium text-foreground">Cancer type</span>
+					<span class="text-sm font-medium text-foreground">{component.filterPropLabel}</span>
 					<Select.Root bind:selected={$typeFilter}>
 						<Select.Trigger class="w-full">
 							<div class="flex items-center gap-2.5">
