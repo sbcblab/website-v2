@@ -48,10 +48,18 @@
 	function sortDatasets(datasets: any[]) {
 		const sortProp = $sort.value;
 		let sortedDatasets;
-		if ($sortAscending) {
-			sortedDatasets = datasets.sort((a, b) => parseInt(a[sortProp]) - parseInt(b[sortProp]));
+		if (typeof datasets[0][sortProp] === 'number') {
+			if ($sortAscending) {
+				sortedDatasets = datasets.sort((a, b) => a[sortProp] - b[sortProp]);
+			} else {
+				sortedDatasets = datasets.sort((a, b) => b[sortProp] - a[sortProp]);
+			}
 		} else {
-			sortedDatasets = datasets.sort((a, b) => parseInt(b[sortProp]) - parseInt(a[sortProp]));
+			if ($sortAscending) {
+				sortedDatasets = datasets.sort((a, b) => a[sortProp].localeCompare(b[sortProp]));
+			} else {
+				sortedDatasets = datasets.sort((a, b) => b[sortProp].localeCompare(a[sortProp]));
+			}
 		}
 		return sortedDatasets;
 	}
