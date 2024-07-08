@@ -16,8 +16,8 @@
 	href={link.href}
 	target={isExternalLink(link.href) ? '_blank' : ''}
 	class={cn(
-		path === link.href ? 'bg-zinc-50 text-foreground' : 'text-zinc-400',
-		'relative inline-flex h-full items-center px-6 transition-colors hover:text-zinc-700'
+		path === link.href ? 'bg-gray-50 text-gray-950' : 'text-gray-500',
+		'relative inline-flex h-full items-center px-6 transition-colors hover:text-gray-800'
 	)}
 >
 	{link.label}

@@ -136,9 +136,6 @@
 		</div>
 	</div>
 
-	{#if datasets.length === 0}
-		<p class="text-center text-gray-500">No matching datasets.</p>
-	{/if}
 	{#each datasets as dataset}
 		<div
 			class="flex flex-col items-center gap-10 rounded-2xl bg-gray-100 px-14 py-10 md:flex-row md:gap-14"
@@ -192,5 +189,7 @@
 				/>
 			{/if}
 		</div>
+	{:else}
+		<p class="text-center text-gray-500">No matching datasets.</p>
 	{/each}
 </div>

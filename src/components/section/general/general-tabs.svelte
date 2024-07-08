@@ -11,7 +11,7 @@
 
 <div class="container my-16 flex w-full flex-col md:flex-row">
 	<div
-		class="flex h-fit justify-center overflow-hidden rounded-t-[2rem] bg-zinc-500/5 px-3 pt-3 md:flex-col md:rounded-bl-[2rem] md:rounded-tr-none md:pb-3 md:pr-0"
+		class="flex h-fit justify-center overflow-hidden rounded-t-[2rem] bg-gray-500/5 px-3 pt-3 md:flex-col md:rounded-bl-[2rem] md:rounded-tr-none md:pb-3 md:pr-0"
 	>
 		{#each component.items as item, itemIndex}
 			<button
@@ -20,7 +20,7 @@
 					'flex items-center gap-4 text-nowrap rounded-t-full p-3.5 text-start text-sm font-medium md:rounded-bl-full md:rounded-tr-none md:pl-5 md:pr-12',
 					itemIndex === selectedIndex
 						? 'shadow-center rounded-tab z-10 bg-background text-primary'
-						: 'text-zinc-400 transition-colors hover:bg-zinc-500/5'
+						: 'text-gray-400 transition-colors hover:bg-gray-500/5'
 				)}
 			>
 				<Svg src={item.iconUrl} overrideFill class="h-5 w-5 shrink-0" />

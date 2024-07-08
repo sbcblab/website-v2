@@ -75,6 +75,18 @@ export function processContent(content: any[]): Section['content'] {
 					link: component.link,
 					border: component.border
 				};
+			case 'general.image-gallery':
+				return {
+					type: 'image-gallery',
+					cols: component.cols,
+					maxWidth: component.maxWidth,
+					images: component.images.map((image: any) => {
+						return {
+							imageUrl: env.PUBLIC_STRAPI_URL + image.image.data.attributes.url,
+							caption: image.caption
+						};
+					})
+				};
 			case 'general.image-grid':
 				return {
 					type: 'image-grid',

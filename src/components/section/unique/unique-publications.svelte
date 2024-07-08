@@ -42,7 +42,7 @@
 					'flex items-center justify-center gap-2.5 rounded-full px-5 py-2.5',
 					key === selectedTypeKey
 						? 'bg-primary/10 text-primary'
-						: 'bg-zinc-500/5 text-zinc-400 transition-colors hover:bg-zinc-500/10'
+						: 'bg-gray-500/5 text-gray-400 transition-colors hover:bg-gray-500/10'
 				)}
 			>
 				<svelte:component this={icon} class="h-7 w-7" />

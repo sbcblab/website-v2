@@ -292,7 +292,7 @@
 	{#if response}
 		<div class="response">
 			{#each Object.entries(response) as [key, value]}
-				<div class="flex flex-col items-center gap-2 rounded-2xl bg-zinc-50 p-5">
+				<div class="flex flex-col items-center gap-2 rounded-2xl bg-gray-50 p-5">
 					<span class="font-medium text-[var(--description)]">{key}</span>
 					<span class="text-lg">{value}</span>
 				</div>

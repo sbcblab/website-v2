@@ -7,6 +7,7 @@ import GeneralHeading2 from './general-heading-2.svelte';
 import GeneralHeading3 from './general-heading-3.svelte';
 import GeneralHtml from './general-html.svelte';
 import GeneralIFrame from './general-iframe.svelte';
+import GeneralImageGallery from './general-image-gallery.svelte';
 import GeneralImageGrid from './general-image-grid.svelte';
 import GeneralImageRow from './general-image-row.svelte';
 import GeneralImage from './general-image.svelte';
@@ -31,6 +32,7 @@ export {
 	GeneralHtml as Html,
 	GeneralIFrame as IFrame,
 	GeneralImage as Image,
+	GeneralImageGallery as ImageGallery,
 	GeneralImageGrid as ImageGrid,
 	GeneralImageRow as ImageRow,
 	GeneralMeetings as Meetings,

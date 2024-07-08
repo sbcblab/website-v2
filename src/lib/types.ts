@@ -205,6 +205,12 @@ export interface ImageRow {
 	imagesHeight?: number;
 }
 
+export interface ImageGallery {
+	cols: number;
+	maxWidth?: number;
+	images: { imageUrl: string; caption?: string }[];
+}
+
 export interface ImageGrid {
 	images: { src: string; alt: string }[];
 	cols: number;

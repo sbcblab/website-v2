@@ -81,13 +81,13 @@
 
 	<button
 		on:click={() => scroll('prev')}
-		class="absolute left-3 top-1/2 flex h-8 w-8 -translate-y-1/2 touch-manipulation items-center justify-center rounded-full bg-background opacity-15 transition-opacity hover:opacity-50 md:left-8 md:h-12 md:w-12"
+		class="absolute left-3 top-1/2 flex size-8 -translate-y-1/2 touch-manipulation items-center justify-center rounded-full bg-background opacity-15 transition-opacity hover:opacity-50 md:left-8 md:h-12 md:w-12"
 	>
 		<ChevronLeftIcon class="h-1/2 w-1/2" />
 	</button>
 	<button
 		on:click={() => scroll('next')}
-		class="absolute right-3 top-1/2 flex h-8 w-8 -translate-y-1/2 touch-manipulation items-center justify-center rounded-full bg-background opacity-15 transition-opacity hover:opacity-50 md:right-8 md:h-12 md:w-12"
+		class="absolute right-3 top-1/2 flex size-8 -translate-y-1/2 touch-manipulation items-center justify-center rounded-full bg-background opacity-15 transition-opacity hover:opacity-50 md:right-8 md:h-12 md:w-12"
 	>
 		<ChevronRightIcon class="h-1/2 w-1/2" />
 	</button>

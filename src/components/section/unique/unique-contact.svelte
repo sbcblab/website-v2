@@ -26,10 +26,10 @@
 		{#each items as { show, icon, text }}
 			{#if show}
 				<div class="flex items-center gap-3">
-					<svelte:component this={icon} class="size-5 shrink-0" />
+					<svelte:component this={icon} class="size-5 shrink-0 text-gray-300" />
 					<CopyToClipboard {text} class="flex items-center gap-3">
 						<span class="text-start text-sm text-foreground-paragraph md:text-base">{text}</span>
-						<CopyIcon class="size-3 shrink-0 text-foreground-paragraph/50" />
+						<CopyIcon class="size-3 shrink-0 text-gray-400" />
 					</CopyToClipboard>
 				</div>
 			{/if}
