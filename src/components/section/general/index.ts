@@ -5,6 +5,7 @@ import GeneralHeader from './general-header.svelte';
 import GeneralHeading1 from './general-heading-1.svelte';
 import GeneralHeading2 from './general-heading-2.svelte';
 import GeneralHeading3 from './general-heading-3.svelte';
+import GeneralHeading4 from './general-heading-4.svelte';
 import GeneralHtml from './general-html.svelte';
 import GeneralIFrame from './general-iframe.svelte';
 import GeneralImageGallery from './general-image-gallery.svelte';
@@ -29,6 +30,7 @@ export {
 	GeneralHeading1 as Heading1,
 	GeneralHeading2 as Heading2,
 	GeneralHeading3 as Heading3,
+	GeneralHeading4 as Heading4,
 	GeneralHtml as Html,
 	GeneralIFrame as IFrame,
 	GeneralImage as Image,

@@ -62,6 +62,11 @@ export function processContent(content: any[]): Section['content'] {
 					text: component.text,
 					anchorId: component.anchorId
 				};
+			case 'general.heading-4':
+				return {
+					type: 'heading-4',
+					text: component.text
+				};
 			case 'general.rich-text':
 				return {
 					type: 'rich-text',

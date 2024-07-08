@@ -8,6 +8,7 @@
 		'heading-1': Section.General.Heading1,
 		'heading-2': Section.General.Heading2,
 		'heading-3': Section.General.Heading3,
+		'heading-4': Section.General.Heading4,
 		'image-gallery': Section.General.ImageGallery,
 		'image-grid': Section.General.ImageGrid,
 		'image-row': Section.General.ImageRow,
