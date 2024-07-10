@@ -19,6 +19,7 @@ import GeneralPartnerships from './general-partnerships.svelte';
 import GeneralPublicationList from './general-publication-list.svelte';
 import GeneralResearcherList from './general-researcher-list.svelte';
 import GeneralRichText from './general-rich-text.svelte';
+import GeneralSchedule from './general-schedule.svelte';
 import GeneralTabs from './general-tabs.svelte';
 import GeneralToolsDatasets from './general-tools-datasets.svelte';
 
@@ -44,6 +45,7 @@ export {
 	GeneralPublicationList as PublicationList,
 	GeneralResearcherList as ResearcherList,
 	GeneralRichText as RichText,
+	GeneralSchedule as Schedule,
 	GeneralTabs as Tabs,
 	GeneralToolsDatasets as ToolsDatasets
 };

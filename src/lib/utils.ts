@@ -46,14 +46,32 @@ export function isExternalLink(url: string) {
 	return !url.startsWith('/') && !url.startsWith('#');
 }
 
-export function formatDatetime(datetime: string) {
+export function formatMeetingDatetime(datetime: string) {
 	const inputDate = new Date(datetime);
 
-	const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' } as const;
-	const formattedDate = new Intl.DateTimeFormat('en-US', dateOptions).format(inputDate);
-
-	const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false } as const;
-	const formattedTime = new Intl.DateTimeFormat('en-US', timeOptions).format(inputDate);
+	const formattedDate = new Intl.DateTimeFormat('en-US', {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric'
+	}).format(inputDate);
+	const formattedTime = new Intl.DateTimeFormat('en-US', {
+		hour: '2-digit',
+		minute: '2-digit',
+		hour12: false
+	}).format(inputDate);
 
 	return `${formattedDate} - ${formattedTime} (BRT)`;
+}
+
+export function formatScheduleDate(date: string) {
+	const inputDate = new Date(date + ' EST');
+
+	const weekday = new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(inputDate);
+	const formattedDate = new Intl.DateTimeFormat('en-US', {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric'
+	}).format(inputDate);
+
+	return `${weekday} (${formattedDate})`;
 }

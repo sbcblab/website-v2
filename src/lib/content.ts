@@ -1,6 +1,6 @@
 import { env } from '$env/dynamic/public';
 import type { Section } from '$lib/types';
-import { formatDatetime } from '$lib/utils';
+import { formatMeetingDatetime, formatScheduleDate } from '$lib/utils';
 
 export function processContent(content: any[]): Section['content'] {
 	return content.map((component: any) => {
@@ -153,7 +153,7 @@ export function processContent(content: any[]): Section['content'] {
 						return {
 							title: meeting.title,
 							objective: meeting.objective,
-							datetime: formatDatetime(meeting.datetime),
+							datetime: formatMeetingDatetime(meeting.datetime),
 							location: meeting.location,
 							participants: meeting.participants
 						};
@@ -248,6 +248,19 @@ export function processContent(content: any[]): Section['content'] {
 											researcher.country.data.attributes.flag.data.attributes.url
 									}
 								: undefined
+						};
+					})
+				};
+			case 'general.schedule':
+				return {
+					type: 'schedule',
+					date: formatScheduleDate(component.date),
+					events: component.events.map((event: any) => {
+						return {
+							name: event.name,
+							time: event.time,
+							location: event.location,
+							people: event.people
 						};
 					})
 				};

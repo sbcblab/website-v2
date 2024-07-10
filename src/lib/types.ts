@@ -243,6 +243,16 @@ export interface RichText {
 	content: string;
 }
 
+export interface Schedule {
+	date: string;
+	events: {
+		name: string;
+		time?: string;
+		location?: string;
+		people?: { name: string; countryAlpha2: string }[];
+	}[];
+}
+
 export interface Tabs {
 	items: TabItem[];
 }

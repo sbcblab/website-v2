@@ -27,6 +27,7 @@
 		menu: Section.General.Menu,
 		missions: Section.General.Missions,
 		partnerships: Section.General.Partnerships,
+		schedule: Section.General.Schedule,
 		tabs: Section.General.Tabs,
 		about: Section.Unique.About,
 		banner: Section.Unique.Banner,
