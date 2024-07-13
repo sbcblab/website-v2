@@ -113,11 +113,13 @@
 						alt={component.images[selectedIndex].caption}
 						class="max-h-full rounded-none shadow-2xl md:rounded-md"
 					/>
-					<figcaption
-						class="w-fit bg-card/50 px-8 py-3 text-sm font-medium text-card-foreground max-md:absolute max-md:bottom-2 max-md:rounded-md md:rounded-b-md"
-					>
-						{component.images[selectedIndex].caption}
-					</figcaption>
+					{#if component.images[selectedIndex].caption}
+						<figcaption
+							class="w-fit bg-card/50 px-8 py-3 text-sm font-medium text-card-foreground max-md:absolute max-md:bottom-2 max-md:rounded-md md:rounded-b-md"
+						>
+							{component.images[selectedIndex].caption}
+						</figcaption>
+					{/if}
 				</figure>
 			</div>
 		{/key}
@@ -134,7 +136,9 @@
 			<div
 				class="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-lg bg-card/75 p-4 opacity-0 transition-opacity hover:opacity-100"
 			>
-				<span class="text-sm font-medium text-card-foreground">{caption}</span>
+				{#if caption}
+					<span class="text-sm font-medium text-card-foreground">{caption}</span>
+				{/if}
 				<ZoomInIcon class="size-6 shrink-0 text-zinc-400" />
 			</div>
 		</button>
