@@ -155,7 +155,9 @@ export function processContent(content: any[]): Section['content'] {
 							objective: meeting.objective,
 							datetime: formatMeetingDatetime(meeting.datetime),
 							location: meeting.location,
-							participants: meeting.participants
+							participants: meeting.participants,
+							description: meeting.description,
+							link: meeting.link
 						};
 					})
 				};

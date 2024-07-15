@@ -283,6 +283,8 @@ export interface Meeting {
 	participants?: string;
 	location?: string;
 	datetime?: string;
+	description?: string;
+	link?: string;
 }
 
 export interface MenuItem {

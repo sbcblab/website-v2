@@ -87,7 +87,7 @@ p {
 	@apply my-6 text-base/[1.5] text-foreground-paragraph max-md:text-center md:text-lg/[1.5];
 
 	a {
-		@apply text-primary hover:opacity-70;
+		@apply text-primary transition-opacity hover:opacity-70;
 	}
 }
 
