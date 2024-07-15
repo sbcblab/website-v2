@@ -424,7 +424,7 @@ export function processContent(content: any[]): Section['content'] {
 							name: collaborator.attributes.name,
 							institute: collaborator.attributes.institute,
 							university: collaborator.attributes.university,
-							url: collaborator.attributes.url,
+							link: collaborator.attributes.link,
 							country: {
 								name: collaborator.attributes.country.data.attributes.name,
 								flagUrl:
