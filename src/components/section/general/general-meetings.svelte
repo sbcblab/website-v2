@@ -8,24 +8,26 @@
 </script>
 
 <div class="container mt-16 flex flex-col gap-16 md:mt-10 md:gap-12">
-	{#each component.meetings as meeting}
+	{#each component.meetings as { title, objective, participants, location, datetime }}
 		<div class="flex flex-col">
-			<h4 class="mb-3 text-2xl font-bold">{meeting.title}</h4>
-			<span class="text-sm md:text-base"
-				><span class="text-gray-400">Objective: </span>{meeting.objective}</span
-			>
-			<div class="mt-6 flex flex-col gap-3 text-xs md:gap-2 md:text-sm">
+			<h4 class="mb-0 text-2xl font-bold">{title}</h4>
+			{#if objective}
+				<span class="mt-3 text-sm md:text-base"
+					><span class="text-gray-400">Objective: </span>{objective}</span
+				>
+			{/if}
+			<div class="mt-4 flex flex-col gap-3 text-xs md:gap-2 md:text-sm">
 				<div class="flex items-center gap-3">
 					<GroupIcon class="size-4 shrink-0 text-gray-300" />
-					<span class="text-foreground-paragraph">{meeting.participants}</span>
+					<span class="text-foreground-paragraph">{participants}</span>
 				</div>
 				<div class="flex items-center gap-3">
 					<PinIcon class="size-4 shrink-0 text-gray-300" />
-					<span class="text-foreground-paragraph">{meeting.location}</span>
+					<span class="text-foreground-paragraph">{location}</span>
 				</div>
 				<div class="flex items-center gap-3">
 					<ClockIcon class="size-4 shrink-0 text-gray-300" />
-					<span class="text-foreground-paragraph">{meeting.datetime}</span>
+					<span class="text-foreground-paragraph">{datetime}</span>
 				</div>
 			</div>
 		</div>
