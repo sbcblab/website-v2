@@ -131,7 +131,7 @@
 	style={`grid-template-columns: repeat(${component.cols}, minmax(0, 1fr)); max-width: ${component.maxWidth}rem;`}
 >
 	{#each component.images as { imageUrl, caption }, index}
-		<button on:click={() => open(index)} class="relative">
+		<button on:click={() => open(index)} class="relative outline-none">
 			<img src={imageUrl} alt={caption} class="h-full object-cover" />
 			<div
 				class="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-lg bg-card/75 p-4 opacity-0 transition-opacity hover:opacity-100"
