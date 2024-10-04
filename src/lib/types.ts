@@ -12,6 +12,8 @@ export interface NavLink {
 	subLinks?: NavLink[];
 }
 
+export type HTTPMethod = 'GET' | 'POST';
+
 //=============================================================================
 //	Colletction Types
 //=============================================================================
@@ -164,6 +166,7 @@ export interface Datasets {
 
 export interface Form {
 	name: string;
+	method: HTTPMethod;
 	target?: string;
 	submitButton: string;
 	fields: any[];

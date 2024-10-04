@@ -153,15 +153,13 @@
 		const queryString = new URLSearchParams(formData).toString();
 		const url = e.target.action;
 
-		fetch(`${url}?${queryString}`, { method: 'GET' })
+		fetch(`${url}?${queryString}`, { method: component.method })
 			.then((response) => response.json())
 			.then((data) => (response = data));
 	}
 </script>
 
 <form
-	action={component.target}
-	method="get"
 	bind:this={form}
 	on:submit={submitForm}
 	class="flex flex-col items-center gap-12 md:items-start"

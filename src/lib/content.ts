@@ -35,6 +35,7 @@ export function processContent(content: any[]): Section['content'] {
 				return {
 					type: 'form',
 					name: component.form.data.attributes.name,
+					method: component.form.data.attributes.method,
 					target: component.form.data.attributes.target,
 					submitButton: component.form.data.attributes.submitButton,
 					fields: component.form.data.attributes.fields
