@@ -2,7 +2,6 @@
 	import Markdown from '$components/markdown.svelte';
 	import { Button } from '$components/ui/button';
 	import type { Form } from '$lib/types';
-	import debounce from 'lodash.debounce';
 	import { onMount } from 'svelte';
 
 	export let component: Form;
@@ -15,13 +14,11 @@
 	populateCountrySelect();
 
 	onMount(() => {
-		isolateFields();
-
-		singleFields = form?.firstChild?.cloneNode(true) as HTMLElement;
-		splitFields = createSplitFields();
-
-		updateLayout();
-		window.addEventListener('resize', debounce(updateLayout, 100));
+		// isolateFields();
+		// singleFields = form?.firstChild?.cloneNode(true) as HTMLElement;
+		// splitFields = createSplitFields();
+		// updateLayout();
+		// window.addEventListener('resize', debounce(updateLayout, 100));
 	});
 
 	function updateLayout() {
@@ -74,8 +71,8 @@
 	function omitCheckboxGroups() {
 		if (!form) return;
 
-		const inputs = form.querySelectorAll('input');
-		inputs.forEach((input) => {
+		const inputs = form.querySelectorAll('input[type="checkbox"]');
+		inputs.forEach((input: any) => {
 			if (input.name !== input.id) {
 				input.removeAttribute('name');
 			}
@@ -153,6 +150,7 @@
 		const queryString = new URLSearchParams(formData).toString();
 		const url = e.target.action;
 
+		// console.log(queryString);
 		fetch(`${url}?${queryString}`, { method: component.method })
 			.then((response) => response.json())
 			.then((data) => (response = data));
