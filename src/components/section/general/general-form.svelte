@@ -148,9 +148,8 @@
 
 		const formData = new FormData(e.target) as any;
 		const queryString = new URLSearchParams(formData).toString();
-		const url = e.target.action;
+		const target = component.target;
 
-		// console.log(queryString);
 		fetch(`${url}?${queryString}`, { method: component.method })
 			.then((response) => response.json())
 			.then((data) => (response = data));
