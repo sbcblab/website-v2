@@ -12,9 +12,9 @@ import type {
 } from '$lib/types';
 import qs from 'qs';
 
-const POPULATE_GENERAL =
+export const POPULATE_GENERAL =
 	'images.image, publications.authors, styles, items.icon, partnerships.image, externalPublications, image, researchers.country.flag, researchers.country, tools.image, datasets.image, form.fields.options, form.fields.extraAttributes, icon, missions.originCountry.flag, missions.destinationCountry.flag, meetings, data, downloadOptions, displayedInfo, sortOptions, filterOptions, events';
-const POPULATE_UNIQUE =
+export const POPULATE_UNIQUE =
 	'defaultBackground, slides.image, slides.background, image, requirements.icon, benefits.icon, ppgcIcon, ppgbcmIcon, projects.image, members.picture, members.areas, guests.country, collaborators.country.flag';
 
 async function fetchData(endpoint: string, urlParamsObject?: object) {
