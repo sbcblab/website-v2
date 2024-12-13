@@ -147,12 +147,34 @@
 		omitCheckboxGroups();
 
 		const formData = new FormData(e.target) as any;
-		const queryString = new URLSearchParams(formData).toString();
 		const target = component.target;
+		
+		if(component.method == 'GET'){
+			const queryString = new URLSearchParams(formData).toString();
 
-		fetch(`${target}?${queryString}`, { method: component.method })
-			.then((response) => response.json())
-			.then((data) => (response = data));
+			fetch(`${target}?${queryString}`, { method: component.method })
+				.then((response) => response.json())
+				.then((data) => (response = data));
+		}
+
+		if(component.method == 'POST'){
+			let jsonData = {}
+			
+			for (const pair of formData.entries()){
+				jsonData[pair[0]] = pair[1]
+			}
+
+			fetch(target, {
+				method: component.method,
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(jsonData)
+			})
+			     .then((response) => response.json())
+			     .then((data) => (response = data))
+		}
+
 	}
 </script>
 
