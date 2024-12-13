@@ -1,14 +1,33 @@
+import { error, json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
 export const GET: RequestHandler = async ({ url, params }) => {
-	const searchParams = new URLSearchParams(url.searchParams).toString();
+	let searchParams = new URLSearchParams(url.searchParams).toString();
+	let response = await fetch(`https://sbcb.inf.ufrgs.br/compute/${params.slug}/?${searchParams}`, {
+		method: 'POST'
+	});
 
-	const response = await fetch(`https://sbcb.inf.ufrgs.br/compute/${params.slug}/?${searchParams}`);
+	if (response.ok) {
+		let data = await response.json();
+		return json(data);
+	} else {
+		return error(400, 'Failed to fetch data');
+	}
+};
 
-	try {
-		const data = await response.json();
-		return new Response(JSON.stringify(data));
-	} catch (error) {
-		return new Response(JSON.stringify({ error: 'Failed to fetch data' }), { status: 500 });
+export const POST: RequestHandler = async ({ url, params }) => {
+	let searchParams = new URLSearchParams(url.searchParams).toString();
+	let response = await fetch(`https://sbcb.inf.ufrgs.br/${params.slug}/?${searchParams}`, {
+		method: 'POST'
+	});
+
+	if (response.ok) {
+		let data = await response.json();
+		console.log(data);
+		return json(data);
+	} else {
+		let data = await response.json();
+		console.log(data);
+		return error(400, 'Failed to fetch data');
 	}
 };

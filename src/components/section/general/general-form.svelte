@@ -60,7 +60,6 @@
 
 		const fieldName = e.target.name;
 		const hiddenInput = document.querySelector(`#${e.target.name}`) as HTMLInputElement;
-
 		const checkedInputs = form.querySelectorAll(`input[name="${fieldName}"]:checked`);
 
 		hiddenInput.value = Array.from(checkedInputs)
@@ -143,38 +142,34 @@
 
 	function submitForm(e: any) {
 		e.preventDefault();
-
 		omitCheckboxGroups();
 
 		const formData = new FormData(e.target) as any;
 		const target = component.target;
-		
-		if(component.method == 'GET'){
+
+		if (!target) return;
+
+		if (component.method == 'GET') {
 			const queryString = new URLSearchParams(formData).toString();
 
-			fetch(`${target}?${queryString}`, { method: component.method })
+			fetch(`${target}?${queryString}`)
 				.then((response) => response.json())
 				.then((data) => (response = data));
 		}
 
-		if(component.method == 'POST'){
-			let jsonData = {}
-			
-			for (const pair of formData.entries()){
-				jsonData[pair[0]] = pair[1]
-			}
+		if (component.method == 'POST') {
+			const jsonData = Object.fromEntries(formData.entries());
 
 			fetch(target, {
 				method: component.method,
 				headers: {
-					"Content-Type": "application/json"
+					'Content-Type': 'application/json'
 				},
 				body: JSON.stringify(jsonData)
 			})
-			     .then((response) => response.json())
-			     .then((data) => (response = data))
+				.then((res) => res.json())
+				.then((data) => (response = data));
 		}
-
 	}
 </script>
 
@@ -309,7 +304,7 @@
 	{#if response}
 		<div class="response">
 			{#each Object.entries(response) as [key, value]}
-				<div class="flex flex-col items-center gap-2 rounded-2xl bg-gray-50 p-5">
+				<div class="flex flex-col items-center gap-2 rounded-2xl bg-gray-50 p-5 text-center">
 					<span class="font-medium text-[var(--description)]">{key}</span>
 					<span class="text-lg">{value}</span>
 				</div>
