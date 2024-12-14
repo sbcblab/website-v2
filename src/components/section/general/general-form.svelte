@@ -161,10 +161,8 @@
 			const jsonData = Object.fromEntries(formData.entries());
 
 			fetch(target, {
-				method: component.method,
-				headers: {
-					'Content-Type': 'application/json'
-				},
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(jsonData)
 			})
 				.then((res) => res.json())
