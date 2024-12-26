@@ -9,6 +9,13 @@ export const load: PageServerLoad = async ({ fetch }) => {
 	const urlParamsObject = {
 		populate: { content: { populate: [POPULATE_GENERAL, POPULATE_UNIQUE].join(',') } }
 	};
+
+	const defaultLocale: 'en' | 'pt' = await fetch(`${PUBLIC_STRAPI_URL}/api/i18n/locales`, {
+		headers: { Authorization: `Bearer ${STRAPI_API_TOKEN}` }
+	})
+		.then((res) => res.json())
+		.then((locales) => (locales.find((l: any) => l.isDefault).code == 'en' ? 'en' : 'pt'));
+
 	const en = await fetch(
 		`${PUBLIC_STRAPI_URL}/api/sections/24?${decodeURI(qs.stringify(urlParamsObject))}`,
 		{
@@ -19,6 +26,7 @@ export const load: PageServerLoad = async ({ fetch }) => {
 	)
 		.then((response) => response.json())
 		.then((data) => processContent(data.data.attributes.content));
+
 	const pt = await fetch(
 		`${PUBLIC_STRAPI_URL}/api/sections/25?${decodeURI(qs.stringify(urlParamsObject))}`,
 		{
@@ -31,6 +39,7 @@ export const load: PageServerLoad = async ({ fetch }) => {
 		.then((data) => processContent(data.data.attributes.content));
 
 	return {
+		defaultLocale,
 		content: { en: { slug: 'services', content: en }, pt: { slug: 'services', content: pt } }
 	};
 };

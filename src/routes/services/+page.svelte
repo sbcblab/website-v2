@@ -3,9 +3,9 @@
 	import GlobeIcon from '~icons/lucide/globe';
 
 	export let data;
-	const { content } = data;
+	const { content, defaultLocale } = data;
 
-	let locale: 'en' | 'pt' = 'en';
+	let locale: 'en' | 'pt' = defaultLocale;
 </script>
 
 <Section section={content[locale]} />
