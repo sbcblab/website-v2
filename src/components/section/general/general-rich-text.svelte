@@ -5,4 +5,4 @@
 	export let component: RichText;
 </script>
 
-<Markdown content={component.content} class="markdown container" />
+<Markdown content={component.content} class="container" />

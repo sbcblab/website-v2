@@ -3,6 +3,7 @@
 	import NotFound from '$components/not-found.svelte';
 	import Section from '$components/section';
 	import type { ToolDatasetPage } from '$lib/types';
+	import Markdown from '$src/components/markdown.svelte';
 	import { getContext } from 'svelte';
 
 	const toolDatasetPages: ToolDatasetPage[] = getContext('tool-dataset-pages');
@@ -23,7 +24,10 @@
 			{/if}
 			<h2 class="my-0 text-5xl">{toolDataset.title}</h2>
 			{#if toolDataset.lead}
-				<span class="max-w-[38rem] text-lg text-foreground-paragraph">{toolDataset.lead}</span>
+				<Markdown
+					content={toolDataset.lead}
+					class="max-w-[38rem] text-lg text-foreground-paragraph"
+				/>
 			{/if}
 			{#if toolDataset.updateDate}
 				{@const updateDate = new Date(toolDataset.updateDate + 'T00:00')}
